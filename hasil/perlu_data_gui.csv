@@ -1,0 +1,4 @@
+﻿assignment_id,nama_usaha,sumber,baris,status,pesan,waktu
+d975927e-eeef-43b6-a579-8a618243aee3,CABANG BOGOR,C:/Users/Lenovo/OneDrive/Dokumen/KERJA/FASIH/OTOMASI/USAHA/DATA/G.xlsx,1246,perlu_data,FASIH UB: Kecamatan dan Kelurahan/Desa/Nagari wajib diisi; G.xlsx tidak memuat nilainya.,2026-10-19 07:44:09
+e7854bc4-f030-4351-ba87-2c866f32815d,KANCAB BOGOR,C:/Users/Lenovo/OneDrive/Dokumen/KERJA/FASIH/OTOMASI/USAHA/DATA/G.xlsx,1294,perlu_data,"FASIH UB: Kecamatan, Kelurahan/Desa/Nagari, status sertifikat halal, dan persentase pendapatan online wajib ditinjau; G.xlsx tidak memuat nilainya.",2026-10-19 07:44:09
+faa87654-3c8b-488d-85c7-e441af310166,UNIQLO AEON MALL SENTUL CITY,../DATA/G.xlsx,1323,perlu_data,2 pertanyaan wajib belum dijawab. 1 | IDENTITAS WILAYAH | Kode SLS/Non-SLS/Sub-SLS | Wajib diisi | 2 | IDENTITAS WILAYAH | Nama SLS/Non-SLS | Wajib diisi | Close,2026-10-19 07:55:19
