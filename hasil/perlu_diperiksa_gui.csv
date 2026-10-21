@@ -1,2 +1,75 @@
 ﻿assignment_id,nama_usaha,sumber,baris,status,pesan,waktu
 f31caf3b-d4ff-4b24-b5e4-615ad59adec1,"HARJA GUNATAMA LESTARI, PT",C:/Users/user/Downloads/G.xlsx,105,perlu_diperiksa,"GALAT validasi: Galat | TOTAL: 5 / 5 | 1 | BLOK I | 2. Kabupaten/Kota | Wajib diisi | 2 | BLOK I | 3. Kecamatan | Wajib diisi | 3 | BLOK I | 4. Kelurahan/Desa/Nagari | Wajib diisi | 4 | BLOK I | 16. a. Apakah perusahaan ini memiliki izin edar? | Wajib diisi | 5 | BLOK I | 16. c. Berapa jumlah varian produk yang belum memiliki izin edar BPOM? | Wajib diisi | r16b+r16c minimal 1, jika KBLI BPOM | Close",2026-10-20 04:15:45
+0099b1fa-ae5d-43ea-bc2a-abae92b667ea,"BINTANG NIAGA KAYA, PT TBK",DB:data_split_usaha_20261016,57,perlu_diperiksa,"Setelah Kirim, halaman review tidak sesuai assignment tujuan: https://fasih-sm.bps.go.id/app/assignment/37526b20-81c8-42f5-a895-6190137d7394/0099b1fa-ae5d-43ea-bc2a-abae92b667ea",2026-10-21 00:26:30
+d8ab0e59-4a5f-4a29-b4ef-2936b13c83bc,FSCM MANUFACTURING INDONESIA,DB:data_split_usaha_20261016,135,perlu_diperiksa,"Locator.click: Timeout 30000ms exceeded.
+Call log:
+  - waiting for locator(""[id^=\""dialog-\""][id$=\""-content\""]:visible"").get_by_role(""button"", name=""Dismiss"", exact=True)
+    - locator resolved to <button type=""button"" aria-label=""Dismiss"" class=""tw:absolute tw:top-4 tw:right-4 tw:rounded-sm tw:opacity-70 tw:ring-offset-background tw:transition-opacity tw:hover:opacity-100 tw:focus:outline-hidden tw:focus:ring-2 tw:focus:ring-primary tw:focus:ring-offset-2 tw:disabled:pointer-events-none"">…</button>
+  - attempting click action
+    2 × waiting for element to be visible, enabled and stable
+      - element is not stable
+    - retrying click action
+    - waiting 20ms
+    - waiting for element to be visible, enabled and stable
+    - element is not stable
+  - retrying click action
+    - waiting 100ms
+    - waiting for element to be visible, enabled and stable
+    - element is visible, enabled and stable
+    - scrolling into view if needed
+  - element was detached from the DOM, retrying
+",2026-10-21 00:27:20
+b2415d56-8af6-46e2-9626-6a2cb722eb78,SOLITRONINDO TOLSEMESTA PT,DB:data_split_usaha_20261016,149,perlu_diperiksa,"Locator.click: Timeout 30000ms exceeded.
+Call log:
+  - waiting for locator(""[id^=\""dialog-\""][id$=\""-content\""]:visible"").get_by_role(""button"", name=""Dismiss"", exact=True)
+    - locator resolved to <button type=""button"" aria-label=""Dismiss"" class=""tw:absolute tw:top-4 tw:right-4 tw:rounded-sm tw:opacity-70 tw:ring-offset-background tw:transition-opacity tw:hover:opacity-100 tw:focus:outline-hidden tw:focus:ring-2 tw:focus:ring-primary tw:focus:ring-offset-2 tw:disabled:pointer-events-none"">…</button>
+  - attempting click action
+    2 × waiting for element to be visible, enabled and stable
+      - element is not stable
+    - retrying click action
+    - waiting 20ms
+    - waiting for element to be visible, enabled and stable
+    - element is not stable
+  - retrying click action
+    - waiting 100ms
+    - waiting for ""https://fasih-sm.bps.go.id/app/assignment/fd68e454-ba45-4b85-8205-f3bf777ded24/b2415d56-8af6-46e2-9626-6a2cb722eb78"" navigation to finish...
+    - navigated to ""https://fasih-sm.bps.go.id/app/assignment/fd68e454-ba45-4b85-8205-f3bf777ded24/b2415d56-8af6-46e2-9626-6a2cb722eb78""
+    - waiting for element to be visible, enabled and stable
+  - element was detached from the DOM, retrying
+",2026-10-21 00:27:56
+d2cd708c-5a4f-455d-b541-d8856d6c949a,"KURNIA MITRA PANGAN, CV",DB:data_split_usaha_20261016,175,perlu_diperiksa,"Locator.click: Timeout 30000ms exceeded.
+Call log:
+  - waiting for locator(""[id^=\""dialog-\""][id$=\""-content\""]:visible"").get_by_role(""button"", name=""Dismiss"", exact=True)
+    - locator resolved to <button type=""button"" aria-label=""Dismiss"" class=""tw:absolute tw:top-4 tw:right-4 tw:rounded-sm tw:opacity-70 tw:ring-offset-background tw:transition-opacity tw:hover:opacity-100 tw:focus:outline-hidden tw:focus:ring-2 tw:focus:ring-primary tw:focus:ring-offset-2 tw:disabled:pointer-events-none"">…</button>
+  - attempting click action
+    2 × waiting for element to be visible, enabled and stable
+      - element is not stable
+    - retrying click action
+    - waiting 20ms
+    - waiting for element to be visible, enabled and stable
+    - element is not stable
+  - retrying click action
+    - waiting 100ms
+    - waiting for ""https://fasih-sm.bps.go.id/app/assignment/fd68e454-ba45-4b85-8205-f3bf777ded24/d2cd708c-5a4f-455d-b541-d8856d6c949a"" navigation to finish...
+    - navigated to ""https://fasih-sm.bps.go.id/app/assignment/fd68e454-ba45-4b85-8205-f3bf777ded24/d2cd708c-5a4f-455d-b541-d8856d6c949a""
+    - waiting for element to be visible, enabled and stable
+  - element was detached from the DOM, retrying
+",2026-10-21 00:28:49
+8f51bd2c-6f2c-43d7-9a73-e770719d6443,"SATRIA PUTRA PERSADA, PT",DB:data_split_usaha_20261016,185,perlu_diperiksa,"Locator.click: Timeout 30000ms exceeded.
+Call log:
+  - waiting for locator(""[id^=\""dialog-\""][id$=\""-content\""]:visible"").get_by_role(""button"", name=""Dismiss"", exact=True)
+    - locator resolved to <button type=""button"" aria-label=""Dismiss"" class=""tw:absolute tw:top-4 tw:right-4 tw:rounded-sm tw:opacity-70 tw:ring-offset-background tw:transition-opacity tw:hover:opacity-100 tw:focus:outline-hidden tw:focus:ring-2 tw:focus:ring-primary tw:focus:ring-offset-2 tw:disabled:pointer-events-none"">…</button>
+  - attempting click action
+    2 × waiting for element to be visible, enabled and stable
+      - element is not stable
+    - retrying click action
+    - waiting 20ms
+    - waiting for element to be visible, enabled and stable
+    - element is not stable
+  - retrying click action
+    - waiting 100ms
+    - waiting for ""https://fasih-sm.bps.go.id/app/assignment/fd68e454-ba45-4b85-8205-f3bf777ded24/8f51bd2c-6f2c-43d7-9a73-e770719d6443"" navigation to finish...
+    - navigated to ""https://fasih-sm.bps.go.id/app/assignment/fd68e454-ba45-4b85-8205-f3bf777ded24/8f51bd2c-6f2c-43d7-9a73-e770719d6443""
+    - waiting for element to be visible, enabled and stable
+  - element was detached from the DOM, retrying
+",2026-10-21 00:29:26

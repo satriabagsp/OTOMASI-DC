@@ -139,6 +139,23 @@ class BrowserTests(unittest.TestCase):
         self.assertEqual(add_note(self.page, 'gaji', '#DC_00'), 'berhasil')
         self.assertEqual(self.page.locator('body').get_attribute('data-saved'), '#DC_00')
 
+    def test_catatan_yang_menutup_sendiri_tidak_dianggap_gagal(self):
+        self.page.unroute_all()
+        html = r'''<!doctype html><html><body>
+        <div id="gaji"><button title="Catatan" onclick="note()">Catatan</button></div>
+        <div id="panel"></div><script>
+        const panel = document.querySelector('#panel');
+        function note() {
+          panel.innerHTML = `<div role="dialog" id="dialog-note-content">#0
+            <button aria-label="Dismiss">Tutup</button></div>`;
+          setTimeout(() => panel.innerHTML = '', 80);
+        }
+        </script></body></html>'''
+        self.page.route('https://example.test/**', lambda route: route.fulfill(
+            status=200, content_type='text/html', body=html))
+        self.page.goto('https://example.test/app/assignment/a/b')
+        self.assertEqual(add_note(self.page, 'gaji', '#0'), 'sudah_ada')
+
     def test_full_review_edit_submit_approve(self):
         self.page.unroute_all()
         self.page.route('https://example.test/**', lambda route: route.fulfill(status=200, content_type='text/html', body=PROCESS_HTML))

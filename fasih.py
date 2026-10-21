@@ -80,6 +80,38 @@ def open_target_block(page, name, kind, block):
         one(locator, f'Blok {block}').click()
 
 
+def close_note_dialog(page, dialog):
+    """Tutup dialog catatan tanpa gagal bila FASIH menutupnya sendiri.
+
+    Setelah Simpan atau ketika catatan lama dibuka, FASIH kadang merender ulang
+    halaman. Tombol Dismiss dapat lepas dari DOM di tengah klik; itu sudah
+    merupakan tanda dialog sedang ditutup, bukan kegagalan pengisian.
+    """
+    page.wait_for_timeout(350)
+    if dialog.count() == 0 or not dialog.is_visible():
+        page.wait_for_timeout(250)
+        return
+    close = dialog.get_by_role('button', name='Dismiss', exact=True)
+    one(close, 'Tutup catatan')
+    try:
+        close.click(timeout=5000)
+    except PlaywrightError:
+        # React/FASIH dapat membuang dialog ketika halaman sedang memuat ulang.
+        # Lanjut hanya bila dialog benar-benar sudah hilang.
+        try:
+            dialog.wait_for(state='hidden', timeout=5000)
+        except PlaywrightError as exc:
+            raise RuntimeError('Dialog catatan masih terbuka setelah halaman stabil.') from exc
+    else:
+        try:
+            dialog.wait_for(state='hidden', timeout=5000)
+        except PlaywrightError:
+            if dialog.count() and dialog.is_visible():
+                raise RuntimeError('Dialog catatan tidak tertutup setelah tombol Dismiss dipilih.')
+    # Beri FASIH kesempatan menyelesaikan render sebelum catatan berikutnya dibuka.
+    page.wait_for_timeout(250)
+
+
 def add_note(page, code, remark):
     box = field(page, code)
     one(box.locator('button[title="Catatan"]:visible'), f'Tombol Catatan {code}').click()
@@ -89,8 +121,7 @@ def add_note(page, code, remark):
     text = dialog.inner_text()
     pattern = r'(?<![\w])' + re.escape(remark) + r'(?![\w])'
     if re.search(pattern, text):
-        close = dialog.get_by_role('button', name='Dismiss', exact=True)
-        one(close, 'Tutup catatan').click()
+        close_note_dialog(page, dialog)
         return 'sudah_ada'
     editor = one(dialog.locator('textarea:visible'), f'Editor catatan {code}')
     if editor.input_value().strip():
@@ -98,9 +129,7 @@ def add_note(page, code, remark):
     editor.fill(remark)
     one(dialog.get_by_role('button', name='Simpan', exact=True), f'Simpan catatan {code}').click()
     # Catatan mungkin tetap terbuka setelah disimpan.
-    close = dialog.get_by_role('button', name='Dismiss', exact=True)
-    if close.count() == 1 and close.is_visible():
-        close.click()
+    close_note_dialog(page, dialog)
     return 'berhasil'
 
 
