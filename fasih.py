@@ -172,6 +172,23 @@ def kirim(page, log, nama_usaha=''):
     page.wait_for_url(re.compile(r'/assignment/[^/?#]+/[^/?#]+/?(?:\?.*)?$'), timeout=TIMEOUT)
 
 
+def approve_assignment(page):
+    """Approve dari halaman review dan pastikan tombol Revoke muncul kembali."""
+    approve = page.locator('button:has(svg.tabler-icon-check):visible')
+    revoke = page.locator('button:has(svg.tabler-icon-rotate-clockwise):visible')
+    page.locator('button:has(svg.tabler-icon-check):visible, button:has(svg.tabler-icon-rotate-clockwise):visible').first.wait_for(timeout=TIMEOUT)
+    if approve.count() == 1 and revoke.count() == 0:
+        approve.click()
+        dialog = page.locator('[role="alertdialog"], [role="dialog"]').filter(has_text=re.compile(r'Approve Assignment', re.I))
+        dialog.wait_for(timeout=TIMEOUT)
+        one(dialog.get_by_role('button', name='Konfirmasi', exact=True), 'Konfirmasi approve').click()
+        dialog.wait_for(state='hidden', timeout=TIMEOUT)
+    elif not (approve.count() == 0 and revoke.count() == 1):
+        raise RuntimeError('Status approve tidak dapat dipastikan.')
+    revoke.first.wait_for(timeout=TIMEOUT)
+    one(revoke, 'Revoke setelah approve')
+
+
 class Fasih:
     def __init__(self, profile: Path):
         self.profile = profile
@@ -179,6 +196,9 @@ class Fasih:
         self.context = None
         self.page = None
         self.work_page = None
+        self.last_stage = ''
+        self.last_code = None
+        self.may_have_changed = False
 
     def open(self):
         if self.context:
@@ -205,6 +225,9 @@ class Fasih:
         self.work_page = None
 
     def process(self, row, mappings, log, round_values=False):
+        self.last_stage = 'buka_assignment'
+        self.last_code = None
+        self.may_have_changed = False
         if not self.page:
             raise RuntimeError('Buka browser dan login manual terlebih dahulu.')
         target_url = str(row['link_fasih_sm']).strip()
@@ -233,6 +256,7 @@ class Fasih:
                 self.work_page = self.context.new_page()
                 page = self.work_page
         # Cek nama dan tahun pada halaman review sebelum melakukan revoke.
+        self.last_stage = 'validasi_assignment'
         kind = open_block(page, str(row['nama_usaha']).strip())
         year = input_value(page, 'tahun_operasi')
         if not year.isdigit() or int(year) >= 2026:
@@ -244,17 +268,47 @@ class Fasih:
             raise RuntimeError(f'Blok selain usaha belum didukung pada kuesioner {kind}.')
         if str(row.get('KBLI (menjadi)', '')).strip():
             raise RuntimeError('Perubahan KBLI belum didukung; perlu penanganan manual.')
+        note_only = bool(actions) and all(
+            not change and remark.upper() in {'#0', '#DC_00'}
+            for _, remark, _, change in actions
+        )
+        if note_only:
+            # Tombol catatan tersedia dari halaman review; periksa semuanya sebelum revoke.
+            for m, _, _, _ in actions:
+                self.last_stage = 'validasi_rincian'
+                self.last_code = m.kode
+                open_target_block(page, str(row['nama_usaha']).strip(), kind, m.blok)
+                box = field(page, m.kode)
+                one(box.locator('button[title="Catatan"]:visible'), f'Catatan {m.kode}')
         revoke = page.locator('button:has(svg.tabler-icon-rotate-clockwise):visible')
         edit = page.locator('button:has(svg.tabler-icon-edit):visible')
+        review_note_flow = note_only and revoke.count() == 1
         if revoke.count() == 1:
+            self.last_stage = 'revoke'
             revoke.click()
             dialog = page.locator('[role="alertdialog"], [role="dialog"]').filter(has_text=re.compile(r'Revoke Assignment', re.I))
             dialog.wait_for(timeout=TIMEOUT)
             one(dialog.get_by_role('button', name='Konfirmasi', exact=True), 'Konfirmasi revoke').click()
             dialog.wait_for(state='hidden', timeout=TIMEOUT)
+            self.may_have_changed = True
             log('Assignment di-revoke; jika proses gagal, status perlu diperiksa manual.')
         elif revoke.count() != 0 or edit.count() != 1:
             raise RuntimeError('Status review tidak dapat dipastikan.')
+        if review_note_flow:
+            self.last_stage = 'isi_rincian_review'
+            for m, remark, _, _ in actions:
+                self.last_code = m.kode
+                open_target_block(page, str(row['nama_usaha']).strip(), kind, m.blok)
+                self.may_have_changed = True
+                status = add_note(page, m.kode, remark)
+                log(f'{m.label}: catatan {status} dari halaman review.')
+            self.last_stage = 'approve'
+            self.last_code = None
+            approve_assignment(page)
+            self.last_stage = 'selesai'
+            log('Mode remark saja: Edit dan Kirim dilewati; approve terverifikasi.')
+            return
+        self.last_stage = 'buka_edit'
         edit.first.wait_for(timeout=TIMEOUT)
         one(edit, 'Edit assignment').click()
         page.wait_for_url(re.compile(r'/edit(?:\?.*)?$'), timeout=TIMEOUT)
@@ -263,6 +317,8 @@ class Fasih:
             raise RuntimeError('Tahun operasi berubah saat membuka edit.')
         # Periksa semua target sebelum menulis apapun ke rincian.
         for m, remark, value, change in actions:
+            self.last_stage = 'validasi_rincian'
+            self.last_code = m.kode
             open_target_block(page, str(row['nama_usaha']).strip(), kind, m.blok)
             box = field(page, m.kode)
             if remark:
@@ -272,10 +328,13 @@ class Fasih:
                 if not target_input.is_editable():
                     raise RuntimeError(f'Input {m.kode} tidak dapat diedit pada assignment ini.')
         for m, remark, value, change in actions:
+            self.last_stage = 'isi_rincian'
+            self.last_code = m.kode
             open_target_block(page, str(row['nama_usaha']).strip(), kind, m.blok)
             if change:
                 box = field(page, m.kode)
                 number_input = one(box.locator('input:visible:not([type="radio"]):not([type="checkbox"]), textarea:visible'), f'Input {m.kode}')
+                self.may_have_changed = True
                 number_input.fill(value)
                 displayed = number_input.input_value().strip()
                 # FASIH dapat menampilkan pemisah ribuan, tetapi nilainya harus tetap sama.
@@ -286,22 +345,17 @@ class Fasih:
                     raise RuntimeError(f'Nilai {m.kode} setelah diisi tidak cocok; periksa manual.')
                 log(f'{m.label}: nilai diubah.')
             if remark:
+                self.may_have_changed = True
                 status = add_note(page, m.kode, remark)
                 log(f'{m.label}: catatan {status}.')
+        self.last_stage = 'kirim'
+        self.last_code = None
         kirim(page, log, str(row['nama_usaha']).strip())
+        self.may_have_changed = True
         if page.url.split('?', 1)[0].rstrip('/') != target_url.rstrip('/'):
             raise RuntimeError(f'Setelah Kirim, halaman review tidak sesuai assignment tujuan: {page.url}')
-        approve = page.locator('button:has(svg.tabler-icon-check):visible')
-        revoke = page.locator('button:has(svg.tabler-icon-rotate-clockwise):visible')
-        page.locator('button:has(svg.tabler-icon-check):visible, button:has(svg.tabler-icon-rotate-clockwise):visible').first.wait_for(timeout=TIMEOUT)
-        if approve.count() == 1 and revoke.count() == 0:
-            approve.click()
-            dialog = page.locator('[role="alertdialog"], [role="dialog"]').filter(has_text=re.compile(r'Approve Assignment', re.I))
-            dialog.wait_for(timeout=TIMEOUT)
-            one(dialog.get_by_role('button', name='Konfirmasi', exact=True), 'Konfirmasi approve').click()
-            dialog.wait_for(state='hidden', timeout=TIMEOUT)
-        elif not (approve.count() == 0 and revoke.count() == 1):
-            raise RuntimeError('Status approve tidak dapat dipastikan.')
-        revoke.first.wait_for(timeout=TIMEOUT)
-        one(revoke, 'Revoke setelah approve')
+        self.last_stage = 'approve'
+        approve_assignment(page)
+        self.last_stage = 'selesai'
+        self.last_code = None
         log('Approve terverifikasi.')

@@ -2,3 +2,24 @@
 83dfb1d6-e935-431d-9435-2d7ac687b0a7,SPBU TITAN GRUP CIPEUCANG,C:/Users/Lenovo/OneDrive/Dokumen/KERJA/FASIH/OTOMASI/USAHA/DATA/G.xlsx,756,error,Tahun operasi 2026 menurut G.xlsx; isian bulanan memerlukan penanganan khusus.,2026-10-19 07:44:09
 b6759b29-0153-4621-89f3-d6424d421786,SPBU PB SENTUL CITY,C:/Users/Lenovo/OneDrive/Dokumen/KERJA/FASIH/OTOMASI/USAHA/DATA/G.xlsx,150,error,Tahun operasi 2026 menurut G.xlsx; isian bulanan memerlukan penanganan khusus.,2026-10-19 07:44:09
 d2d0b2ad-5fab-47b2-b5e1-e61305362aae,EUPHORBIA LANDSKAPE CV,C:/Users/Lenovo/OneDrive/Dokumen/KERJA/FASIH/OTOMASI/USAHA/DATA/G.xlsx,1345,error,Tahun operasi 2026 menurut G.xlsx; isian bulanan memerlukan penanganan khusus.,2026-10-19 07:44:09
+ad71b256-405f-41e6-b306-b7b7aa951430,"SRIKANDI DIAMOND MOTORS, PT",C:/Users/user/Downloads/G.xlsx,194,error,"Setelah Kirim, halaman review tidak sesuai assignment tujuan: https://fasih-sm.bps.go.id/app/assignment/37526b20-81c8-42f5-a895-6190137d7394/ad71b256-405f-41e6-b306-b7b7aa951430",2026-10-19 08:59:02
+2506fb7d-60c7-48ea-9a44-976f4d523c86,SPBU 344 13 52 / PT FELMICA,C:/Users/user/Downloads/G.xlsx,247,error,"Locator.wait_for: Timeout 30000ms exceeded.
+Call log:
+  - waiting for get_by_role(""alertdialog"", name=""Assignment Berhasil Disubmit"") to be visible
+",2026-10-19 09:00:26
+4101ee41-5dd0-43cb-83ca-568761b04f0a,PEMOTONGAN AYAM PD HZZE,C:/Users/user/Downloads/G.xlsx,275,error,"Locator.wait_for: Target page, context or browser has been closed
+Call log:
+  - waiting for get_by_role(""alertdialog"", name=""Assignment Berhasil Disubmit"") to be visible
+",2026-10-19 09:01:59
+198b76af-8159-46c0-a3e2-e4de682cfb94,PERTAMINA-PD SPBU 34-41328(PD SPBU 34-41328)PT ,C:/Users/user/Downloads/G.xlsx,309,error,"Locator.wait_for: Timeout 30000ms exceeded.
+Call log:
+  - waiting for locator(""button:has(svg.tabler-icon-check):visible, button:has(svg.tabler-icon-rotate-clockwise):visible"").first to be visible
+",2026-10-19 09:05:01
+604526b5-0da6-4b9b-b288-a67a0862adb2,RAJA EMAS ID,C:/Users/user/Downloads/G.xlsx,61,error,Tahun operasi '2026' tidak didukung; isian bulanan perlu penanganan manual.,2026-10-19 09:05:47
+891dc0d8-b931-4b55-a75f-2173d487ae5d,SUKSES MANDIRI,C:/Users/user/Downloads/G.xlsx,624,error,"GALAT validasi: Galat | TOTAL: 2 / 2 | 1 | SE2026 - L BLOK II | Perubahan Nama usaha/perusahaan Tulis perbaikan nama usaha, jika tidak ada perubahan tulis ulang nama usaha/perusahaan | Status badan usaha adalah CV maka nama usaha harus diakhiri dengan ,CV | 2 | CATATAN | Tampilkan Anomali Usaha dan Keluarga | Wajib diisi | Close",2026-10-19 09:12:10
+77ecde53-b8d8-4574-8015-082ba4afa240,"TRI AMERTA SOLISINDO, PT",C:/Users/user/Downloads/G.xlsx,734,error,Tahun operasi '2026' tidak didukung; isian bulanan perlu penanganan manual.,2026-10-19 09:18:11
+28600073-af17-44ab-9496-3e6d235d47f0,"FAJAR KUMALA MOTOR, PT",C:/Users/user/Downloads/G.xlsx,781,error,"Setelah Kirim, halaman review tidak sesuai assignment tujuan: https://fasih-sm.bps.go.id/app/assignment/37526b20-81c8-42f5-a895-6190137d7394/28600073-af17-44ab-9496-3e6d235d47f0",2026-10-19 09:18:21
+dcd7570e-4936-4efd-ada3-7c0e851365e1,"AKUR PRATAMA, PT",C:/Users/user/Downloads/G.xlsx,77,error,"Locator.wait_for: Timeout 30000ms exceeded.
+Call log:
+  - waiting for locator(""button:has(svg.tabler-icon-rotate-clockwise):visible, button:has(svg.tabler-icon-edit):visible"").first to be visible
+",2026-10-20 04:15:36

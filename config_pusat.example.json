@@ -1,0 +1,8 @@
+{
+  "base_url": "http://103.54.218.181:8555/api/v1/gateway",
+  "database": "OTOMASI_DC",
+  "table": "hasil_otomasi_dc",
+  "source_table": "data_split_usaha_20261016",
+  "bot_id": "3201-PC-01",
+  "token": "ISI_TOKEN_BARU_DI_SINI"
+}

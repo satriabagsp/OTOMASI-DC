@@ -108,7 +108,8 @@ def preview_actions(row, mappings, round_values=False):
         value = str(row[m.nilai]).strip() if m.nilai else ''
         if m.remark and not remark:
             raise ValueError(f'Remark {m.label} kosong.')
-        change = bool(m.nilai) and remark.upper() != '#DC_00'
+        # #0 dan #DC_00 adalah penandaan tanpa perubahan nilai.
+        change = bool(m.nilai) and remark.upper() not in {'#0', '#DC_00'}
         if change and not value:
             raise ValueError(f'{m.label}: {remark} membutuhkan nilai perbaikan.')
         if change:
@@ -169,7 +170,7 @@ class Journal:
         with closing(sqlite3.connect(self.path, timeout=30)) as db, db:
             db.execute('BEGIN IMMEDIATE')
             old = db.execute('SELECT status FROM pekerjaan WHERE assignment_id=?', (aid,)).fetchone()
-            if not old or old[0] not in ('error', 'berjalan', 'perlu_data'):
+            if not old or old[0] not in ('error', 'berjalan', 'perlu_data', 'perlu_diperiksa'):
                 raise ValueError('ID tidak ditemukan sebagai error, perlu data, atau proses yang terputus.')
             db.execute("UPDATE pekerjaan SET status='siap_diulang', pesan='Diizinkan ulang oleh pengguna', waktu=CURRENT_TIMESTAMP WHERE assignment_id=?", (aid,))
             db.execute('INSERT INTO riwayat (assignment_id,status,pesan) VALUES (?,?,?)', (aid, 'siap_diulang', 'Diizinkan ulang oleh pengguna'))
@@ -178,8 +179,11 @@ class Journal:
         with closing(sqlite3.connect(self.path, timeout=30)) as db, db:
             data = pd.read_sql_query('SELECT * FROM pekerjaan ORDER BY waktu, assignment_id', db)
         # Berkas hanya milik GUI ini; tidak menimpa rekap notebook.
-        for status, filename in [('berhasil', 'selesai_gui.csv'), ('error', 'error_gui.csv'), ('berjalan', 'perlu_diperiksa_gui.csv'), ('perlu_data', 'perlu_data_gui.csv')]:
+        for status, filename in [('berhasil', 'selesai_gui.csv'), ('error', 'error_gui.csv'),
+                                 ('perlu_data', 'perlu_data_gui.csv')]:
             data[data['status'] == status].to_csv(output / filename, index=False, encoding='utf-8-sig')
+        data[data['status'].isin(['berjalan', 'perlu_diperiksa'])].to_csv(
+            output / 'perlu_diperiksa_gui.csv', index=False, encoding='utf-8-sig')
         data[data['status'] == 'error'].to_excel(output / 'rekap_error_gui.xlsx', index=False)
 
 

@@ -58,6 +58,26 @@ function approve(){approved=true;panel.innerHTML='';toolbar.innerHTML=`<button><
 review();
 </script></body></html>'''
 
+REMARK_REVIEW_HTML = r'''<!doctype html><html><body><div id="toolbar"></div>
+<div class="fasih-form-sidebar"><div title="BLOK I">BLOK I</div></div>
+<div id="nama_usaha"><input value="USAHA CONTOH"></div>
+<div id="tahun_operasi"><input value="2001"></div>
+<div id="gaji"><input value="500"><button title="Catatan" onclick="note()">Catatan</button></div>
+<div id="panel"></div>
+<script>
+const toolbar=document.querySelector('#toolbar'), panel=document.querySelector('#panel');
+let revoked=false, edited=false, submitted=false, approved=false;
+function approvedReview(){toolbar.innerHTML=`<button onclick="revokeDialog()"><svg class="tabler-icon-rotate-clockwise"></svg></button>`;}
+function revokeDialog(){panel.innerHTML=`<div role="dialog">Revoke Assignment<button onclick="revoke()">Konfirmasi</button></div>`;}
+function revoke(){revoked=true;panel.innerHTML='';toolbar.innerHTML=`<button onclick="edit()"><svg class="tabler-icon-edit"></svg></button><button onclick="approveDialog()"><svg class="tabler-icon-check"></svg></button>`;}
+function edit(){edited=true;history.pushState({},'', '/app/assignment/a/b/edit');}
+function note(){panel.innerHTML=`<div role="dialog" id="dialog-note-content"><textarea></textarea><button onclick="saveNote()">Simpan</button><button aria-label="Dismiss" onclick="panel.innerHTML=''">Close</button></div>`;}
+function saveNote(){document.body.dataset.note=document.querySelector('textarea').value;panel.innerHTML='';}
+function approveDialog(){panel.innerHTML=`<div role="dialog">Approve Assignment<button onclick="approve()">Konfirmasi</button></div>`;}
+function approve(){approved=true;panel.innerHTML='';approvedReview();}
+approvedReview();
+</script></body></html>'''
+
 
 class BrowserTests(unittest.TestCase):
     @classmethod
@@ -128,6 +148,24 @@ class BrowserTests(unittest.TestCase):
         fasih.process(row, [Mapping('Gaji', 'gaji', 'nilai', 'remark')], lambda _: None)
         self.assertTrue(self.page.evaluate('submitted && approved'))
         self.assertEqual(self.page.locator('body').get_attribute('data-note'), '#DC_00')
+
+    def test_dc00_dan_0_ditulis_dari_review_tanpa_edit_atau_kirim(self):
+        self.page.unroute_all()
+        self.page.route('https://example.test/**', lambda route: route.fulfill(
+            status=200, content_type='text/html', body=REMARK_REVIEW_HTML))
+        for remark in ('#0', '#DC_00'):
+            with self.subTest(remark=remark):
+                self.page.goto('https://example.test/app/assignment/a/b')
+                fasih = Fasih(Path('unused'))
+                fasih.page = self.page
+                row = {'link_fasih_sm':'https://example.test/app/assignment/a/b',
+                       'nama_usaha':'USAHA CONTOH', 'remark':remark, 'nilai':'99999'}
+                logs = []
+                fasih.process(row, [Mapping('Gaji', 'gaji', 'nilai', 'remark')], logs.append)
+                self.assertTrue(self.page.evaluate('revoked && approved'))
+                self.assertFalse(self.page.evaluate('edited || submitted'))
+                self.assertEqual(self.page.locator('body').get_attribute('data-note'), remark)
+                self.assertTrue(any('Edit dan Kirim dilewati' in text for text in logs))
 
     def test_change_value_for_non_dc00(self):
         self.page.unroute_all()

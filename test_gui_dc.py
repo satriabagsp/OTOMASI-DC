@@ -23,6 +23,8 @@ class CoreTests(unittest.TestCase):
 
     def test_dc00_and_other_remarks(self):
         self.assertFalse(preview_actions(self.data.iloc[0], self.mapping)[0][3])
+        data = row(self.ids[0], '#0', '99999')
+        self.assertFalse(preview_actions(data, self.mapping)[0][3])
         data = row(self.ids[0], '#DC_03', '')
         with self.assertRaisesRegex(ValueError, 'membutuhkan nilai'):
             preview_actions(data, self.mapping)

@@ -1,0 +1,5 @@
+.venv/
+config_pusat.json
+__pycache__/
+*.py[cod]
+

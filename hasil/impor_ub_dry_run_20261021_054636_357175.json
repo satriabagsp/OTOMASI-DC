@@ -1,0 +1,36 @@
+{
+  "mode": "dry_run",
+  "database": "OTOMASI_DC",
+  "table": "data_split_usaha_20261016",
+  "folder": "D:\\SE\\OTOMASI-DC\\SIAP INPUT UB",
+  "files": 7,
+  "source_rows": 1648,
+  "round_values": false,
+  "insert": 741,
+  "update": 0,
+  "held": 907,
+  "held_reasons": {
+    "Biaya operasional: nilai memiliki desimal; centang pilihan pembulatan jika disetujui.": 214,
+    "Biaya pembelian: nilai memiliki desimal; centang pilihan pembulatan jika disetujui.": 172,
+    "Biaya produksi: nilai memiliki desimal; centang pilihan pembulatan jika disetujui.": 45,
+    "Pendapatan barang/jasa: nilai memiliki desimal; centang pilihan pembulatan jika disetujui.": 360,
+    "Upah/gaji: nilai memiliki desimal; centang pilihan pembulatan jika disetujui.": 4,
+    "assignment sudah ada dengan identitas usaha/wilayah berbeda": 7,
+    "nama usaha kosong": 2,
+    "perubahan KBLI belum didukung aplikasi": 45,
+    "tahun operasi '' belum didukung aplikasi": 7,
+    "tahun operasi '2026' belum didukung aplikasi": 51
+  },
+  "warnings": [
+    "M1.xlsx: header ganda 'metrik_biaya_pembelian'; dipakai kolom 'metrik_biaya_pembelian'",
+    "M1.xlsx: header ganda 'metrik_biaya_non_operasional'; dipakai kolom 'metrik_biaya_non_operasional'",
+    "M1.xlsx: header ganda 'metrik_pendapatan_barang_jasa'; dipakai kolom 'metrik_pendapatan_barang_jasa'",
+    "M1.xlsx: header ganda 'metrik_pendapatan_lainnya'; dipakai kolom 'metrik_pendapatan_lainnya'",
+    "N.xlsx: header ganda 'metrik_biaya_pembelian'; dipakai kolom 'metrik_biaya_pembelian'",
+    "N.xlsx: header ganda 'metrik_biaya_non_operasional'; dipakai kolom 'metrik_biaya_non_operasional'",
+    "N.xlsx: header ganda 'metrik_pendapatan_barang_jasa'; dipakai kolom 'metrik_pendapatan_barang_jasa'",
+    "N.xlsx: header ganda 'metrik_pendapatan_lainnya'; dipakai kolom 'metrik_pendapatan_lainnya'"
+  ],
+  "report_csv": "D:\\SE\\OTOMASI-DC\\hasil\\impor_ub_dry_run_20261021_054636_357175.csv",
+  "summary_json": "D:\\SE\\OTOMASI-DC\\hasil\\impor_ub_dry_run_20261021_054636_357175.json"
+}

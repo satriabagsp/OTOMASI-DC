@@ -7,13 +7,96 @@ from pathlib import Path
 from types import SimpleNamespace
 from unittest.mock import MagicMock, patch
 
-from app import App, RINCIAN_PILIHAN
+from app import App, RINCIAN_PILIHAN, compatible_column
 from core import Journal, TARGETS
 from katalog_rincian import L
 import pandas as pd
 
 
+class ColumnCompatibilityTests(unittest.TestCase):
+    def test_typo_lama_dipetakan_ke_nama_kolom_database(self):
+        columns = ['metrik_biaya_produksin (menjadi)']
+        self.assertEqual(
+            compatible_column('metrik_biaya_produksin (mejadi)', columns),
+            'metrik_biaya_produksin (menjadi)',
+        )
+
+    def test_nama_database_dipetakan_kembali_ke_file_lama(self):
+        columns = ['metrik_biaya_produksin (mejadi)']
+        self.assertEqual(
+            compatible_column('metrik_biaya_produksin (menjadi)', columns),
+            'metrik_biaya_produksin (mejadi)',
+        )
+
+
 class WorkerTests(unittest.TestCase):
+    def test_mode_database_mengunci_dan_menandai_baris_berhasil(self):
+        with tempfile.TemporaryDirectory() as folder:
+            output = Path(folder)
+            journal = Journal(output / 'status.sqlite3')
+            central = MagicMock()
+            central.claim_source.return_value = True
+            worker = SimpleNamespace(commands=queue.Queue(), messages=queue.Queue(),
+                                     stop_event=threading.Event(), journal=journal, central=central)
+            rows = [dict(assignment_id='satu', nama_usaha='Usaha', _baris_sumber=44, _source_id=123)]
+            worker.commands.put(('browser', None))
+            worker.commands.put(('run', (rows, [], 'DB:data_split_usaha_20261016', 'DATABASE',
+                                          'G', '3201', False, False, False, 'database')))
+            worker.commands.put(('close', None))
+            browser = MagicMock()
+            with patch('app.OUTPUT', output), patch('fasih.Fasih', return_value=browser):
+                App.worker(worker)
+            central.claim_source.assert_called_once_with(123, retry_errors=False)
+            central.complete_source.assert_called_once_with(
+                123, 'BERHASIL', 'selesai', 'Submit dan approve terverifikasi.')
+            self.assertEqual(journal.statuses(), {'satu': 'berhasil'})
+
+    def test_hasil_iterasi_dikirim_ke_database_pusat(self):
+        with tempfile.TemporaryDirectory() as folder:
+            output = Path(folder)
+            journal = Journal(output / 'status.sqlite3')
+            central = MagicMock()
+            worker = SimpleNamespace(commands=queue.Queue(), messages=queue.Queue(),
+                                     stop_event=threading.Event(), journal=journal, central=central)
+            rows = [dict(assignment_id='satu', nama_usaha='Usaha', _baris_sumber=2)]
+            worker.commands.put(('browser', None))
+            worker.commands.put(('run', (rows, [], r'C:\Data\G.xlsx', 'Sheet1',
+                                          'G', '3201', False, False, False)))
+            worker.commands.put(('close', None))
+            browser = MagicMock()
+            with patch('app.OUTPUT', output), patch('app.old_ids', return_value=set()), \
+                 patch('fasih.Fasih', return_value=browser):
+                App.worker(worker)
+            central.record.assert_called_once()
+            sent = central.record.call_args.kwargs
+            self.assertEqual((sent['status'], sent['tahap']), ('berhasil', 'selesai'))
+            self.assertEqual((sent['nama_file'], sent['nama_sheet']), (r'C:\Data\G.xlsx', 'Sheet1'))
+
+    def test_gagal_setelah_perubahan_ditandai_perlu_diperiksa(self):
+        with tempfile.TemporaryDirectory() as folder:
+            output = Path(folder)
+            journal = Journal(output / 'status.sqlite3')
+            central = MagicMock()
+            worker = SimpleNamespace(commands=queue.Queue(), messages=queue.Queue(),
+                                     stop_event=threading.Event(), journal=journal, central=central)
+            rows = [dict(assignment_id='satu', nama_usaha='Usaha', _baris_sumber=2)]
+            worker.commands.put(('browser', None))
+            worker.commands.put(('run', (rows, [], 'G.xlsx', 'Sheet1',
+                                          'G', '3201', False, False, False)))
+            worker.commands.put(('close', None))
+            browser = MagicMock()
+            browser.process.side_effect = RuntimeError('Timeout approve')
+            browser.may_have_changed = True
+            browser.last_stage = 'approve'
+            browser.last_code = None
+            with patch('app.OUTPUT', output), patch('app.old_ids', return_value=set()), \
+                 patch('fasih.Fasih', return_value=browser):
+                App.worker(worker)
+            self.assertEqual(journal.statuses(), {'satu': 'perlu_diperiksa'})
+            sent = central.record.call_args.kwargs
+            self.assertEqual((sent['status'], sent['tahap']), ('perlu_diperiksa', 'approve'))
+            self.assertEqual(pd.read_csv(output / 'perlu_diperiksa_gui.csv')['assignment_id'].tolist(), ['satu'])
+
     def test_missing_required_data_is_reported_separately(self):
         from fasih import NeedsSourceData
         with tempfile.TemporaryDirectory() as folder:
@@ -23,7 +106,7 @@ class WorkerTests(unittest.TestCase):
                                      stop_event=threading.Event(), journal=journal)
             rows = [dict(assignment_id='satu', nama_usaha='Usaha', _baris_sumber=2)]
             worker.commands.put(('browser', None))
-            worker.commands.put(('run', (rows, [], 'contoh.xlsx', 'G', '3201', False, False, False)))
+            worker.commands.put(('run', (rows, [], 'contoh.xlsx', 'Sheet1', 'G', '3201', False, False, False)))
             worker.commands.put(('close', None))
             browser = MagicMock()
             browser.process.side_effect = NeedsSourceData('Kecamatan wajib diisi')
@@ -45,7 +128,7 @@ class WorkerTests(unittest.TestCase):
             worker = SimpleNamespace(commands=queue.Queue(), messages=queue.Queue(),
                                      stop_event=threading.Event(), journal=journal)
             worker.commands.put(('browser', None))
-            worker.commands.put(('run', (rows, [], 'contoh.xlsx', 'G', '3201', False, False, True)))
+            worker.commands.put(('run', (rows, [], 'contoh.xlsx', 'Sheet1', 'G', '3201', False, False, True)))
             worker.commands.put(('close', None))
             browser = MagicMock()
             browser.process.side_effect = [None, RuntimeError('error baru')]
@@ -65,7 +148,7 @@ class WorkerTests(unittest.TestCase):
             rows = [dict(assignment_id='pertama', nama_usaha='Usaha pertama', _baris_sumber=2),
                     dict(assignment_id='kedua', nama_usaha='Usaha kedua', _baris_sumber=3)]
             worker.commands.put(('browser', None))
-            worker.commands.put(('run', (rows, [], 'contoh.xlsx', 'G', '3201', True, False, False)))
+            worker.commands.put(('run', (rows, [], 'contoh.xlsx', 'Sheet1', 'G', '3201', True, False, False)))
             worker.commands.put(('close', None))
             browser = MagicMock()
             browser.process.side_effect = [RuntimeError('Galat uji'), None]
@@ -89,7 +172,7 @@ class WorkerTests(unittest.TestCase):
         rows = [dict(assignment_id='pertama', nama_usaha='Usaha pertama', _baris_sumber=2),
                 dict(assignment_id='kedua', nama_usaha='Usaha kedua', _baris_sumber=3)]
         worker.commands.put(('browser', None))
-        worker.commands.put(('run', (rows, [], 'contoh.xlsx', 'G', '3201', True, False, False)))
+        worker.commands.put(('run', (rows, [], 'contoh.xlsx', 'Sheet1', 'G', '3201', True, False, False)))
         worker.commands.put(('close', None))
         browser = MagicMock()
         browser.process.side_effect = RuntimeError('Galat uji')

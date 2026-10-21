@@ -11,13 +11,54 @@ import pandas as pd
 from core import Journal, Mapping, TARGETS, check_duplicate_assignments, make_queue, old_ids, preview_actions, read_source, validate_mappings
 from daftar_perbaikan import load_lists, save_lists
 from katalog_rincian import KATALOG, L, RINCIAN
+from pusat import (CentralAPI, CentralConfig, DEFAULT_BASE_URL, DEFAULT_DATABASE,
+                   DEFAULT_SOURCE_TABLE, DEFAULT_TABLE, default_bot_id,
+                   load_config, save_config)
 
 ROOT = Path(__file__).resolve().parent
 OUTPUT = ROOT / 'hasil'
 PROFILE = ROOT.parent / 'fasih_profile_r1_copy'
 DAFTAR_FILE = ROOT / 'daftar_perbaikan.json'
+CENTRAL_CONFIG_FILE = ROOT / 'config_pusat.json'
 PILIHAN_RINCIAN = {f'{label} ({kode})  |  {blok} · {jenis}': (blok, kode) for blok, kode, label, jenis in RINCIAN}
 RINCIAN_PILIHAN = {value: label for label, value in PILIHAN_RINCIAN.items()}
+COLUMN_ALIASES = {
+    'metrik_biaya_produksin (mejadi)': 'metrik_biaya_produksin (menjadi)',
+    'metrik_biaya_produksin (menjadi)': 'metrik_biaya_produksin (mejadi)',
+}
+
+
+def compatible_column(name, columns):
+    """Cari nama kolom yang sama atau alias typo lama/baru."""
+    if name in columns:
+        return name
+    alias = COLUMN_ALIASES.get(name, '')
+    return alias if alias in columns else ''
+
+
+def _browser_stage(browser):
+    value = getattr(browser, 'last_stage', '')
+    return value if isinstance(value, str) and value else 'proses_assignment'
+
+
+def _browser_code(browser):
+    value = getattr(browser, 'last_code', None)
+    return value if isinstance(value, str) and value else None
+
+
+def _record_central(owner, row, source, sheet, kategori, wilayah, status, tahap, kode, pesan):
+    central = getattr(owner, 'central', None)
+    if not central:
+        return
+    try:
+        central.record(
+            assignment_id=row['assignment_id'], kategori=kategori, wilayah=wilayah,
+            nama_file=source, nama_sheet=sheet, status=status, tahap=tahap,
+            kode_rincian=kode, pesan=pesan,
+        )
+        owner.messages.put(('log', f'Database pusat: status {status} tersimpan.'))
+    except Exception as exc:
+        owner.messages.put(('log', f'PERINGATAN sinkronisasi database pusat gagal: {exc}\nStatus lokal tetap tersimpan.'))
 
 
 class App(tk.Tk):
@@ -32,6 +73,7 @@ class App(tk.Tk):
         self.data = None
         self.rows = []
         self.mappings = []
+        self.source_mode = tk.StringVar(value='file')
         self.path = tk.StringVar()
         self.sheet = tk.StringVar()
         self.kategori = tk.StringVar(value='G')
@@ -49,10 +91,23 @@ class App(tk.Tk):
         self.mapping_vars = []
         self.default_mapping = True
         self.daftar_nama = tk.StringVar(value='Bawaan')
+        self.central = None
+        self.central_config_error = ''
+        try:
+            central_config = load_config(CENTRAL_CONFIG_FILE)
+            self.central = CentralAPI(central_config) if central_config else None
+        except Exception as exc:
+            self.central_config_error = str(exc)
         self.styles()
         self.build()
         self.reset_mapping()
         self.restore_lists()
+        if self.central_config_error:
+            self.log(f'PERINGATAN database pusat: {self.central_config_error}')
+        elif self.central:
+            self.log(f'Database pusat aktif sebagai {self.central.config.bot_id}.')
+        else:
+            self.log('Database pusat belum diatur. Klik "Atur DB pusat" untuk mengaktifkannya.')
         self.thread = threading.Thread(target=self.worker, daemon=True)
         self.thread.start()
         self.after(150, self.poll)
@@ -98,31 +153,41 @@ class App(tk.Tk):
         src = ttk.LabelFrame(form, text='1. Sumber dan filter', padding=8)
         src.pack(fill='x')
         src.columnconfigure(1, weight=1)
-        ttk.Label(src, text='File XLSX / CSV').grid(row=0, column=0, sticky='w')
-        ttk.Entry(src, textvariable=self.path, state='readonly').grid(row=0, column=1, columnspan=7, sticky='ew', padx=5)
-        ttk.Button(src, text='Pilih file', command=self.choose_file).grid(row=0, column=8)
-        ttk.Label(src, text='Sheet').grid(row=1, column=0, sticky='w', pady=5)
+        ttk.Label(src, text='Sumber data').grid(row=0, column=0, sticky='w')
+        source_choices = ttk.Frame(src)
+        source_choices.grid(row=0, column=1, columnspan=8, sticky='w', padx=5)
+        ttk.Radiobutton(source_choices, text='File lokal', variable=self.source_mode, value='file',
+                        command=self.source_mode_changed).pack(side='left')
+        ttk.Radiobutton(source_choices, text='Database pusat', variable=self.source_mode, value='database',
+                        command=self.source_mode_changed).pack(side='left', padx=14)
+        ttk.Label(src, text='File XLSX / CSV').grid(row=1, column=0, sticky='w')
+        self.path_entry = ttk.Entry(src, textvariable=self.path, state='readonly')
+        self.path_entry.grid(row=1, column=1, columnspan=7, sticky='ew', padx=5)
+        self.file_button = ttk.Button(src, text='Pilih file', command=self.choose_file)
+        self.file_button.grid(row=1, column=8)
+        self.sheet_label = ttk.Label(src, text='Sheet')
+        self.sheet_label.grid(row=2, column=0, sticky='w', pady=5)
         self.sheet_box = ttk.Combobox(src, textvariable=self.sheet, state='readonly', width=12)
-        self.sheet_box.grid(row=1, column=1, sticky='w', padx=5)
+        self.sheet_box.grid(row=2, column=1, sticky='w', padx=5)
         self.sheet_box.bind('<<ComboboxSelected>>', lambda _: self.load_sheet())
-        ttk.Label(src, text='Kategori').grid(row=1, column=2, sticky='w')
-        ttk.Entry(src, textvariable=self.kategori, width=7).grid(row=1, column=3, padx=5)
-        ttk.Label(src, text='Kode kab/kota').grid(row=1, column=4)
-        ttk.Entry(src, textvariable=self.wilayah, width=9).grid(row=1, column=5, padx=5)
-        ttk.Label(src, text='Batas proses').grid(row=1, column=6)
-        ttk.Entry(src, textvariable=self.limit, width=7).grid(row=1, column=7, padx=5)
+        ttk.Label(src, text='Kategori').grid(row=2, column=2, sticky='w')
+        ttk.Entry(src, textvariable=self.kategori, width=7).grid(row=2, column=3, padx=5)
+        ttk.Label(src, text='Kode kab/kota').grid(row=2, column=4)
+        ttk.Entry(src, textvariable=self.wilayah, width=9).grid(row=2, column=5, padx=5)
+        ttk.Label(src, text='Batas proses').grid(row=2, column=6)
+        ttk.Entry(src, textvariable=self.limit, width=7).grid(row=2, column=7, padx=5)
         opts = ttk.Frame(src)
-        opts.grid(row=2, column=0, columnspan=9, sticky='w')
+        opts.grid(row=3, column=0, columnspan=9, sticky='w')
         ttk.Label(opts, text='Bagian:').pack(side='left')
         ttk.Combobox(opts, textvariable=self.pembagian, values=('semua','atas','bawah'), state='readonly', width=9).pack(side='left', padx=5)
         ttk.Checkbutton(opts, text='Urutan dari bawah', variable=self.reverse).pack(side='left', padx=5)
         ttk.Checkbutton(opts, text='Lewati error notebook', variable=self.skip_errors).pack(side='left', padx=5)
         opts2 = ttk.Frame(src)
-        opts2.grid(row=3, column=0, columnspan=9, sticky='w')
+        opts2.grid(row=4, column=0, columnspan=9, sticky='w')
         ttk.Checkbutton(opts2, text='Semua remark #DC_00', variable=self.only_dc00).pack(side='left', padx=(0, 5))
         ttk.Checkbutton(opts2, text='Bulatkan desimal ke rupiah terdekat (0,5 naik)', variable=self.round_values).pack(side='left', padx=5)
         opts3 = ttk.Frame(src)
-        opts3.grid(row=4, column=0, columnspan=9, sticky='w')
+        opts3.grid(row=5, column=0, columnspan=9, sticky='w')
         ttk.Checkbutton(opts3, text='Masukkan kembali error dan baris perlu data', variable=self.retry_errors).pack(side='left')
 
         mapping = ttk.LabelFrame(form, text='2. Pemetaan kolom sumber ke rincian FASIH', padding=8)
@@ -172,6 +237,7 @@ class App(tk.Tk):
         self.stop_button = ttk.Button(controls2, text='Berhenti setelah baris ini', command=self.request_stop)
         self.stop_button.pack(side='left', padx=(0, 5))
         ttk.Button(controls2, text='Izinkan ulang ID tertunda', command=self.allow_retry).pack(side='left', padx=5)
+        ttk.Button(controls2, text='Atur DB pusat', command=self.configure_central).pack(side='left', padx=5)
         self.status = tk.StringVar(value='Belum ada file.')
         ttk.Label(controls2, textvariable=self.status).pack(side='right')
 
@@ -232,7 +298,7 @@ class App(tk.Tk):
         block, code = PILIHAN_RINCIAN[item['target'].get()]
         default = next((t for t in TARGETS if t[1] == code and block == L), None)
         columns = self.data.columns if self.data is not None else []
-        item['nilai'].set(default[2] if default and default[2] in columns else '')
+        item['nilai'].set(compatible_column(default[2], columns) if default else '')
         item['remark'].set(default[3] if default and default[3] in columns else '')
 
     def remove_mapping(self, item):
@@ -262,8 +328,7 @@ class App(tk.Tk):
             item['widgets'][3].configure(values=columns)
             if self.default_mapping and self.data is not None:
                 item['pakai'].set(item['remark'].get() in columns)
-                if item['nilai'].get() not in columns:
-                    item['nilai'].set('')
+                item['nilai'].set(compatible_column(item['nilai'].get(), columns))
                 if item['remark'].get() not in columns:
                     item['remark'].set('')
         self.default_mapping = False
@@ -350,6 +415,8 @@ class App(tk.Tk):
             return
         try:
             self.path.set(path)
+            self.source_mode.set('file')
+            self.source_mode_changed(clear_data=False)
             if Path(path).suffix.lower() == '.xlsx':
                 with pd.ExcelFile(path) as book:
                     sheets = book.sheet_names
@@ -374,6 +441,35 @@ class App(tk.Tk):
             self.data = None
             messagebox.showerror('Gagal membaca sheet', str(exc))
 
+    def source_mode_changed(self, clear_data=True):
+        """Alihkan sumber tanpa mengubah perilaku mode file yang lama."""
+        database_mode = self.source_mode.get() == 'database'
+        self.file_button.configure(state='disabled' if database_mode else 'normal')
+        self.sheet_box.configure(state='disabled' if database_mode else 'readonly')
+        if clear_data:
+            self.rows = []
+            self.tree.delete(*self.tree.get_children())
+        if not database_mode:
+            self.status.set('Pilih file lokal.')
+            return
+        if not self.central:
+            self.data = None
+            self.status.set('Database pusat belum diatur')
+            messagebox.showerror('Database pusat', 'Atur DB pusat terlebih dahulu, lalu pilih kembali mode Database pusat.')
+            return
+        try:
+            columns = self.central.source_columns()
+            if not columns:
+                raise ValueError('Tabel sumber database tidak memiliki kolom.')
+            self.data = pd.DataFrame(columns=columns)
+            self.refresh_mapping_columns()
+            self.status.set(f'Database siap: {self.central.config.source_table}')
+            self.log(f'Mode sumber database aktif: {self.central.config.database}.{self.central.config.source_table}.')
+        except Exception as exc:
+            self.data = None
+            self.status.set('Database sumber tidak dapat dibaca')
+            messagebox.showerror('Database pusat', str(exc))
+
     def get_mappings(self):
         result = []
         for item in self.mapping_vars:
@@ -383,20 +479,90 @@ class App(tk.Tk):
         return result
 
     def settings(self):
-        return (self.path.get(), self.sheet.get(), self.kategori.get().strip().upper(), self.wilayah.get().strip(),
+        return (self.source_mode.get(), self.path.get(), self.sheet.get(), self.kategori.get().strip().upper(), self.wilayah.get().strip(),
                 self.limit.get().strip(), self.pembagian.get(), self.reverse.get(), self.skip_errors.get(),
                 self.only_dc00.get(), self.round_values.get(), self.retry_errors.get(), tuple((m.blok, m.kode, m.nilai, m.remark) for m in self.get_mappings()))
 
+    def configure_central(self):
+        current = self.central.config if self.central else None
+        token = simpledialog.askstring(
+            'Database pusat',
+            'Masukkan token API pusat. Token disimpan hanya di config_pusat.json pada PC ini:',
+            parent=self,
+            show='*',
+        )
+        if token is None:
+            return
+        token = token.strip()
+        if not token:
+            messagebox.showerror('Database pusat', 'Token tidak boleh kosong.')
+            return
+        bot_id = simpledialog.askstring(
+            'Identitas PC',
+            'Nama PC/bot yang akan dicatat pada database pusat:',
+            parent=self,
+            initialvalue=current.bot_id if current else default_bot_id(),
+        )
+        if bot_id is None:
+            return
+        try:
+            config = CentralConfig(
+                base_url=current.base_url if current else DEFAULT_BASE_URL,
+                token=token,
+                database=current.database if current else DEFAULT_DATABASE,
+                table=current.table if current else DEFAULT_TABLE,
+                source_table=current.source_table if current else DEFAULT_SOURCE_TABLE,
+                bot_id=bot_id.strip(),
+            )
+            save_config(CENTRAL_CONFIG_FILE, config)
+            self.central = CentralAPI(config)
+            self.central_config_error = ''
+            self.log(f'Database pusat diaktifkan sebagai {config.bot_id}.')
+            messagebox.showinfo('Database pusat', 'Konfigurasi tersimpan. Koneksi akan diperiksa saat membuat pratinjau.')
+        except Exception as exc:
+            messagebox.showerror('Database pusat', str(exc))
+
     def preview(self):
         try:
-            if self.data is None:
-                raise ValueError('Pilih file terlebih dahulu.')
-            # Muat ulang saat pratinjau agar perubahan terakhir pada file terbaca.
-            data = read_source(Path(self.path.get()), None if self.sheet.get() == 'CSV' else self.sheet.get())
             mappings = self.get_mappings()
             kategori, wilayah = self.kategori.get().strip().upper(), self.wilayah.get().strip()
             retry_errors = self.retry_errors.get()
-            done = old_ids(Path(self.path.get()).parent, kategori, wilayah, self.skip_errors.get() and not retry_errors)
+            database_mode = self.source_mode.get() == 'database'
+            if database_mode:
+                if not self.central:
+                    raise ValueError('Atur DB pusat sebelum memakai sumber database.')
+                requested = int(self.limit.get())
+                fetch_limit = min(max(requested * 20, 200), 5000)
+                records = self.central.source_rows(
+                    kategori, wilayah, fetch_limit, reverse=self.reverse.get(),
+                    split=self.pembagian.get(), retry_errors=retry_errors,
+                )
+                data = pd.DataFrame(records).fillna('')
+                if data.empty:
+                    data = pd.DataFrame(columns=self.central.source_columns())
+                data.columns = data.columns.astype(str).str.strip()
+                if 'id' in data.columns:
+                    data['_source_id'] = data['id']
+                if 'source_row' in data.columns:
+                    data['_baris_sumber'] = data['source_row']
+                elif 'id' in data.columns:
+                    data['_baris_sumber'] = data['id']
+                done = set()
+            else:
+                if self.data is None:
+                    raise ValueError('Pilih file terlebih dahulu.')
+                # Muat ulang saat pratinjau agar perubahan terakhir pada file terbaca.
+                data = read_source(Path(self.path.get()), None if self.sheet.get() == 'CSV' else self.sheet.get())
+                done = old_ids(Path(self.path.get()).parent, kategori, wilayah,
+                               self.skip_errors.get() and not retry_errors)
+            central_count = 0
+            if self.central:
+                try:
+                    central_done = self.central.completed_ids(kategori, wilayah)
+                    central_count = len(central_done)
+                    done.update(central_done)
+                except Exception as exc:
+                    self.log(f'PERINGATAN database pusat tidak dapat dibaca: {exc}\nPratinjau dilanjutkan memakai log lokal.')
             statuses = self.journal.statuses(include_errors=not retry_errors)
             required = {'kategori','level_2_full_code','nama_usaha','link_fasih_sm','Siap Input','Sudah Diinput'}
             if not required <= set(data.columns):
@@ -410,9 +576,13 @@ class App(tk.Tk):
             self.rows = make_queue(data, mappings, kategori, wilayah, done, statuses,
                                    reverse=self.reverse.get(), split=self.pembagian.get(), limit=int(self.limit.get()),
                                    round_values=self.round_values.get())
+            if database_mode:
+                duplicates = self.central.duplicate_source_ids(row['assignment_id'] for row in self.rows)
+                if duplicates:
+                    raise ValueError('Satu assignment terdapat pada beberapa baris database; perlu penanganan gabungan: ' + ', '.join(sorted(duplicates)[:5]))
             self.mappings = mappings
             self.preview_settings = self.settings()
-            self.source_mtime = Path(self.path.get()).stat().st_mtime_ns
+            self.source_mtime = None if database_mode else Path(self.path.get()).stat().st_mtime_ns
             self.tree.delete(*self.tree.get_children())
             for row in self.rows:
                 plan = ', '.join(f'{m.label}: {remark}' +
@@ -420,7 +590,10 @@ class App(tk.Tk):
                                  for m, remark, value, change in preview_actions(row, mappings, self.round_values.get()))
                 self.tree.insert('', 'end', values=(row['_baris_sumber'], row['assignment_id'], row['nama_usaha'], plan))
             self.status.set(f'{len(self.rows)} baris siap diproses')
-            self.log(f'Pratinjau: {len(self.rows)} baris. Log GUI dan log notebook yang sesuai sudah diperiksa.' +
+            source_note = ('Data diambil bertahap dari database pusat.' if database_mode
+                           else 'Log GUI dan log notebook yang sesuai sudah diperiksa.')
+            self.log(f'Pratinjau: {len(self.rows)} baris. {source_note}' +
+                     (f' Database pusat memuat {central_count} ID berhasil untuk kategori/wilayah ini.' if self.central else ' Database pusat belum aktif.') +
                      (' Error dan baris perlu data diikutsertakan; periksa perubahan sebagian di FASIH sebelum menjalankan.' if retry_errors else ''))
         except Exception as exc:
             self.rows = []
@@ -439,7 +612,9 @@ class App(tk.Tk):
                 raise ValueError('Buka browser, login manual, lalu tunggu browser siap.')
             if not self.rows:
                 raise ValueError('Buat pratinjau antrean yang tidak kosong.')
-            if self.settings() != self.preview_settings or Path(self.path.get()).stat().st_mtime_ns != self.source_mtime:
+            database_mode = self.source_mode.get() == 'database'
+            source_changed = (not database_mode and Path(self.path.get()).stat().st_mtime_ns != self.source_mtime)
+            if self.settings() != self.preview_settings or source_changed:
                 raise ValueError('Pengaturan atau file berubah. Buat ulang pratinjau.')
             if not messagebox.askyesno('Konfirmasi proses',
                 f'Proses {len(self.rows)} assignment?\n\nProses dapat revoke, mengubah nilai/catatan, mengirim dan approve. '
@@ -449,7 +624,12 @@ class App(tk.Tk):
                 return
             self.busy = True
             self.stop_event.clear()
-            self.commands.put(('run', (list(self.rows), list(self.mappings), self.path.get(), self.kategori.get().strip().upper(), self.wilayah.get().strip(), self.skip_errors.get() and not self.retry_errors.get(), self.round_values.get(), self.retry_errors.get())))
+            source = (f'DB:{self.central.config.source_table}' if database_mode else self.path.get())
+            sheet = 'DATABASE' if database_mode else self.sheet.get()
+            self.commands.put(('run', (list(self.rows), list(self.mappings), source, sheet,
+                                       self.kategori.get().strip().upper(), self.wilayah.get().strip(),
+                                       self.skip_errors.get() and not self.retry_errors.get(),
+                                       self.round_values.get(), self.retry_errors.get(), self.source_mode.get())))
             self.status.set('Menjalankan...')
         except Exception as exc:
             messagebox.showerror('Belum bisa dijalankan', str(exc))
@@ -496,7 +676,11 @@ class App(tk.Tk):
                     self.messages.put(('browser_ready', f'Browser terbuka dengan profil {PROFILE.name}. Silakan periksa login akun kab/kota.'))
                 elif command == 'run':
                     from fasih import NeedsSourceData
-                    rows, mappings, source, kategori, wilayah, skip_errors, round_values, retry_errors = payload
+                    if len(payload) == 9:  # kompatibilitas dengan pemanggil/test mode file lama
+                        rows, mappings, source, sheet, kategori, wilayah, skip_errors, round_values, retry_errors = payload
+                        source_mode = 'file'
+                    else:
+                        rows, mappings, source, sheet, kategori, wilayah, skip_errors, round_values, retry_errors, source_mode = payload
                     berhasil = gagal = perlu_data = dilewati = 0
                     for i, row in enumerate(rows, 1):
                         if self.stop_event.is_set():
@@ -504,8 +688,8 @@ class App(tk.Tk):
                             break
                         aid = row['assignment_id']
                         self.messages.put(('log', f'\n{"-" * 48}\n[{i}/{len(rows)}] {row["nama_usaha"]}\nAssignment ID: {aid}'))
-                        # Log notebook dapat berubah setelah pratinjau.
-                        if aid in old_ids(Path(source).parent, kategori, wilayah, skip_errors):
+                        # Log notebook hanya berlaku untuk sumber file dan dapat berubah setelah pratinjau.
+                        if source_mode == 'file' and aid in old_ids(Path(source).parent, kategori, wilayah, skip_errors):
                             dilewati += 1
                             self.messages.put(('log', 'Dilewati: sudah tercatat di notebook.'))
                             continue
@@ -513,22 +697,60 @@ class App(tk.Tk):
                             dilewati += 1
                             self.messages.put(('log', 'Dilewati: sudah diklaim atau tercatat di GUI.'))
                             continue
+                        if source_mode == 'database':
+                            try:
+                                if not self.central.claim_source(row['_source_id'], retry_errors=retry_errors):
+                                    self.journal.finish(aid, 'error', 'Baris database sedang diproses PC lain atau statusnya berubah.')
+                                    dilewati += 1
+                                    self.messages.put(('log', 'Dilewati: baris database tidak berhasil dikunci.'))
+                                    continue
+                            except Exception as exc:
+                                self.journal.finish(aid, 'error', f'Gagal mengunci baris database: {exc}')
+                                raise RuntimeError(f'Proses dihentikan karena baris database tidak dapat dikunci: {exc}') from exc
                         try:
                             browser.process(row, mappings, lambda s: self.messages.put(('log', s)), round_values=round_values)
                             self.journal.finish(aid, 'berhasil', 'Submit dan approve terverifikasi.')
                             berhasil += 1
                             self.messages.put(('log', 'HASIL: berhasil.'))
+                            if source_mode == 'database':
+                                try:
+                                    self.central.complete_source(row['_source_id'], 'BERHASIL', 'selesai',
+                                                                 'Submit dan approve terverifikasi.')
+                                    self.messages.put(('log', 'Database sumber: Sudah Diinput = 1.'))
+                                except Exception as exc:
+                                    self.messages.put(('log', f'PERINGATAN: FASIH berhasil, tetapi status baris sumber gagal diperbarui: {exc}'))
+                            _record_central(self, row, source, sheet, kategori, wilayah, 'berhasil',
+                                            'selesai', None, 'Submit dan approve terverifikasi.')
                         except NeedsSourceData as exc:
                             self.journal.finish(aid, 'perlu_data', str(exc))
                             perlu_data += 1
                             self.messages.put(('log', f'HASIL: PERLU DATA\n{exc}\nLengkapi fakta yang belum ada sebelum mencoba ulang.'))
                             self.journal.export(OUTPUT)
+                            if source_mode == 'database':
+                                try:
+                                    self.central.complete_source(row['_source_id'], 'PERLU_DATA',
+                                                                 _browser_stage(browser), str(exc))
+                                except Exception as update_exc:
+                                    self.messages.put(('log', f'PERINGATAN status baris sumber gagal diperbarui: {update_exc}'))
+                            _record_central(self, row, source, sheet, kategori, wilayah, 'perlu_data',
+                                            _browser_stage(browser), _browser_code(browser), str(exc))
                             continue
                         except Exception as exc:
-                            self.journal.finish(aid, 'error', str(exc))
+                            result_status = 'perlu_diperiksa' if getattr(browser, 'may_have_changed', False) is True else 'error'
+                            self.journal.finish(aid, result_status, str(exc))
                             gagal += 1
-                            self.messages.put(('log', f'HASIL: ERROR\n{exc}\nDicatat; periksa status di FASIH sebelum mencoba ulang. Lanjut ke baris berikutnya.'))
+                            label = 'PERLU DIPERIKSA' if result_status == 'perlu_diperiksa' else 'ERROR'
+                            self.messages.put(('log', f'HASIL: {label}\n{exc}\nDicatat; periksa status di FASIH sebelum mencoba ulang. Lanjut ke baris berikutnya.'))
                             self.journal.export(OUTPUT)
+                            if source_mode == 'database':
+                                try:
+                                    database_status = 'PERLU_DIPERIKSA' if result_status == 'perlu_diperiksa' else 'ERROR'
+                                    self.central.complete_source(row['_source_id'], database_status,
+                                                                 _browser_stage(browser), str(exc))
+                                except Exception as update_exc:
+                                    self.messages.put(('log', f'PERINGATAN status baris sumber gagal diperbarui: {update_exc}'))
+                            _record_central(self, row, source, sheet, kategori, wilayah, result_status,
+                                            _browser_stage(browser), _browser_code(browser), str(exc))
                             continue
                         self.journal.export(OUTPUT)
                     self.messages.put(('done', f'\n{"=" * 48}\nProses selesai / berhenti: berhasil {berhasil}, perlu data {perlu_data}, error {gagal}, dilewati {dilewati}.\nBuat pratinjau baru sebelum menjalankan lagi.'))
