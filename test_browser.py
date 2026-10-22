@@ -5,7 +5,7 @@ from unittest.mock import MagicMock, patch
 from playwright.sync_api import sync_playwright
 from core import Mapping
 from katalog_rincian import L, P
-from fasih import Fasih, NeedsSourceData, add_note, kirim
+from fasih import Fasih, NeedsSourceData, add_note, kirim, ready_field, same_review_assignment
 
 HTML = r'''<!doctype html><html><body>
 <button id="send" onclick="summary()">Kirim</button><div id="panel"></div>
@@ -104,6 +104,13 @@ class BrowserTests(unittest.TestCase):
         self.assertTrue(self.page.evaluate('submit'))
         self.assertTrue(self.page.url.endswith('/app/assignment/a/b'))
 
+    def test_review_dapat_berganti_kegiatan_tetapi_assignment_tetap_sama(self):
+        original = 'https://example.test/app/assignment/kegiatan-lama/assignment-1'
+        self.assertTrue(same_review_assignment(
+            original, 'https://example.test/app/assignment/kegiatan-baru/assignment-1'))
+        self.assertFalse(same_review_assignment(
+            original, 'https://example.test/app/assignment/kegiatan-baru/assignment-2'))
+
     def test_other_galat_not_submitted(self):
         self.page.evaluate('other=true')
         with self.assertRaisesRegex(RuntimeError, 'GALAT validasi'):
@@ -156,6 +163,19 @@ class BrowserTests(unittest.TestCase):
         self.page.goto('https://example.test/app/assignment/a/b')
         self.assertEqual(add_note(self.page, 'gaji', '#0'), 'sudah_ada')
 
+    def test_rincian_sudah_tampil_tidak_mengklik_sidebar_lagi(self):
+        self.page.unroute_all()
+        html = r'''<!doctype html><html><body>
+        <div class="fasih-form-sidebar"><div title="SE2026 - L BLOK II"
+          onclick="document.querySelector('#biaya_produksi').hidden = true">Blok L</div></div>
+        <div id="biaya_produksi"><button title="Catatan">Catatan</button></div>
+        </body></html>'''
+        self.page.route('https://example.test/**', lambda route: route.fulfill(
+            status=200, content_type='text/html', body=html))
+        self.page.goto('https://example.test/app/assignment/a/b')
+        ready_field(self.page, 'USAHA CONTOH', 'L', L, 'biaya_produksi')
+        self.assertTrue(self.page.locator('#biaya_produksi').is_visible())
+
     def test_full_review_edit_submit_approve(self):
         self.page.unroute_all()
         self.page.route('https://example.test/**', lambda route: route.fulfill(status=200, content_type='text/html', body=PROCESS_HTML))
@@ -183,6 +203,21 @@ class BrowserTests(unittest.TestCase):
                 self.assertFalse(self.page.evaluate('edited || submitted'))
                 self.assertEqual(self.page.locator('body').get_attribute('data-note'), remark)
                 self.assertTrue(any('Edit dan Kirim dilewati' in text for text in logs))
+
+    def test_remark_saja_melanjutkan_assignment_yang_sudah_direvoke(self):
+        self.page.unroute_all()
+        html = REMARK_REVIEW_HTML.rsplit('approvedReview();', 1)
+        html = 'revoke();'.join(html)
+        self.page.route('https://example.test/**', lambda route: route.fulfill(
+            status=200, content_type='text/html', body=html))
+        fasih = Fasih(Path('unused'))
+        fasih.page = self.page
+        row = {'link_fasih_sm': 'https://example.test/app/assignment/a/b',
+               'nama_usaha': 'USAHA CONTOH', 'remark': '#DC_00', 'nilai': ''}
+        fasih.process(row, [Mapping('Gaji', 'gaji', 'nilai', 'remark')], lambda _: None)
+        self.assertTrue(self.page.evaluate('revoked && approved'))
+        self.assertFalse(self.page.evaluate('edited || submitted'))
+        self.assertEqual(self.page.locator('body').get_attribute('data-note'), '#DC_00')
 
     def test_change_value_for_non_dc00(self):
         self.page.unroute_all()

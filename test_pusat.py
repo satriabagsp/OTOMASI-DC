@@ -5,7 +5,7 @@ import unittest
 from pathlib import Path
 from unittest.mock import MagicMock
 
-from pusat import CentralAPI, CentralConfig, load_config, save_config
+from pusat import CentralAPI, CentralConfig, CentralError, load_config, save_config
 
 
 class CentralTests(unittest.TestCase):
@@ -57,6 +57,22 @@ class CentralTests(unittest.TestCase):
         self.assertIn("COALESCE(`Sudah Diinput`,0)=0", sql)
         self.assertIn("ORDER BY id ASC LIMIT 25", sql)
 
+    def test_pemeriksaan_duplikat_dipecah_menjadi_batch_kecil(self):
+        ids = [f'00000000-0000-0000-0000-{number:012d}' for number in range(205)]
+        responses = [
+            self.response({'results': []}),
+            self.response({'results': [{'assignment_id': ids[150], 'jumlah': 2}]}),
+            self.response({'results': []}),
+        ]
+        post = MagicMock(side_effect=responses)
+        api = CentralAPI(self.config(), post=post)
+
+        self.assertEqual(api.duplicate_source_ids(ids), {ids[150]})
+        self.assertEqual(post.call_count, 3)
+        for call in post.call_args_list:
+            sql = call.kwargs['json']['sql']
+            self.assertLessEqual(sql.count("'00000000-0000-0000-0000-"), 100)
+
     def test_claim_source_diverifikasi_dengan_bot_id(self):
         responses = [
             self.response({'message': 'ok'}),
@@ -79,6 +95,43 @@ class CentralTests(unittest.TestCase):
         sql = post.call_args_list[0].kwargs['json']['sql']
         self.assertIn("`Sudah Diinput`=1", sql)
         self.assertIn("automation_bot_id='PC-UJI'", sql)
+
+    def test_complete_source_meringkas_call_log_dan_mencoba_ulang_500(self):
+        api = CentralAPI(self.config())
+        api._update = MagicMock(side_effect=[CentralError('500'), {'message': 'ok'}])
+        api._query = MagicMock(side_effect=[
+            [{'automation_status': 'BERJALAN'}],
+            [{'automation_status': 'PERLU_DIPERIKSA', 'sudah': 0}],
+        ])
+        api.complete_source(17, 'PERLU_DIPERIKSA', 'isi_rincian_review',
+                            'Locator.click: Timeout\nCall log:\n' + 'x' * 1000)
+        self.assertEqual(api._update.call_count, 2)
+        self.assertNotIn('\n', api._update.call_args_list[0].args[0])
+        self.assertLess(len(api._update.call_args_list[1].args[0]), 550)
+
+    def test_izin_ulang_baris_tertunda_hanya_milik_bot_ini(self):
+        aid = '11111111-2222-3333-4444-555555555555'
+        api = CentralAPI(self.config())
+        api._query = MagicMock(side_effect=[
+            [{'id': 17, 'automation_status': 'PERLU_DIPERIKSA',
+              'automation_bot_id': 'PC-UJI', 'siap': 1, 'sudah': 0}],
+            [{'automation_status': 'SIAP_DIINPUT'}],
+        ])
+        api._update = MagicMock()
+        api.release_checked_source(aid)
+        sql = api._update.call_args.args[0]
+        self.assertIn("automation_status='SIAP_DIINPUT'", sql)
+        self.assertIn("automation_status='PERLU_DIPERIKSA'", sql)
+        self.assertIn("automation_bot_id='PC-UJI'", sql)
+
+        api._query = MagicMock(return_value=[
+            {'id': 17, 'automation_status': 'PERLU_DIPERIKSA',
+             'automation_bot_id': 'PC-LAIN', 'siap': 1, 'sudah': 0}
+        ])
+        api._update.reset_mock()
+        with self.assertRaisesRegex(CentralError, 'pemilik bot'):
+            api.release_checked_source(aid)
+        api._update.assert_not_called()
 
     def test_config_lokal_disimpan_dan_bisa_dibaca(self):
         with tempfile.TemporaryDirectory() as folder:

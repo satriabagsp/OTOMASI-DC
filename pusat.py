@@ -199,23 +199,38 @@ class CentralAPI:
         )
         return self._query(sql)
 
-    def duplicate_source_ids(self, assignment_ids):
-        """Cari assignment siap input yang muncul pada lebih dari satu baris."""
+    def duplicate_source_ids(self, assignment_ids, *, chunk_size=100):
+        """Cari assignment siap input yang muncul pada lebih dari satu baris.
+
+        ID diperiksa per kelompok kecil. Daftar ``IN`` yang berisi ribuan ID
+        membuat gateway pusat melewati batas waktu, terutama saat pratinjau
+        mengambil kandidat cadangan untuk melewati baris yang tidak layak.
+        """
         values = sorted({str(value).strip().lower() for value in assignment_ids if str(value).strip()})
         if not values:
             return set()
         if any(not re.fullmatch(r"[0-9a-f-]{36}", value) for value in values):
             raise ValueError("Assignment ID untuk pemeriksaan duplikat tidak valid.")
+        chunk_size = int(chunk_size)
+        if chunk_size < 1 or chunk_size > 250:
+            raise ValueError("Ukuran pemeriksaan duplikat harus antara 1 dan 250.")
         table = self._quote(self.config.source_table)
-        literals = ",".join(self._literal(value) for value in values)
-        rows = self._query(
-            f"SELECT assignment_id, COUNT(*) AS jumlah FROM {table} "
-            f"WHERE assignment_id IN ({literals}) "
-            f"AND {self._quote('Siap Input')}=1 "
-            f"AND COALESCE({self._quote('Sudah Diinput')},0)=0 "
-            "GROUP BY assignment_id HAVING COUNT(*) > 1"
-        )
-        return {str(row["assignment_id"]).strip().lower() for row in rows if row.get("assignment_id")}
+        duplicates = set()
+        for start in range(0, len(values), chunk_size):
+            chunk = values[start:start + chunk_size]
+            literals = ",".join(self._literal(value) for value in chunk)
+            rows = self._query(
+                f"SELECT assignment_id, COUNT(*) AS jumlah FROM {table} "
+                f"WHERE assignment_id IN ({literals}) "
+                f"AND {self._quote('Siap Input')}=1 "
+                f"AND COALESCE({self._quote('Sudah Diinput')},0)=0 "
+                "GROUP BY assignment_id HAVING COUNT(*) > 1"
+            )
+            duplicates.update(
+                str(row["assignment_id"]).strip().lower()
+                for row in rows if row.get("assignment_id")
+            )
+        return duplicates
 
     def claim_source(self, source_id, *, retry_errors=False):
         """Kunci satu baris secara bersyarat, lalu verifikasi pemilik kuncinya."""
@@ -241,6 +256,48 @@ class CentralAPI:
         return bool(rows and rows[0].get("automation_status") == "BERJALAN"
                     and str(rows[0].get("automation_bot_id", "")) == self.config.bot_id)
 
+    def release_checked_source(self, assignment_id):
+        """Buka kembali hanya baris tertunda milik bot ini setelah diperiksa pengguna."""
+        aid = str(assignment_id).strip().lower()
+        if not re.fullmatch(r"[0-9a-f]{8}(?:-[0-9a-f]{4}){3}-[0-9a-f]{12}", aid):
+            raise ValueError("Assignment ID tidak valid.")
+        table = self._quote(self.config.source_table)
+        rows = self._query(
+            f"SELECT id, automation_status, automation_bot_id, "
+            f"{self._quote('Siap Input')} AS siap, {self._quote('Sudah Diinput')} AS sudah "
+            f"FROM {table} WHERE assignment_id={self._literal(aid)} LIMIT 2"
+        )
+        if len(rows) != 1:
+            raise CentralError("Assignment harus ditemukan tepat satu kali di tabel sumber.")
+        row = rows[0]
+        if str(row.get("siap", "")).strip() not in {"1", "True", "true"} or str(row.get("sudah", "")).strip() not in {"0", "False", "false", "None"}:
+            raise CentralError("Baris sumber tidak dalam keadaan siap untuk dicoba ulang.")
+        status = row.get("automation_status")
+        if status == "SIAP_DIINPUT":
+            return
+        if status != "PERLU_DIPERIKSA" or row.get("automation_bot_id") != self.config.bot_id:
+            raise CentralError("Status baris sumber atau pemilik bot tidak sesuai untuk izin ulang.")
+        source_id = int(row["id"])
+        sql = (
+            f"UPDATE {table} SET automation_status='SIAP_DIINPUT', "
+            "automation_stage='diizinkan_ulang', automation_message='Diperiksa dan diizinkan ulang oleh pengguna', "
+            "automation_updated_at=NOW() "
+            f"WHERE id={source_id} AND assignment_id={self._literal(aid)} "
+            "AND automation_status='PERLU_DIPERIKSA' "
+            f"AND automation_bot_id={self._literal(self.config.bot_id)} "
+            f"AND {self._quote('Siap Input')}=1 AND COALESCE({self._quote('Sudah Diinput')},0)=0"
+        )
+        try:
+            self._update(sql)
+        except CentralError:
+            # Gateway kadang mengembalikan 500 setelah UPDATE sebenarnya tersimpan.
+            pass
+        current = self._query(
+            f"SELECT automation_status FROM {table} WHERE id={source_id} LIMIT 1"
+        )
+        if not current or current[0].get("automation_status") != "SIAP_DIINPUT":
+            raise CentralError("Izin ulang belum tersimpan di tabel sumber.")
+
     def complete_source(self, source_id, status, stage, message):
         """Simpan hasil otomasi ke baris sumber yang sedang dikunci bot ini."""
         statuses = {"BERHASIL", "ERROR", "PERLU_DATA", "PERLU_DIPERIKSA"}
@@ -250,14 +307,37 @@ class CentralAPI:
         table = self._quote(self.config.source_table)
         sent = f", {self._quote('Sudah Diinput')}=1" if status == "BERHASIL" else ""
         completed = ", automation_completed_at=NOW()" if status == "BERHASIL" else ""
-        self._update(
+        # Playwright dapat memberi call log beberapa halaman. Simpan rincian utuh di
+        # jurnal lokal, tetapi kirim ringkasan satu baris ke gateway pusat.
+        short_message = " ".join(str(message).split())[:480]
+        sql = (
             f"UPDATE {table} SET automation_status={self._literal(status)}, "
             f"automation_stage={self._literal(str(stage)[:80])}, "
-            f"automation_message={self._literal(str(message)[:30000])}, "
+            f"automation_message={self._literal(short_message)}, "
             f"automation_updated_at=NOW(){completed}{sent} "
             f"WHERE id={source_id} AND automation_status='BERJALAN' "
             f"AND automation_bot_id={self._literal(self.config.bot_id)}"
         )
+        try:
+            self._update(sql)
+        except CentralError:
+            # Respons 500 tidak membuktikan UPDATE gagal; baca dahulu agar tidak
+            # mengulang operasi yang sebenarnya telah tersimpan.
+            current = self._query(
+                f"SELECT automation_status FROM {table} WHERE id={source_id} LIMIT 1"
+            )
+            if not current or current[0].get("automation_status") != status:
+                # Gateway tertentu gagal pada pesan panjang/karakter call log.
+                # Coba ringkasan yang lebih kecil dengan syarat kunci yang sama.
+                fallback = (
+                    f"UPDATE {table} SET automation_status={self._literal(status)}, "
+                    f"automation_stage={self._literal(str(stage)[:80])}, "
+                    f"automation_message={self._literal(short_message[:160])}, "
+                    f"automation_updated_at=NOW(){completed}{sent} "
+                    f"WHERE id={source_id} AND automation_status='BERJALAN' "
+                    f"AND automation_bot_id={self._literal(self.config.bot_id)}"
+                )
+                self._update(fallback)
         rows = self._query(
             f"SELECT automation_status, {self._quote('Sudah Diinput')} AS sudah "
             f"FROM {table} WHERE id={source_id} LIMIT 1"

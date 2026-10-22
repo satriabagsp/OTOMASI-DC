@@ -17,7 +17,7 @@ from pusat import (CentralAPI, CentralConfig, DEFAULT_BASE_URL, DEFAULT_DATABASE
 
 ROOT = Path(__file__).resolve().parent
 OUTPUT = ROOT / 'hasil'
-PROFILE = ROOT.parent / 'fasih_profile_r1_copy'
+PROFILE = ROOT.parent / 'fasih_profile_gui'
 DAFTAR_FILE = ROOT / 'daftar_perbaikan.json'
 CENTRAL_CONFIG_FILE = ROOT / 'config_pusat.json'
 PILIHAN_RINCIAN = {f'{label} ({kode})  |  {blok} · {jenis}': (blok, kode) for blok, kode, label, jenis in RINCIAN}
@@ -184,7 +184,7 @@ class App(tk.Tk):
         ttk.Checkbutton(opts, text='Lewati error notebook', variable=self.skip_errors).pack(side='left', padx=5)
         opts2 = ttk.Frame(src)
         opts2.grid(row=4, column=0, columnspan=9, sticky='w')
-        ttk.Checkbutton(opts2, text='Semua remark #DC_00', variable=self.only_dc00).pack(side='left', padx=(0, 5))
+        ttk.Checkbutton(opts2, text='Hanya baris semua remark #0/#DC_00', variable=self.only_dc00).pack(side='left', padx=(0, 5))
         ttk.Checkbutton(opts2, text='Bulatkan desimal ke rupiah terdekat (0,5 naik)', variable=self.round_values).pack(side='left', padx=5)
         opts3 = ttk.Frame(src)
         opts3.grid(row=5, column=0, columnspan=9, sticky='w')
@@ -222,7 +222,7 @@ class App(tk.Tk):
         self.mapping_frame.columnconfigure(1, weight=2)
         self.mapping_frame.columnconfigure(2, weight=1)
         self.mapping_frame.columnconfigure(3, weight=1)
-        ttk.Label(mapping, text='#DC_00: hanya remark. Pilihan/KBLI dan hasil hitung: hanya remark.', foreground='#60758f').pack(anchor='w', pady=(5, 0))
+        ttk.Label(mapping, text='#0/#DC_00: hanya remark. Pilihan/KBLI dan hasil hitung: hanya remark.', foreground='#60758f').pack(anchor='w', pady=(5, 0))
 
         controls = ttk.Frame(form)
         controls.pack(fill='x', pady=(0, 2))
@@ -567,19 +567,39 @@ class App(tk.Tk):
             required = {'kategori','level_2_full_code','nama_usaha','link_fasih_sm','Siap Input','Sudah Diinput'}
             if not required <= set(data.columns):
                 raise ValueError('Kolom wajib tidak ditemukan: ' + ', '.join(sorted(required - set(data.columns))))
-            check_duplicate_assignments(data, kategori, wilayah, done, statuses)
+            # Pada sumber file, assignment ganda tidak aman karena aplikasi tidak
+            # mengetahui cara menggabungkan beberapa usaha ke satu kuesioner.
+            # Untuk database pusat, tahan saja assignment tersebut di luar antrean
+            # agar assignment tunggal lainnya tetap bisa diproses.
+            if not database_mode:
+                check_duplicate_assignments(data, kategori, wilayah, done, statuses)
+            duplicate_assignments = set()
+            duplicate_rows = 0
+            if database_mode and not data.empty:
+                duplicate_assignments = self.central.duplicate_source_ids(data['assignment_id'])
+                if duplicate_assignments:
+                    assignment_values = data['assignment_id'].astype(str).str.strip().str.lower()
+                    duplicate_rows = int(assignment_values.isin(duplicate_assignments).sum())
+                    data = data.loc[~assignment_values.isin(duplicate_assignments)].copy()
+            nonduplicate_rows = len(data)
             if self.only_dc00.get():
                 if not mappings or any(not m.remark or m.remark not in data.columns for m in mappings):
-                    raise ValueError('Pilih kolom remark sebelum memakai filter #DC_00.')
-                mask = data[[m.remark for m in mappings]].apply(lambda col: col.astype(str).str.strip().str.upper().eq('#DC_00')).all(axis=1)
+                    raise ValueError('Pilih kolom remark sebelum memakai filter #0/#DC_00.')
+                mask = data[[m.remark for m in mappings]].apply(
+                    lambda col: col.astype(str).str.strip().str.upper().isin({'#0', '#DC_00'})
+                ).all(axis=1)
                 data = data.loc[mask].copy()
+                if data.empty:
+                    raise ValueError('Tidak ada kandidat yang seluruh remark-nya #0/#DC_00. '
+                                     'Nonaktifkan filter tersebut untuk memproses usulan model dengan remark #3.')
             self.rows = make_queue(data, mappings, kategori, wilayah, done, statuses,
                                    reverse=self.reverse.get(), split=self.pembagian.get(), limit=int(self.limit.get()),
                                    round_values=self.round_values.get())
-            if database_mode:
-                duplicates = self.central.duplicate_source_ids(row['assignment_id'] for row in self.rows)
-                if duplicates:
-                    raise ValueError('Satu assignment terdapat pada beberapa baris database; perlu penanganan gabungan: ' + ', '.join(sorted(duplicates)[:5]))
+            if database_mode and not self.rows:
+                if duplicate_assignments and nonduplicate_rows == 0:
+                    raise ValueError('Semua kandidat pada batch ini terkait assignment yang memiliki beberapa baris. '
+                                     'Tidak ada baris tunggal yang aman diproses pada batch ini.')
+                raise ValueError('Tidak ada baris yang memenuhi syarat untuk diproses.')
             self.mappings = mappings
             self.preview_settings = self.settings()
             self.source_mtime = None if database_mode else Path(self.path.get()).stat().st_mtime_ns
@@ -594,6 +614,7 @@ class App(tk.Tk):
                            else 'Log GUI dan log notebook yang sesuai sudah diperiksa.')
             self.log(f'Pratinjau: {len(self.rows)} baris. {source_note}' +
                      (f' Database pusat memuat {central_count} ID berhasil untuk kategori/wilayah ini.' if self.central else ' Database pusat belum aktif.') +
+                     (f' {len(duplicate_assignments)} assignment ganda ({duplicate_rows} baris pada batch) ditahan untuk penanganan gabungan.' if duplicate_assignments else '') +
                      (' Error dan baris perlu data diikutsertakan; periksa perubahan sebagian di FASIH sebelum menjalankan.' if retry_errors else ''))
         except Exception as exc:
             self.rows = []
@@ -649,10 +670,15 @@ class App(tk.Tk):
         if not messagebox.askyesno('Konfirmasi', 'Pastikan status, remark, dan kemungkinan perubahan sebelumnya sudah diperiksa di FASIH. Izinkan ID ini masuk antrean lagi?'):
             return
         try:
+            source = self.journal.source_of(aid)
+            if source and source.startswith('DB:'):
+                if not self.central:
+                    raise ValueError('Koneksi database pusat diperlukan untuk membuka ulang baris ini.')
+                self.central.release_checked_source(aid)
             self.journal.allow_retry(aid)
             self.journal.export(OUTPUT)
             self.rows = []
-            self.log(f'{aid}: diizinkan ulang. Jika ada di log error notebook, nonaktifkan filter error notebook atau tangani log tersebut.')
+            self.log(f'{aid}: diizinkan ulang di jurnal lokal dan, bila perlu, tabel sumber pusat. Buat pratinjau baru.')
         except Exception as exc:
             messagebox.showerror('Tidak dapat mengizinkan ulang', str(exc))
 
@@ -672,7 +698,14 @@ class App(tk.Tk):
                     try:
                         browser.open()
                     except Exception as exc:
-                        raise RuntimeError(f'Browser gagal dibuka. Pastikan profil {PROFILE.name} tidak sedang dipakai browser notebook atau aplikasi lain. Detail: {exc}') from exc
+                        detail = str(exc)
+                        if 'ERR_NAME_NOT_RESOLVED' in detail:
+                            reason = 'DNS FASIH belum dapat diakses. Periksa jaringan/VPN BPS.'
+                        elif 'Target page, context or browser has been closed' in detail:
+                            reason = f'Profil {PROFILE.name} gagal memulai Chromium. Tutup browser lain yang memakai profil ini.'
+                        else:
+                            reason = f'Periksa profil {PROFILE.name}, koneksi, dan login FASIH.'
+                        raise RuntimeError(f'Browser gagal dibuka. {reason} Detail: {exc}') from exc
                     self.messages.put(('browser_ready', f'Browser terbuka dengan profil {PROFILE.name}. Silakan periksa login akun kab/kota.'))
                 elif command == 'run':
                     from fasih import NeedsSourceData

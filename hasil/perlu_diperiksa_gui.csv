@@ -73,3 +73,11 @@ Call log:
     - waiting for element to be visible, enabled and stable
   - element was detached from the DOM, retrying
 ",2026-10-21 00:29:26
+eb195d91-fd08-4832-86be-c400576e76c1,SPBU 34 163 05,DB:data_split_usaha_20261016,204,perlu_diperiksa,"Locator.wait_for: Timeout 30000ms exceeded.
+Call log:
+  - waiting for locator(""button:has(svg.tabler-icon-rotate-clockwise):visible"").first to be visible
+",2026-10-21 00:34:42
+59c480de-0dce-4b96-a501-1ad243a861ce,BETI SALON ,DB:data_split_usaha_20261016,9,perlu_diperiksa,"Locator.wait_for: Timeout 30000ms exceeded.
+Call log:
+  - waiting for get_by_role(""alertdialog"", name=""Assignment Berhasil Disubmit"") to be visible
+",2026-10-22 05:51:46

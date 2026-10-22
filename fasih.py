@@ -4,9 +4,11 @@ from __future__ import annotations
 import json
 import re
 from pathlib import Path
+from urllib.parse import urlparse
 
 from playwright.sync_api import sync_playwright
 from playwright.sync_api import Error as PlaywrightError
+from playwright.sync_api import TimeoutError as PlaywrightTimeoutError
 from core import preview_actions
 from katalog_rincian import KATALOG, L
 
@@ -22,6 +24,16 @@ def one(locator, label):
     if n != 1:
         raise RuntimeError(f'{label} ditemukan {n} kali, harus tepat satu.')
     return locator
+
+
+def same_review_assignment(expected, actual):
+    """FASIH dapat mengganti ID kegiatan, tetapi ID assignment harus tetap."""
+    first, second = urlparse(expected), urlparse(actual)
+    a, b = first.path.strip('/').split('/'), second.path.strip('/').split('/')
+    return (first.scheme, first.netloc) == (second.scheme, second.netloc) and (
+        len(a) == len(b) == 4 and a[:2] == b[:2] == ['app', 'assignment']
+        and a[-1] == b[-1]
+    )
 
 
 def input_value(page, code):
@@ -78,6 +90,18 @@ def open_target_block(page, name, kind, block):
             raise RuntimeError(f'Blok {block} belum didukung pada kuesioner UB.')
         locator = page.locator(f'div.fasih-form-sidebar > div[title={json.dumps(block, ensure_ascii=False)}]:visible')
         one(locator, f'Blok {block}').click()
+
+
+def ready_field(page, name, kind, block, code):
+    """Tunggu rincian yang sedang dimuat; navigasi hanya bila bloknya belum aktif."""
+    exact, prefix = json.dumps(code), json.dumps(code + '#')
+    target = page.locator(f':is([id={exact}], [id^={prefix}]):visible')
+    try:
+        target.first.wait_for(state='visible', timeout=6000)
+    except PlaywrightTimeoutError:
+        open_target_block(page, name, kind, block)
+        target.first.wait_for(state='visible', timeout=TIMEOUT)
+    return one(target, f'Rincian {code}')
 
 
 def close_note_dialog(page, dialog):
@@ -240,7 +264,7 @@ class Fasih:
                 args=['--disable-blink-features=AutomationControlled'],
             )
             self.page = self.context.pages[0] if self.context.pages else self.context.new_page()
-            self.page.goto('https://fasih-sm.bps.go.id/', wait_until='domcontentloaded', timeout=TIMEOUT)
+            self.page.goto('https://fasih-sm.bps.go.id/app', wait_until='domcontentloaded', timeout=TIMEOUT)
         except Exception:
             self.close()
             raise
@@ -295,7 +319,7 @@ class Fasih:
         actions = preview_actions(row, mappings, round_values)
         if kind in ('UB', 'MANDIRI') and any(m.blok != L for m, _, _, _ in actions):
             raise RuntimeError(f'Blok selain usaha belum didukung pada kuesioner {kind}.')
-        if str(row.get('KBLI (menjadi)', '')).strip():
+        if str(row.get('KBLI (menjadi)') or '').strip():
             raise RuntimeError('Perubahan KBLI belum didukung; perlu penanganan manual.')
         note_only = bool(actions) and all(
             not change and remark.upper() in {'#0', '#DC_00'}
@@ -306,12 +330,16 @@ class Fasih:
             for m, _, _, _ in actions:
                 self.last_stage = 'validasi_rincian'
                 self.last_code = m.kode
-                open_target_block(page, str(row['nama_usaha']).strip(), kind, m.blok)
-                box = field(page, m.kode)
+                box = ready_field(page, str(row['nama_usaha']).strip(), kind, m.blok, m.kode)
                 one(box.locator('button[title="Catatan"]:visible'), f'Catatan {m.kode}')
         revoke = page.locator('button:has(svg.tabler-icon-rotate-clockwise):visible')
         edit = page.locator('button:has(svg.tabler-icon-edit):visible')
-        review_note_flow = note_only and revoke.count() == 1
+        approve = page.locator('button:has(svg.tabler-icon-check):visible')
+        # Jika percobaan sebelumnya berhenti sesudah revoke, catatan #0 tetap
+        # bisa dilanjutkan di review lalu di-approve tanpa membuka Edit.
+        review_note_flow = note_only and (
+            revoke.count() == 1 or (revoke.count() == 0 and edit.count() == 1 and approve.count() == 1)
+        )
         if revoke.count() == 1:
             self.last_stage = 'revoke'
             revoke.click()
@@ -327,7 +355,7 @@ class Fasih:
             self.last_stage = 'isi_rincian_review'
             for m, remark, _, _ in actions:
                 self.last_code = m.kode
-                open_target_block(page, str(row['nama_usaha']).strip(), kind, m.blok)
+                ready_field(page, str(row['nama_usaha']).strip(), kind, m.blok, m.kode)
                 self.may_have_changed = True
                 status = add_note(page, m.kode, remark)
                 log(f'{m.label}: catatan {status} dari halaman review.')
@@ -348,8 +376,7 @@ class Fasih:
         for m, remark, value, change in actions:
             self.last_stage = 'validasi_rincian'
             self.last_code = m.kode
-            open_target_block(page, str(row['nama_usaha']).strip(), kind, m.blok)
-            box = field(page, m.kode)
+            box = ready_field(page, str(row['nama_usaha']).strip(), kind, m.blok, m.kode)
             if remark:
                 one(box.locator('button[title="Catatan"]:visible'), f'Catatan {m.kode}')
             if change:
@@ -359,7 +386,7 @@ class Fasih:
         for m, remark, value, change in actions:
             self.last_stage = 'isi_rincian'
             self.last_code = m.kode
-            open_target_block(page, str(row['nama_usaha']).strip(), kind, m.blok)
+            ready_field(page, str(row['nama_usaha']).strip(), kind, m.blok, m.kode)
             if change:
                 box = field(page, m.kode)
                 number_input = one(box.locator('input:visible:not([type="radio"]):not([type="checkbox"]), textarea:visible'), f'Input {m.kode}')
@@ -381,8 +408,8 @@ class Fasih:
         self.last_code = None
         kirim(page, log, str(row['nama_usaha']).strip())
         self.may_have_changed = True
-        if page.url.split('?', 1)[0].rstrip('/') != target_url.rstrip('/'):
-            raise RuntimeError(f'Setelah Kirim, halaman review tidak sesuai assignment tujuan: {page.url}')
+        if not same_review_assignment(target_url, page.url):
+            raise RuntimeError(f'Setelah Kirim, assignment pada halaman review berubah: {page.url}')
         self.last_stage = 'approve'
         approve_assignment(page)
         self.last_stage = 'selesai'

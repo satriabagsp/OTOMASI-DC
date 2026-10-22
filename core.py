@@ -175,6 +175,13 @@ class Journal:
             db.execute("UPDATE pekerjaan SET status='siap_diulang', pesan='Diizinkan ulang oleh pengguna', waktu=CURRENT_TIMESTAMP WHERE assignment_id=?", (aid,))
             db.execute('INSERT INTO riwayat (assignment_id,status,pesan) VALUES (?,?,?)', (aid, 'siap_diulang', 'Diizinkan ulang oleh pengguna'))
 
+    def source_of(self, aid):
+        with closing(sqlite3.connect(self.path, timeout=30)) as db:
+            row = db.execute('SELECT sumber,status FROM pekerjaan WHERE assignment_id=?', (aid,)).fetchone()
+        if not row or row[1] not in ('error', 'berjalan', 'perlu_data', 'perlu_diperiksa'):
+            raise ValueError('ID tidak ditemukan sebagai error, perlu data, atau proses yang terputus.')
+        return row[0]
+
     def export(self, output: Path):
         with closing(sqlite3.connect(self.path, timeout=30)) as db, db:
             data = pd.read_sql_query('SELECT * FROM pekerjaan ORDER BY waktu, assignment_id', db)
