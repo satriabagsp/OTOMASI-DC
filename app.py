@@ -256,6 +256,7 @@ class App(tk.Tk):
         self.stop_button = ttk.Button(controls, text='Berhenti setelah baris ini', command=self.request_stop)
         self.stop_button.pack(side='left', padx=(0, 5))
         ttk.Button(controls, text='Izinkan ulang ID tertunda', command=self.allow_retry).pack(side='left', padx=5)
+        ttk.Button(controls, text='Atur DB pusat', command=self.configure_central).pack(side='left', padx=5)
         self.status = tk.StringVar(value='Belum ada file.')
         ttk.Label(controls, textvariable=self.status).pack(side='right')
 

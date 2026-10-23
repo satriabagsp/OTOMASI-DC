@@ -250,3 +250,31 @@ Call log:
 Call log:
   - waiting for locator(""button:has(svg.tabler-icon-check):visible, button:has(svg.tabler-icon-rotate-clockwise):visible"").first to be visible
 ",2026-10-23 03:55:42
+0795cd91-cd3c-452a-85ac-f4d88868ad59,AYAM POTONG BANG OPAN,DB:data_split_usaha_20261016,1129,perlu_diperiksa,"Locator.wait_for: Timeout 30000ms exceeded.
+Call log:
+  - waiting for get_by_role(""alertdialog"", name=""Assignment Berhasil Disubmit"") to be visible
+",2026-10-23 03:59:54
+dea38aaa-5553-4889-98e7-4cda7bb40d73,JUALAN TETELAN SAPI ( IIS ),DB:data_split_usaha_20261016,933,perlu_diperiksa,"Locator.wait_for: Timeout 30000ms exceeded.
+Call log:
+  - waiting for locator(""button:has(svg.tabler-icon-check):visible, button:has(svg.tabler-icon-rotate-clockwise):visible"").first to be visible
+",2026-10-23 04:03:03
+3222bd9d-cca6-42a8-b6ff-ef866fd2d8e8,DAGING SAPI (MUHTAR),DB:data_split_usaha_20261016,938,perlu_diperiksa,"Locator.wait_for: Timeout 30000ms exceeded.
+Call log:
+  - waiting for locator(""button:has(svg.tabler-icon-check):visible, button:has(svg.tabler-icon-rotate-clockwise):visible"").first to be visible
+",2026-10-23 04:04:08
+9c3a1a46-23cd-426e-8ff1-783e88d7f44a,AYAM FROZEN (INDRA GUNAWAN) ,DB:data_split_usaha_20261016,1123,perlu_diperiksa,"Locator.wait_for: Timeout 30000ms exceeded.
+Call log:
+  - waiting for get_by_role(""alertdialog"", name=""Assignment Berhasil Disubmit"") to be visible
+",2026-10-23 04:31:04
+8d629b19-0fd8-4283-9217-0bc7c24d0b5d,AYAM POTONG,DB:data_split_usaha_20261016,1248,perlu_diperiksa,"Locator.wait_for: Timeout 30000ms exceeded.
+Call log:
+  - waiting for locator(""button:has(svg.tabler-icon-check):visible, button:has(svg.tabler-icon-rotate-clockwise):visible"").first to be visible
+",2026-10-23 04:43:02
+63e571e3-9039-4520-80ef-480fcfd25319,JUAL AYAM POTONG,DB:data_split_usaha_20261016,1298,perlu_diperiksa,"Locator.wait_for: Timeout 30000ms exceeded.
+Call log:
+  - waiting for locator(""button:has(svg.tabler-icon-rotate-clockwise):visible"").first to be visible
+",2026-10-23 04:48:28
+7395c1da-5664-4f16-8009-28fa491e65d7,JUALAN DAGING (SANDI) ,DB:data_split_usaha_20261016,1343,perlu_diperiksa,"Locator.wait_for: Timeout 30000ms exceeded.
+Call log:
+  - waiting for locator(""button:has(svg.tabler-icon-check):visible, button:has(svg.tabler-icon-rotate-clockwise):visible"").first to be visible
+",2026-10-23 04:51:13

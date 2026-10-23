@@ -638,3 +638,16 @@ c5757bee-cfdd-4a4a-9437-bda169a1ca60,AYAM POTONG HANDOKO,DB:data_split_usaha_202
 7f8399d8-96a7-420a-85c0-140e37c97cbb,TOKO AYAM IBU DEDE,DB:data_split_usaha_20261016,1069,error,"BrowserContext.new_page: Target page, context or browser has been closed",2026-10-23 03:53:05
 c02ad88b-f975-4f36-bce5-333de38c2d9a,USAHA PENJUAL DAGING AYAM KELILING (ANAM),DB:data_split_usaha_20261016,1074,error,"BrowserContext.new_page: Target page, context or browser has been closed",2026-10-23 03:53:06
 e3f80669-f214-42ea-9f96-ccca238493a1,AYAM POTONG (SAEPUDIN),DB:data_split_usaha_20261016,1079,error,"BrowserContext.new_page: Target page, context or browser has been closed",2026-10-23 03:53:07
+e7e2f6e3-3213-49ee-9112-43604a001373,MAJU LANCAR CV,DB:data_split_usaha_20261016,1114,error,Page.wait_for_function: Timeout 30000ms exceeded.,2026-10-23 03:58:33
+7f5ae8d2-ec21-498c-9728-5db99d9e325d,AYAM UNGKEP KELILING DIAN LESMANA,DB:data_split_usaha_20261016,1138,error,"Locator.wait_for: Timeout 30000ms exceeded.
+Call log:
+  - waiting for locator(""div.fasih-form-sidebar > div[title=\""SE2026 - L BLOK II\""]:visible, div.fasih-form-sidebar > div[title=\""BLOK I\""]:visible, div.fasih-form-sidebar > div[title=\""BLOK II\""]:visible"").first to be visible
+",2026-10-23 04:32:49
+f4b288f3-49c9-4144-8539-e4123095d7e2,AYAM GEPREK BANG MALIK,DB:data_split_usaha_20261016,1318,error,Tahun operasi '2026' tidak didukung; isian bulanan perlu penanganan manual.,2026-10-23 04:49:38
+bb04a5b7-c1dd-4749-ad83-bb3785a7f036,BU AISYAH,DB:data_split_usaha_20261016,1323,error,Tahun operasi '2026' tidak didukung; isian bulanan perlu penanganan manual.,2026-10-23 04:49:41
+c656d2be-dd94-47e9-9ce6-9dfa99e0bfda,MENJUAL AYAM POTONG(HASANUDIN),DB:data_split_usaha_20261016,1328,error,Tahun operasi '2026' tidak didukung; isian bulanan perlu penanganan manual.,2026-10-23 04:49:44
+3eb7a7c4-b61f-4838-bf25-c6f063b8147b,USAHA AYAM POTONG AMIRUDIN,DB:data_split_usaha_20261016,1333,error,Tahun operasi '2026' tidak didukung; isian bulanan perlu penanganan manual.,2026-10-23 04:49:47
+d53f3e48-e396-4417-979b-1aed0a339447,INTI YUDA SAMUDRA,DB:data_split_usaha_20261016,1363,error,Page.wait_for_function: Timeout 30000ms exceeded.,2026-10-23 04:53:56
+bf7d9eba-bdae-402b-ae06-fefdafeffc0d,"SURI NUSANTARA JAYA, PT",DB:data_split_usaha_20261016,1368,error,Tahun operasi '2026' tidak didukung; isian bulanan perlu penanganan manual.,2026-10-23 04:54:05
+53c8c63e-6605-4f74-a25d-c54bdfbe7e52,PERIKANAN,DB:data_split_usaha_20261016,1398,error,Tahun operasi '2026' tidak didukung; isian bulanan perlu penanganan manual.,2026-10-23 04:55:21
+b0cd5cfa-24cb-4967-ae0d-fc876bf13472,NESTARA TELUR (FAUZAN),DB:data_split_usaha_20261016,1493,error,Tahun operasi '2026' tidak didukung; isian bulanan perlu penanganan manual.,2026-10-23 05:01:20
