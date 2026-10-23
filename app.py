@@ -21,12 +21,27 @@ PROFILE = ROOT.parent / 'fasih_profile_gui'
 DAFTAR_FILE = ROOT / 'daftar_perbaikan.json'
 CENTRAL_CONFIG_FILE = ROOT / 'config_pusat.json'
 DATABASE_BATCH_TOTAL = 25
+PREVIEW_BUFFER_MULTIPLIER = 3
+PREVIEW_BUFFER_MINIMUM = 5
 PILIHAN_RINCIAN = {f'{label} ({kode})  |  {blok} · {jenis}': (blok, kode) for blok, kode, label, jenis in RINCIAN}
 RINCIAN_PILIHAN = {value: label for label, value in PILIHAN_RINCIAN.items()}
 COLUMN_ALIASES = {
     'metrik_biaya_produksin (mejadi)': 'metrik_biaya_produksin (menjadi)',
     'metrik_biaya_produksin (menjadi)': 'metrik_biaya_produksin (mejadi)',
 }
+
+
+def preview_fetch_limit(requested):
+    """Jumlah kandidat database untuk membentuk satu antrean.
+
+    Jangan mengambil ratusan baris saat petugas meminta satu assignment.
+    Sedikit kandidat cadangan tetap diperlukan karena sebagian dapat ditahan
+    akibat assignment ganda atau aturan remark.
+    """
+    requested = int(requested)
+    if requested < 1 or requested > 5000:
+        raise ValueError('Batas proses harus antara 1 dan 5000.')
+    return min(max(requested * PREVIEW_BUFFER_MULTIPLIER, PREVIEW_BUFFER_MINIMUM), 5000)
 
 
 def compatible_column(name, columns):
@@ -573,7 +588,7 @@ class App(tk.Tk):
                 if not self.central:
                     raise ValueError('Atur DB pusat sebelum memakai sumber database.')
                 requested = int(self.limit.get())
-                fetch_limit = min(max(requested * 20, 200), 5000)
+                fetch_limit = preview_fetch_limit(requested)
                 records = self.central.source_rows(
                     kategori, wilayah, fetch_limit, reverse=self.reverse.get(),
                     split=self.pembagian.get(), retry_errors=retry_errors,
@@ -605,7 +620,12 @@ class App(tk.Tk):
                                self.skip_errors.get() and not retry_errors)
             mappings = self.get_mappings()
             central_count = 0
-            if self.central:
+            # Sumber database sudah menyaring Sudah Diinput=0. Membaca seluruh
+            # jurnal berhasil lagi di sini hanya menambah beban gateway saat
+            # banyak kabupaten membuat pratinjau bersamaan. Jurnal tetap
+            # diperlukan untuk sumber File lokal karena file tidak memperbarui
+            # tabel sumber.
+            if self.central and not database_mode:
                 try:
                     central_done = self.central.completed_ids(kategori, wilayah)
                     central_count = len(central_done)
@@ -666,8 +686,12 @@ class App(tk.Tk):
             self.status.set(f'{len(self.rows)} baris siap diproses · batch {batch_number}/{batch_total}')
             source_note = ('Data diambil bertahap dari database pusat.' if database_mode
                            else 'Log GUI dan log notebook yang sesuai sudah diperiksa.')
+            journal_note = (' Status Sudah Diinput pada sumber dipakai langsung; jurnal berhasil tidak dibaca ulang.'
+                            if database_mode else
+                            (f' Database pusat memuat {central_count} ID berhasil untuk kategori/wilayah ini.'
+                             if self.central else ' Database pusat belum aktif.'))
             self.log(f'Pratinjau batch {batch_number}/{batch_total}: {len(self.rows)} baris. {source_note}' +
-                     (f' Database pusat memuat {central_count} ID berhasil untuk kategori/wilayah ini.' if self.central else ' Database pusat belum aktif.') +
+                     journal_note +
                      (f' {len(duplicate_assignments)} assignment ganda ({duplicate_rows} baris pada batch) ditahan untuk penanganan gabungan.' if duplicate_assignments else '') +
                      (' Error dan baris perlu data diikutsertakan; periksa perubahan sebagian di FASIH sebelum menjalankan.' if retry_errors else ''))
         except Exception as exc:

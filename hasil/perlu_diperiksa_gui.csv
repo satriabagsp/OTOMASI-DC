@@ -278,3 +278,37 @@ Call log:
 Call log:
   - waiting for locator(""button:has(svg.tabler-icon-check):visible, button:has(svg.tabler-icon-rotate-clockwise):visible"").first to be visible
 ",2026-10-23 04:51:13
+9d5d156d-32f8-42d0-ad92-9338b566abe9,PEMOTONG AYAM,DB:data_split_usaha_20261016,1151,perlu_diperiksa,GALAT validasi: Galat | TOTAL: 2 / 2 | 1 | SE2026 - L BLOK II | Pilih UMKM dalam satu SLS yang sama | Wajib diisi | 2 | CATATAN | Tampilkan Anomali Usaha dan Keluarga | Wajib diisi | Close,2026-10-23 11:35:50
+ab95b67e-20dc-4f60-9f9c-5107c41a18ea,TOKO IKAN ASIN ( AMING ),DB:data_split_usaha_20261016,1376,perlu_diperiksa,"Locator.wait_for: Timeout 30000ms exceeded.
+Call log:
+  - waiting for locator(""button:has(svg.tabler-icon-rotate-clockwise):visible"").first to be visible
+",2026-10-23 11:40:41
+8a51ce42-ad43-43a0-8eb7-e92011edb8fb,"BANGKIT JAYA BERSAMA, CV",DB:data_split_usaha_20261016,2701,perlu_diperiksa,GALAT validasi: Galat | TOTAL: 1 / 1 | 1 | CATATAN | Penjelasan Penyelesaian Anomali oleh Admin | Wajib diisi | Close,2026-10-23 11:55:45
+095adadf-0aa2-4b49-bb1f-f20f5e7c7fa4,WARUNG RUMAHAN (ENAH) ,DB:data_split_usaha_20261016,4701,perlu_diperiksa,"Locator.wait_for: Timeout 30000ms exceeded.
+Call log:
+  - waiting for locator(""button:has(svg.tabler-icon-check):visible, button:has(svg.tabler-icon-rotate-clockwise):visible"").first to be visible
+",2026-10-23 12:17:29
+25bc1e1c-cc91-4e6c-bd6a-b852d831c28f,WARUNG OMASIH,DB:data_split_usaha_20261016,4801,perlu_diperiksa,"Locator.wait_for: Timeout 30000ms exceeded.
+Call log:
+  - waiting for get_by_role(""alertdialog"", name=""Assignment Berhasil Disubmit"") to be visible
+",2026-10-23 12:19:09
+bec8edc3-d9ac-4d6a-a964-5fff56eea823,WARUNG SEMBAKO (YAYAH),DB:data_split_usaha_20261016,4826,perlu_diperiksa,"Locator.wait_for: Timeout 30000ms exceeded.
+Call log:
+  - waiting for get_by_role(""alertdialog"", name=""Assignment Berhasil Disubmit"") to be visible
+",2026-10-23 12:19:53
+c29d1ee4-6003-4a9d-9678-f2547711757d,AGEN SEMBAKO WAWAN,DB:data_split_usaha_20261016,4851,perlu_diperiksa,"Locator.wait_for: Timeout 30000ms exceeded.
+Call log:
+  - waiting for get_by_role(""alertdialog"", name=""Assignment Berhasil Disubmit"") to be visible
+",2026-10-23 12:20:37
+f69d9f08-f57a-4316-9b3c-89c896ee6498,WARUNG BU AAS,DB:data_split_usaha_20261016,4876,perlu_diperiksa,"Locator.wait_for: Timeout 30000ms exceeded.
+Call log:
+  - waiting for get_by_role(""alertdialog"", name=""Assignment Berhasil Disubmit"") to be visible
+",2026-10-23 12:21:21
+942600e0-12d9-490a-a9e1-fffd173c586e,WARUNG JAJANAN MPAT,DB:data_split_usaha_20261016,4901,perlu_diperiksa,"Locator.wait_for: Timeout 30000ms exceeded.
+Call log:
+  - waiting for locator(""button:has(svg.tabler-icon-check):visible, button:has(svg.tabler-icon-rotate-clockwise):visible"").first to be visible
+",2026-10-23 12:22:06
+cae85421-62a9-40e8-8445-9bf5b55cf69a,WARUNG IBU NURYATI,DB:data_split_usaha_20261016,5151,perlu_diperiksa,"Locator.wait_for: Timeout 30000ms exceeded.
+Call log:
+  - waiting for get_by_role(""alertdialog"", name=""Assignment Berhasil Disubmit"") to be visible
+",2026-10-23 12:25:41

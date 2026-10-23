@@ -7,13 +7,20 @@ from pathlib import Path
 from types import SimpleNamespace
 from unittest.mock import MagicMock, patch
 
-from app import App, RINCIAN_PILIHAN, compatible_column
+from app import App, RINCIAN_PILIHAN, compatible_column, preview_fetch_limit
 from core import Journal, TARGETS
 from katalog_rincian import L
 import pandas as pd
 
 
 class ColumnCompatibilityTests(unittest.TestCase):
+    def test_pratinjau_database_tidak_mengambil_200_baris_saat_batas_satu(self):
+        self.assertEqual(preview_fetch_limit(1), 5)
+        self.assertEqual(preview_fetch_limit(10), 30)
+        self.assertEqual(preview_fetch_limit(2000), 5000)
+        with self.assertRaisesRegex(ValueError, 'antara 1 dan 5000'):
+            preview_fetch_limit(0)
+
     def test_typo_lama_dipetakan_ke_nama_kolom_database(self):
         columns = ['metrik_biaya_produksin (menjadi)']
         self.assertEqual(
