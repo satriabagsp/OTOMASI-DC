@@ -52,11 +52,11 @@ class CentralTests(unittest.TestCase):
         post = MagicMock(return_value=self.response({'results': [{'id': 7, 'kategori': 'G'}]}))
         api = CentralAPI(self.config(), post=post)
         self.assertEqual(
-            api.source_rows('g', '3201', 25, batch_number=2, batch_total=5),
+            api.source_rows('g', '3201', 25, batch_number=25, batch_total=25),
             [{'id': 7, 'kategori': 'G'}],
         )
         sql = post.call_args.kwargs['json']['sql']
-        self.assertIn("MOD(id,5)=1", sql)
+        self.assertIn("MOD(id,25)=24", sql)
         self.assertIn("`Siap Input`=1", sql)
         self.assertIn("COALESCE(`Sudah Diinput`,0)=0", sql)
         self.assertIn("ORDER BY id ASC LIMIT 25", sql)

@@ -20,6 +20,7 @@ OUTPUT = ROOT / 'hasil'
 PROFILE = ROOT.parent / 'fasih_profile_gui'
 DAFTAR_FILE = ROOT / 'daftar_perbaikan.json'
 CENTRAL_CONFIG_FILE = ROOT / 'config_pusat.json'
+DATABASE_BATCH_TOTAL = 25
 PILIHAN_RINCIAN = {f'{label} ({kode})  |  {blok} · {jenis}': (blok, kode) for blok, kode, label, jenis in RINCIAN}
 RINCIAN_PILIHAN = {value: label for label, value in PILIHAN_RINCIAN.items()}
 COLUMN_ALIASES = {
@@ -81,7 +82,7 @@ class App(tk.Tk):
         self.kategori = tk.StringVar(value='G')
         self.wilayah = tk.StringVar(value='3201')
         self.batch_number = tk.StringVar(value='')
-        self.batch_total = tk.StringVar(value='5')
+        self.batch_total = tk.StringVar(value=str(DATABASE_BATCH_TOTAL))
         self.limit = tk.StringVar(value='1')
         self.pembagian = tk.StringVar(value='semua')
         self.reverse = tk.BooleanVar(value=False)
@@ -193,11 +194,12 @@ class App(tk.Tk):
         batch.grid(row=3, column=0, columnspan=9, sticky='w', pady=(3, 1))
         ttk.Label(batch, text='Batch bot').pack(side='left')
         self.batch_box = ttk.Combobox(
-            batch, textvariable=self.batch_number, values=('1', '2', '3', '4', '5'),
+            batch, textvariable=self.batch_number,
+            values=tuple(str(number) for number in range(1, DATABASE_BATCH_TOTAL + 1)),
             state='readonly' if self.source_mode.get() == 'database' else 'disabled', width=5,
         )
         self.batch_box.pack(side='left', padx=(5, 8))
-        ttk.Label(batch, text='Wajib pilih 1–5 dan gunakan nomor berbeda pada setiap bot.',
+        ttk.Label(batch, text='Wajib pilih 1–25 dan gunakan nomor berbeda pada setiap bot.',
                   foreground='#60758f').pack(side='left')
         opts = ttk.Frame(src)
         opts.grid(row=4, column=0, columnspan=9, sticky='w')
@@ -561,10 +563,11 @@ class App(tk.Tk):
             retry_errors = self.retry_errors.get()
             database_mode = self.source_mode.get() == 'database'
             if database_mode:
-                if self.batch_number.get().strip() not in {'1', '2', '3', '4', '5'}:
-                    raise ValueError('Batch bot wajib dipilih antara 1 sampai 5 saat memakai Database pusat.')
-                batch_number = int(self.batch_number.get().strip())
-                batch_total = 5
+                batch_text = self.batch_number.get().strip()
+                if not batch_text.isdigit() or not 1 <= int(batch_text) <= DATABASE_BATCH_TOTAL:
+                    raise ValueError('Batch bot wajib dipilih antara 1 sampai 25 saat memakai Database pusat.')
+                batch_number = int(batch_text)
+                batch_total = DATABASE_BATCH_TOTAL
                 if self.pembagian.get() != 'semua':
                     raise ValueError('Saat memakai pembagian batch bot, pilih Bagian: semua agar tidak ada data yang terlewat.')
                 if not self.central:
@@ -694,7 +697,7 @@ class App(tk.Tk):
                 raise ValueError('Pengaturan atau file berubah. Buat ulang pratinjau.')
             if not messagebox.askyesno('Konfirmasi proses',
                 f'Proses {len(self.rows)} assignment' +
-                (f' dari batch {self.batch_number.get()}/5' if database_mode else '') + '?\n\n'
+                (f' dari batch {self.batch_number.get()}/{DATABASE_BATCH_TOTAL}' if database_mode else '') + '?\n\n'
                 'Proses dapat revoke, mengubah nilai/catatan, mengirim dan approve. '
                 f'Pembulatan desimal: {"aktif" if self.round_values.get() else "tidak aktif"}. '
                 'Pastikan akun sesuai wilayah. Jika gagal setelah revoke, status perlu diperiksa manual.' +
