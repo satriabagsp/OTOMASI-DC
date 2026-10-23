@@ -277,6 +277,29 @@ class Fasih:
         self.context = self.playwright = self.page = None
         self.work_page = None
 
+    @staticmethod
+    def _login_is_visible(page):
+        """Bedakan halaman login sungguhan dari elemen login tersembunyi milik SPA."""
+        try:
+            if 'sso.bps.go.id' in page.url:
+                return True
+            login = page.get_by_text('Lanjutkan dengan SSO Eksternal', exact=False)
+            return any(login.nth(index).is_visible() for index in range(login.count()))
+        except PlaywrightError:
+            return False
+
+    def _fresh_work_page(self):
+        """Gunakan tab baru agar state/loading assignment sebelumnya tidak terbawa."""
+        if not self.context:
+            return self.page
+        if self.work_page and not self.work_page.is_closed():
+            try:
+                self.work_page.close()
+            except PlaywrightError:
+                pass
+        self.work_page = self.context.new_page()
+        return self.work_page
+
     def process(self, row, mappings, log, round_values=False):
         self.last_stage = 'buka_assignment'
         self.last_code = None
@@ -284,9 +307,11 @@ class Fasih:
         if not self.page:
             raise RuntimeError('Buka browser dan login manual terlebih dahulu.')
         target_url = str(row['link_fasih_sm']).strip()
-        if self.context and (not self.work_page or self.work_page.is_closed()):
-            self.work_page = self.context.new_page()
-        page = self.work_page if self.context else self.page
+        # Assignment selalu dimulai dari tab kerja bersih. FASIH adalah SPA dan
+        # setelah submit/approve kadang meninggalkan overlay atau proses render
+        # dari assignment lama pada tab yang sama.
+        page = self._fresh_work_page()
+        kind = year = None
         for attempt in range(3):
             try:
                 page.goto(target_url, wait_until='domcontentloaded', timeout=TIMEOUT)
@@ -294,24 +319,25 @@ class Fasih:
                 action.first.wait_for(timeout=TIMEOUT)
                 if page.url.split('?', 1)[0].rstrip('/') != target_url.rstrip('/'):
                     raise RuntimeError(f'Halaman berubah dari assignment tujuan: {page.url}')
+                # Sidebar dan rincian dasar juga harus benar-benar siap. Dahulu
+                # keduanya diperiksa di luar retry sehingga satu render lambat
+                # merusak seluruh antrean berikutnya.
+                kind = open_block(page, str(row['nama_usaha']).strip())
+                year = input_value(page, 'tahun_operasi')
                 break
             except PlaywrightError as exc:
-                try:
-                    login_visible = 'sso.bps.go.id' in page.url or page.get_by_text('Lanjutkan dengan SSO Eksternal').count() > 0
-                except PlaywrightError:
-                    login_visible = False
-                if login_visible:
+                login_visible = self._login_is_visible(page)
+                if login_visible and attempt == 2:
                     raise RuntimeError('Sesi login FASIH belum siap. Selesaikan login di browser GUI lalu ulangi.') from exc
                 if attempt == 2 or not self.context:
                     raise
-                log('Navigasi assignment terpotong; membuka ulang tab kerja sebelum ada perubahan.')
-                page.close()
-                self.work_page = self.context.new_page()
-                page = self.work_page
+                if login_visible:
+                    log('Halaman login muncul saat membuka assignment; mencoba sekali lagi dengan tab kerja baru.')
+                else:
+                    log('Halaman assignment belum selesai dimuat; mencoba ulang dengan tab kerja baru.')
+                page = self._fresh_work_page()
         # Cek nama dan tahun pada halaman review sebelum melakukan revoke.
         self.last_stage = 'validasi_assignment'
-        kind = open_block(page, str(row['nama_usaha']).strip())
-        year = input_value(page, 'tahun_operasi')
         if not year.isdigit() or int(year) >= 2026:
             raise RuntimeError(f'Tahun operasi {year!r} tidak didukung; isian bulanan perlu penanganan manual.')
         log(f'Nama cocok, kuesioner {kind}, tahun operasi {year}.')

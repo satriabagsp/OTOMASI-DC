@@ -81,3 +81,172 @@ Call log:
 Call log:
   - waiting for get_by_role(""alertdialog"", name=""Assignment Berhasil Disubmit"") to be visible
 ",2026-10-22 05:51:46
+3c99662e-c90f-44c9-ba69-e8c5462fed05,PERDAGANGAN HASIL PERTANIAN (ROYANI),DB:data_split_usaha_20261016,15,perlu_diperiksa,"Locator.wait_for: Timeout 30000ms exceeded.
+Call log:
+  - waiting for locator(""button:has(svg.tabler-icon-rotate-clockwise):visible"").first to be visible
+    - waiting for ""https://fasih-sm.bps.go.id/app/assignment/fd68e454-ba45-4b85-8205-f3bf777ded24/3c99662e-c90f-44c9-ba69-e8c5462fed05"" navigation to finish...
+    - navigated to ""https://fasih-sm.bps.go.id/app/assignment/fd68e454-ba45-4b85-8205-f3bf777ded24/3c99662e-c90f-44c9-ba69-e8c5462fed05""
+",2026-10-22 06:35:27
+95369b26-b581-4e58-b7f4-c9215a2dd27a,PERDAGANGAN PADI ( HADI ),DB:data_split_usaha_20261016,21,perlu_diperiksa,"Locator.wait_for: Timeout 30000ms exceeded.
+Call log:
+  - waiting for locator(""button:has(svg.tabler-icon-rotate-clockwise):visible"").first to be visible
+",2026-10-22 06:38:23
+0b84fa42-51c3-4be2-9d73-038642b81a75,SABANA,DB:data_split_usaha_20261016,1311,perlu_diperiksa,"Locator.wait_for: Timeout 30000ms exceeded.
+Call log:
+  - waiting for locator(""button:has(svg.tabler-icon-rotate-clockwise):visible"").first to be visible
+",2026-10-22 06:42:55
+6a744cda-9112-4ea5-ab46-65f3bb2a958a,KELAPA PARUT AIP,DB:data_split_usaha_20261016,42,perlu_diperiksa,"Locator.wait_for: Timeout 30000ms exceeded.
+Call log:
+  - waiting for get_by_role(""alertdialog"", name=""Assignment Berhasil Disubmit"") to be visible
+",2026-10-22 06:52:32
+aba75bae-c31d-440f-8bf0-0bc9a81e7ba2,KELAPA PARUT BAMBANG,DB:data_split_usaha_20261016,46,perlu_diperiksa,"Locator.wait_for: Timeout 30000ms exceeded.
+Call log:
+  - waiting for locator(""button:has(svg.tabler-icon-rotate-clockwise):visible"").first to be visible
+",2026-10-22 06:55:04
+302d66d9-e48e-44eb-973e-66d4596087fb,KIOS KELAPA ,DB:data_split_usaha_20261016,49,perlu_diperiksa,"Locator.wait_for: Timeout 30000ms exceeded.
+Call log:
+  - waiting for locator(""button:has(svg.tabler-icon-rotate-clockwise):visible"").first to be visible
+",2026-10-22 06:56:30
+ac1b0652-f42b-462d-a537-69c701049027,KIOS KELAPA PARUD ALI ,DB:data_split_usaha_20261016,54,perlu_diperiksa,"Locator.wait_for: Timeout 30000ms exceeded.
+Call log:
+  - waiting for locator(""button:has(svg.tabler-icon-rotate-clockwise):visible"").first to be visible
+",2026-10-22 06:58:57
+70342b16-e386-4dfe-b7fe-1a36a86f8116,JUAL KELAPA PARUT HOTIB,DB:data_split_usaha_20261016,58,perlu_diperiksa,"Locator.wait_for: Timeout 30000ms exceeded.
+Call log:
+  - waiting for locator(""button:has(svg.tabler-icon-rotate-clockwise):visible"").first to be visible
+",2026-10-22 07:01:25
+4cce7a0e-124e-46c3-b581-79a59e227c35,PENGGILINGAN KELAPA PARUT,DB:data_split_usaha_20261016,67,perlu_diperiksa,"Locator.wait_for: Timeout 30000ms exceeded.
+Call log:
+  - waiting for locator(""button:has(svg.tabler-icon-rotate-clockwise):visible"").first to be visible
+",2026-10-22 07:06:33
+bfc4a33f-24a5-42d9-b6ce-f4f3a0d9dd46,WARUNG TEMBAKAU MAS MUL(MULYONO) ,DB:data_split_usaha_20261016,72,perlu_diperiksa,"Locator.wait_for: Timeout 30000ms exceeded.
+Call log:
+  - waiting for get_by_role(""alertdialog"", name=""Assignment Berhasil Disubmit"") to be visible
+",2026-10-22 07:08:41
+5266a0a5-8db2-4f1e-86cd-32bcfb4d631e,YN BERKAH JAYA,DB:data_split_usaha_20261016,83,perlu_diperiksa,"Locator.wait_for: Timeout 30000ms exceeded.
+Call log:
+  - waiting for locator(""button:has(svg.tabler-icon-check):visible, button:has(svg.tabler-icon-rotate-clockwise):visible"").first to be visible
+",2026-10-22 07:13:39
+c6e19386-4f49-4077-a285-daba0cc33287,PETERNAKAN AYAM ( IBAD BADRUDIN),DB:data_split_usaha_20261016,84,perlu_diperiksa,"Locator.wait_for: Timeout 30000ms exceeded.
+Call log:
+  - waiting for get_by_role(""alertdialog"", name=""Assignment Berhasil Disubmit"") to be visible
+",2026-10-22 07:14:44
+0a0c7f6d-91ad-4b5d-98de-05c3d0056011,ABAH'S GOAT FARMING,DB:data_split_usaha_20261016,88,perlu_diperiksa,"Locator.wait_for: Timeout 30000ms exceeded.
+Call log:
+  - waiting for get_by_role(""alertdialog"", name=""Assignment Berhasil Disubmit"") to be visible
+",2026-10-22 07:16:24
+2f90b394-7e6e-4665-9603-09e5d54be5f1,ABU LEPHI ARWANA,DB:data_split_usaha_20261016,96,perlu_diperiksa,"Locator.wait_for: Timeout 30000ms exceeded.
+Call log:
+  - waiting for locator(""button:has(svg.tabler-icon-rotate-clockwise):visible"").first to be visible
+",2026-10-22 07:20:06
+d720f349-186b-4d74-9f78-d634ab863217,AYAM POTONG TEH ULFAH,DB:data_split_usaha_20261016,103,perlu_diperiksa,"Locator.wait_for: Timeout 30000ms exceeded.
+Call log:
+  - waiting for locator(""button:has(svg.tabler-icon-rotate-clockwise):visible"").first to be visible
+",2026-10-22 07:23:53
+d137a1ae-b476-4473-af4e-23eac60f6cb4,PERDAGANGAN DOMBA PAK IWAN,DB:data_split_usaha_20261016,107,perlu_diperiksa,"Locator.wait_for: Timeout 30000ms exceeded.
+Call log:
+  - waiting for locator(""button:has(svg.tabler-icon-rotate-clockwise):visible"").first to be visible
+",2026-10-22 07:26:50
+8c409fd4-a6c9-41bc-99c2-0dc99b3222f6,JUAL BELI DOMBA ( NEA JAENUDIN ),DB:data_split_usaha_20261016,109,perlu_diperiksa,"Locator.wait_for: Timeout 30000ms exceeded.
+Call log:
+  - waiting for locator(""button:has(svg.tabler-icon-rotate-clockwise):visible"").first to be visible
+",2026-10-22 07:28:52
+65f1f41d-a118-4b59-b1e3-cba0017f2d05,JUAL CACING HENDRI,DB:data_split_usaha_20261016,113,perlu_diperiksa,"Locator.wait_for: Timeout 30000ms exceeded.
+Call log:
+  - waiting for get_by_role(""alertdialog"", name=""Assignment Berhasil Disubmit"") to be visible
+",2026-10-22 07:31:05
+e2ada4f9-9bc9-4d7f-bc1d-7ae05eec2c6f,BANG BAYU CUE (PEPEN BAYU),DB:data_split_usaha_20261016,120,perlu_diperiksa,"Locator.wait_for: Timeout 30000ms exceeded.
+Call log:
+  - waiting for locator(""button:has(svg.tabler-icon-rotate-clockwise):visible"").first to be visible
+",2026-10-22 07:33:32
+a304848e-6272-4bde-9014-a92459a674cc,IKAN ASIN MANG ISAK,DB:data_split_usaha_20261016,122,perlu_diperiksa,"Locator.wait_for: Timeout 30000ms exceeded.
+Call log:
+  - waiting for locator(""button:has(svg.tabler-icon-check):visible, button:has(svg.tabler-icon-rotate-clockwise):visible"").first to be visible
+",2026-10-22 07:34:56
+09280413-5a83-4b85-b6a6-41d347599425,UPT PERIKANAN KARDI,DB:data_split_usaha_20261016,132,perlu_diperiksa,"Locator.wait_for: Timeout 30000ms exceeded.
+Call log:
+  - waiting for get_by_role(""alertdialog"", name=""Assignment Berhasil Disubmit"") to be visible
+",2026-10-22 07:40:41
+9749b06f-4fa2-4a9d-9bcc-93cbfa0b1f85,IKAN MAS MAD HERU,DB:data_split_usaha_20261016,135,perlu_diperiksa,"Locator.click: Timeout 30000ms exceeded.
+Call log:
+  - waiting for locator(""[id^=\""dialog-\""][id$=\""-content\""]:visible"").get_by_role(""button"", name=""Simpan"", exact=True)
+    - locator resolved to <button type=""button"" title=""Simpan"" class=""tw:inline-flex tw:items-center tw:justify-center tw:font-medium tw:text-sm tw:focus-visible:outline-hidden tw:focus-visible:ring-1 tw:focus-visible:ring-primary tw:focus-visible:ring-offset-2 tw:focus-visible:ring-offset-background tw:disabled:pointer-events-none tw:disabled:opacity-50 tw:size-7 tw:rounded-lg tw:transition-all tw:bg-primary/10 tw:text-primary tw:hover:bg-primary/20"">…</button>
+  - attempting click action
+    2 × waiting for element to be visible, enabled and stable
+      - element is not stable
+    - retrying click action
+    - waiting 20ms
+    - waiting for element to be visible, enabled and stable
+  - element was detached from the DOM, retrying
+",2026-10-22 07:52:40
+cbb6861d-3464-4773-8f2e-eee5d0cbdcb5,SUKRON MAKMUN,DB:data_split_usaha_20261016,143,perlu_diperiksa,"Locator.wait_for: Timeout 30000ms exceeded.
+Call log:
+  - waiting for locator(""button:has(svg.tabler-icon-rotate-clockwise):visible"").first to be visible
+",2026-10-22 07:57:04
+f52f81f3-b44f-4ccc-958f-91f78e228f58,IKAN HIAS LUTFI LEON SANDER,DB:data_split_usaha_20261016,147,perlu_diperiksa,"Locator.wait_for: Timeout 30000ms exceeded.
+Call log:
+  - waiting for get_by_role(""alertdialog"", name=""Assignment Berhasil Disubmit"") to be visible
+",2026-10-22 07:59:09
+4d4df366-f151-4f29-bb46-7d866c62ff43,NAZIIH BAMBU,DB:data_split_usaha_20261016,168,perlu_diperiksa,"Locator.wait_for: Timeout 30000ms exceeded.
+Call log:
+  - waiting for locator(""button:has(svg.tabler-icon-check):visible, button:has(svg.tabler-icon-rotate-clockwise):visible"").first to be visible
+",2026-10-22 08:07:02
+05439fca-0ee4-437e-8efd-5a79caa08852,Jual beli bambu,DB:data_split_usaha_20261016,174,perlu_diperiksa,"Locator.wait_for: Timeout 30000ms exceeded.
+Call log:
+  - waiting for locator(""button:has(svg.tabler-icon-rotate-clockwise):visible"").first to be visible
+",2026-10-22 08:09:40
+70c9eb3b-389c-4372-b9ff-3c3a31119a55,PEMBORONG KAYU BAKAR ( NARDA),DB:data_split_usaha_20261016,175,perlu_diperiksa,"Locator.wait_for: Timeout 30000ms exceeded.
+Call log:
+  - waiting for get_by_role(""alertdialog"", name=""Assignment Berhasil Disubmit"") to be visible
+",2026-10-22 08:10:32
+f0915307-c84d-4f8b-a058-345c8b5864b8,ANGGREK IYAN SOPIAN,DB:data_split_usaha_20261016,198,perlu_diperiksa,"Locator.wait_for: Timeout 30000ms exceeded.
+Call log:
+  - waiting for locator(""button:has(svg.tabler-icon-check):visible, button:has(svg.tabler-icon-rotate-clockwise):visible"").first to be visible
+",2026-10-22 08:20:30
+6b8f1c40-d2e7-4bf5-a024-54b06c15f32e,TOKO BAHAN ASIFA BARU ,DB:data_split_usaha_20261016,206,perlu_diperiksa,"Locator.wait_for: Timeout 30000ms exceeded.
+Call log:
+  - waiting for locator(""button:has(svg.tabler-icon-rotate-clockwise):visible"").first to be visible
+",2026-10-22 08:22:59
+bd7a8542-6025-4f8b-b52f-84ec81c95a2e,JUAL BERAS,DB:data_split_usaha_20261016,260,perlu_diperiksa,GALAT validasi: Galat | TOTAL: 2 / 2 | 1 | SE2026 - L BLOK II | Pilih UMKM dalam satu SLS yang sama | Wajib diisi | 2 | CATATAN | Tampilkan Anomali Usaha dan Keluarga | Wajib diisi | Close,2026-10-22 08:43:06
+1d18a23a-25ad-4731-9ccd-5dece6a654c6,AGEN SRIKANDI,DB:data_split_usaha_20261016,273,perlu_diperiksa,"Locator.wait_for: Timeout 30000ms exceeded.
+Call log:
+  - waiting for get_by_role(""alertdialog"", name=""Assignment Berhasil Disubmit"") to be visible
+",2026-10-22 08:48:09
+8b0253ba-5ceb-4422-9787-2ac1f8364d64,TOKO BERAS MADA TANI,DB:data_split_usaha_20261016,277,perlu_diperiksa,"Locator.wait_for: Timeout 30000ms exceeded.
+Call log:
+  - waiting for get_by_role(""alertdialog"", name=""Assignment Berhasil Disubmit"") to be visible
+",2026-10-22 08:50:07
+5f153042-c5b2-4b39-8fee-718a48115260,ADI CAHYA SUHEDRI,DB:data_split_usaha_20261016,292,perlu_diperiksa,"Locator.wait_for: Timeout 30000ms exceeded.
+Call log:
+  - waiting for locator(""button:has(svg.tabler-icon-rotate-clockwise):visible"").first to be visible
+",2026-10-22 08:56:35
+5a49e2ca-fc18-40b5-bcd7-f753fc567527,TOKO BERAS ANUGERAH TANI(IKA NOVIANTIKA) ,DB:data_split_usaha_20261016,297,perlu_diperiksa,"Locator.wait_for: Timeout 30000ms exceeded.
+Call log:
+  - waiting for get_by_role(""alertdialog"", name=""Assignment Berhasil Disubmit"") to be visible
+",2026-10-22 08:59:55
+8471114d-44d4-4f19-a63d-400849c7fab1,TOKO BERAS BERKAH,DB:data_split_usaha_20261016,304,perlu_diperiksa,"Locator.wait_for: Timeout 30000ms exceeded.
+Call log:
+  - waiting for locator(""button:has(svg.tabler-icon-check):visible, button:has(svg.tabler-icon-rotate-clockwise):visible"").first to be visible
+",2026-10-22 09:06:06
+6d84f4de-bfdb-4d80-a0d0-ab9a013bafe9,WARUNG BERAS HENDRA,DB:data_split_usaha_20261016,309,perlu_diperiksa,"Locator.wait_for: Timeout 30000ms exceeded.
+Call log:
+  - waiting for locator(""button:has(svg.tabler-icon-rotate-clockwise):visible"").first to be visible
+",2026-10-22 09:08:55
+3fc61049-1002-4cbe-961d-86d2f4255f1f,PENJUAL BUAH AMIR,DB:data_split_usaha_20261016,321,perlu_diperiksa,"Locator.wait_for: Timeout 30000ms exceeded.
+Call log:
+  - waiting for locator(""button:has(svg.tabler-icon-rotate-clockwise):visible"").first to be visible
+",2026-10-22 09:11:19
+aef08d5f-7f6e-4a69-b185-c7b539bd1ea9,BYEES BERKAH SEJAHTERA,DB:data_split_usaha_20261016,332,perlu_diperiksa,"GALAT validasi: Galat | TOTAL: 2 / 2 | 1 | SE2026 - L BLOK II | Perubahan Nama usaha/perusahaan Tulis perbaikan nama usaha, jika tidak ada perubahan tulis ulang nama usaha/perusahaan | Status badan usaha adalah CV maka nama usaha harus diakhiri dengan ,CV | 2 | CATATAN | Tampilkan Anomali Usaha dan Keluarga | Wajib diisi | Close",2026-10-22 09:14:39
+7af53b4e-e8cf-43fd-a5e2-de0d2dd0f191,AGEN BUAH PISANG DAN KELAPA (KARDI) ,DB:data_split_usaha_20261016,337,perlu_diperiksa,"Locator.wait_for: Timeout 30000ms exceeded.
+Call log:
+  - waiting for get_by_role(""alertdialog"", name=""Assignment Berhasil Disubmit"") to be visible
+",2026-10-22 09:16:51
+86ad5542-6f89-4474-b1f3-e164759cf7d3,DAGING SAPI (ZULKAR),DB:data_split_usaha_20261016,917,berjalan,,2026-10-22 12:08:30
+6f9e11d4-21e7-4a88-9566-f1af031ac7db,TOKO DAGING ENUY,DB:data_split_usaha_20261016,919,perlu_diperiksa,"Locator.wait_for: Timeout 30000ms exceeded.
+Call log:
+  - waiting for locator(""button:has(svg.tabler-icon-rotate-clockwise):visible"").first to be visible
+",2026-10-23 02:55:05
+8b4b4dd7-9833-418a-b1e1-4bde3197f330,PENJUAL DAGING AYAM NONO(MULYONO) ,DB:data_split_usaha_20261016,1094,perlu_diperiksa,"Locator.wait_for: Timeout 30000ms exceeded.
+Call log:
+  - waiting for locator(""button:has(svg.tabler-icon-check):visible, button:has(svg.tabler-icon-rotate-clockwise):visible"").first to be visible
+",2026-10-23 03:55:42

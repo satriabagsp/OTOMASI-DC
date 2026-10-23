@@ -14,6 +14,10 @@ python app.py
 
 Setelah dependensi terpasang, pengguna Windows juga dapat menjalankan aplikasi dengan membuka `Mulai GUI.bat`.
 
+Jika `config_pusat.json` tersedia dan valid, GUI langsung memilih **Database pusat** saat dibuka dan memuat informasi tabel secara otomatis. Opsi **Bulatkan desimal ke rupiah terdekat (0,5 naik)** juga aktif secara bawaan; pengguna tetap dapat menonaktifkannya bila sumber memang harus ditolak ketika memiliki pecahan rupiah.
+
+Jendela menyesuaikan hampir seluruh ukuran layar. Area pratinjau menampilkan ukuran data dalam format **jumlah baris × 4 kolom**, dengan ruang lebih besar untuk nomor baris sumber, assignment ID, nama usaha, dan rencana perubahan.
+
 ### Database pusat antar-PC
 
 GUI dapat memakai tabel `hasil_otomasi_dc` pada database `OTOMASI_DC` sebagai daftar hasil bersama. Klik **Atur DB pusat**, masukkan token API dan identitas PC/bot. Token disimpan pada `config_pusat.json` di PC ini; file tersebut diabaikan Git. URL bawaan adalah `http://103.54.218.181:8555/api/v1/gateway`. URL, database, dan tabel dapat diubah melalui `config_pusat.json` atau environment variable `OTOMASI_DC_API_URL`, `OTOMASI_DC_DATABASE`, dan `OTOMASI_DC_TABLE`. Token juga dapat diberikan melalui `OTOMASI_DC_API_TOKEN`.
@@ -29,6 +33,7 @@ Status pusat terdiri dari `berhasil`, `error`, `perlu_data`, dan `perlu_diperiks
 - Mode database tidak mengunduh seluruh tabel. Aplikasi membaca maksimal sejumlah kecil kandidat untuk membentuk antrean.
 - Assignment yang terkait dengan beberapa baris sumber ditahan dari antrean untuk penanganan gabungan; assignment tunggal lainnya tetap dapat dipratinjau dan diproses. Pemeriksaan dilakukan dalam batch kecil agar tidak membebani gateway pusat.
 - Sebelum membuka assignment, aplikasi mengunci baris berdasarkan `id` dan mencatat PC pada kolom `automation_*`. Jika FASIH berhasil sampai approve terverifikasi, `Sudah Diinput` menjadi 1. Jika gagal, nilainya tetap 0 dan status kegagalan disimpan pada `automation_status`, jurnal lokal, serta tabel log pusat.
+- Pencatatan status ke tabel sumber dan tabel log pusat dilakukan otomatis oleh GUI; pengguna tidak perlu menekan tombol penyimpanan database terpisah.
 - Pilihan **atas** membaca dari ID kecil dan **bawah** dari ID besar. Opsi **Urutan dari bawah** membalik arah tersebut.
 - Satu assignment yang ditemukan pada beberapa baris siap input tetap ditolak untuk penanganan gabungan.
 

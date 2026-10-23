@@ -65,8 +65,10 @@ class App(tk.Tk):
     def __init__(self):
         super().__init__()
         self.title('Otomasi DC USAHA - FASIH')
-        self.geometry(f'{min(1440, self.winfo_screenwidth() - 40)}x{min(850, self.winfo_screenheight() - 80)}')
-        self.minsize(1000, 650)
+        screen_width = self.winfo_screenwidth()
+        screen_height = self.winfo_screenheight()
+        self.geometry(f'{min(1900, screen_width - 20)}x{min(1020, screen_height - 50)}+0+0')
+        self.minsize(1200, 720)
         self.messages = queue.Queue()
         self.commands = queue.Queue()
         self.stop_event = threading.Event()
@@ -78,13 +80,17 @@ class App(tk.Tk):
         self.sheet = tk.StringVar()
         self.kategori = tk.StringVar(value='G')
         self.wilayah = tk.StringVar(value='3201')
+        self.batch_number = tk.StringVar(value='')
+        self.batch_total = tk.StringVar(value='5')
         self.limit = tk.StringVar(value='1')
         self.pembagian = tk.StringVar(value='semua')
         self.reverse = tk.BooleanVar(value=False)
         self.skip_errors = tk.BooleanVar(value=True)
         self.retry_errors = tk.BooleanVar(value=False)
         self.only_dc00 = tk.BooleanVar(value=False)
-        self.round_values = tk.BooleanVar(value=False)
+        # Nilai sumber adalah rupiah. Bawaan pembulatan dibuat aktif agar angka
+        # desimal tidak pernah terkirim sebagai teks bertitik/koma ke FASIH.
+        self.round_values = tk.BooleanVar(value=True)
         self.browser_ready = False
         self.busy = False
         self.journal = Journal(OUTPUT / 'status_gui.sqlite3')
@@ -98,6 +104,8 @@ class App(tk.Tk):
             self.central = CentralAPI(central_config) if central_config else None
         except Exception as exc:
             self.central_config_error = str(exc)
+        if self.central:
+            self.source_mode.set('database')
         self.styles()
         self.build()
         self.reset_mapping()
@@ -105,7 +113,12 @@ class App(tk.Tk):
         if self.central_config_error:
             self.log(f'PERINGATAN database pusat: {self.central_config_error}')
         elif self.central:
-            self.log(f'Database pusat aktif sebagai {self.central.config.bot_id}.')
+            self.log(f'Database pusat aktif sebagai {self.central.config.bot_id}. Sumber dan status hasil dipakai otomatis.')
+            self.path_entry.configure(state='disabled')
+            self.file_button.configure(state='disabled')
+            self.sheet_box.configure(state='disabled')
+            self.batch_box.configure(state='readonly')
+            self.status.set(f'Database siap: {self.central.config.source_table}')
         else:
             self.log('Database pusat belum diatur. Klik "Atur DB pusat" untuk mengaktifkannya.')
         self.thread = threading.Thread(target=self.worker, daemon=True)
@@ -176,19 +189,27 @@ class App(tk.Tk):
         ttk.Entry(src, textvariable=self.wilayah, width=9).grid(row=2, column=5, padx=5)
         ttk.Label(src, text='Batas proses').grid(row=2, column=6)
         ttk.Entry(src, textvariable=self.limit, width=7).grid(row=2, column=7, padx=5)
+        batch = ttk.Frame(src)
+        batch.grid(row=3, column=0, columnspan=9, sticky='w', pady=(3, 1))
+        ttk.Label(batch, text='Batch bot').pack(side='left')
+        self.batch_box = ttk.Combobox(
+            batch, textvariable=self.batch_number, values=('1', '2', '3', '4', '5'),
+            state='readonly' if self.source_mode.get() == 'database' else 'disabled', width=5,
+        )
+        self.batch_box.pack(side='left', padx=(5, 8))
+        ttk.Label(batch, text='Wajib pilih 1–5 dan gunakan nomor berbeda pada setiap bot.',
+                  foreground='#60758f').pack(side='left')
         opts = ttk.Frame(src)
-        opts.grid(row=3, column=0, columnspan=9, sticky='w')
+        opts.grid(row=4, column=0, columnspan=9, sticky='w')
         ttk.Label(opts, text='Bagian:').pack(side='left')
         ttk.Combobox(opts, textvariable=self.pembagian, values=('semua','atas','bawah'), state='readonly', width=9).pack(side='left', padx=5)
         ttk.Checkbutton(opts, text='Urutan dari bawah', variable=self.reverse).pack(side='left', padx=5)
         ttk.Checkbutton(opts, text='Lewati error notebook', variable=self.skip_errors).pack(side='left', padx=5)
         opts2 = ttk.Frame(src)
-        opts2.grid(row=4, column=0, columnspan=9, sticky='w')
+        opts2.grid(row=5, column=0, columnspan=9, sticky='w')
         ttk.Checkbutton(opts2, text='Hanya baris semua remark #0/#DC_00', variable=self.only_dc00).pack(side='left', padx=(0, 5))
         ttk.Checkbutton(opts2, text='Bulatkan desimal ke rupiah terdekat (0,5 naik)', variable=self.round_values).pack(side='left', padx=5)
-        opts3 = ttk.Frame(src)
-        opts3.grid(row=5, column=0, columnspan=9, sticky='w')
-        ttk.Checkbutton(opts3, text='Masukkan kembali error dan baris perlu data', variable=self.retry_errors).pack(side='left')
+        ttk.Checkbutton(opts2, text='Masukkan kembali error dan baris perlu data', variable=self.retry_errors).pack(side='left', padx=5)
 
         mapping = ttk.LabelFrame(form, text='2. Pemetaan kolom sumber ke rincian FASIH', padding=8)
         mapping.pack(fill='x', pady=8)
@@ -210,7 +231,7 @@ class App(tk.Tk):
             ttk.Label(header, text=text).grid(row=0, column=i, sticky='w', padx=3)
         mapping_view = ttk.Frame(mapping)
         mapping_view.pack(fill='x')
-        self.mapping_canvas = tk.Canvas(mapping_view, height=220, background='#f1f5fa', highlightthickness=0)
+        self.mapping_canvas = tk.Canvas(mapping_view, height=180, background='#f1f5fa', highlightthickness=0)
         mapping_scroll = ttk.Scrollbar(mapping_view, orient='vertical', command=self.mapping_canvas.yview)
         self.mapping_canvas.configure(yscrollcommand=mapping_scroll.set)
         mapping_scroll.pack(side='right', fill='y')
@@ -225,30 +246,35 @@ class App(tk.Tk):
         ttk.Label(mapping, text='#0/#DC_00: hanya remark. Pilihan/KBLI dan hasil hitung: hanya remark.', foreground='#60758f').pack(anchor='w', pady=(5, 0))
 
         controls = ttk.Frame(form)
-        controls.pack(fill='x', pady=(0, 2))
+        controls.pack(fill='x', pady=(0, 6))
         self.preview_button = ttk.Button(controls, text='Pratinjau antrean', command=self.preview)
         self.preview_button.pack(side='left', padx=(0, 5))
         self.browser_button = ttk.Button(controls, text='Buka browser & login', command=self.open_browser)
         self.browser_button.pack(side='left', padx=5)
         self.run_button = ttk.Button(controls, text='Jalankan yang dipratinjau', command=self.start, style='Accent.TButton')
         self.run_button.pack(side='left', padx=5)
-        controls2 = ttk.Frame(form)
-        controls2.pack(fill='x', pady=(0, 6))
-        self.stop_button = ttk.Button(controls2, text='Berhenti setelah baris ini', command=self.request_stop)
+        self.stop_button = ttk.Button(controls, text='Berhenti setelah baris ini', command=self.request_stop)
         self.stop_button.pack(side='left', padx=(0, 5))
-        ttk.Button(controls2, text='Izinkan ulang ID tertunda', command=self.allow_retry).pack(side='left', padx=5)
-        ttk.Button(controls2, text='Atur DB pusat', command=self.configure_central).pack(side='left', padx=5)
+        ttk.Button(controls, text='Izinkan ulang ID tertunda', command=self.allow_retry).pack(side='left', padx=5)
         self.status = tk.StringVar(value='Belum ada file.')
-        ttk.Label(controls2, textvariable=self.status).pack(side='right')
+        ttk.Label(controls, textvariable=self.status).pack(side='right')
 
         plan = ttk.LabelFrame(form, text='3. Pratinjau antrean', padding=5)
         plan.pack(fill='both', expand=True)
-        self.tree = ttk.Treeview(plan, columns=('baris','id','usaha','aksi'), show='headings', height=7)
-        for key, label, width in [('baris','Baris sumber',90),('id','Assignment ID',275),('usaha','Nama usaha',260),('aksi','Rencana',1400)]:
+        self.preview_info = tk.StringVar(value='Belum ada pratinjau data.')
+        ttk.Label(plan, textvariable=self.preview_info, foreground='#526b84').pack(anchor='w', pady=(0, 5))
+        table = ttk.Frame(plan)
+        table.pack(fill='both', expand=True)
+        self.tree = ttk.Treeview(table, columns=('baris','id','usaha','aksi'), show='headings', height=12)
+        for key, label, width, stretch in [
+                ('baris','Baris sumber',105,False),
+                ('id','Assignment ID',290,False),
+                ('usaha','Nama usaha',320,False),
+                ('aksi','Rencana perubahan',650,True)]:
             self.tree.heading(key, text=label)
-            self.tree.column(key, width=width, minwidth=60)
-        scroll = ttk.Scrollbar(plan, orient='vertical', command=self.tree.yview)
-        horizontal = ttk.Scrollbar(plan, orient='horizontal', command=self.tree.xview)
+            self.tree.column(key, width=width, minwidth=80, stretch=stretch)
+        scroll = ttk.Scrollbar(table, orient='vertical', command=self.tree.yview)
+        horizontal = ttk.Scrollbar(table, orient='horizontal', command=self.tree.xview)
         self.tree.configure(yscrollcommand=scroll.set, xscrollcommand=horizontal.set)
         horizontal.pack(side='bottom', fill='x')
         self.tree.pack(side='left', fill='both', expand=True)
@@ -256,10 +282,10 @@ class App(tk.Tk):
         def initial_sash(event):
             if event.width > 100:
                 workspace.unbind('<Configure>')
-                workspace.after_idle(lambda: workspace.sashpos(0, min(max(700, int(event.width * 0.60)), event.width - 300)))
+                workspace.after_idle(lambda: workspace.sashpos(0, min(max(900, int(event.width * 0.72)), event.width - 360)))
         workspace.bind('<Configure>', initial_sash)
         def resize_mapping(event):
-            height = min(220, max(110, event.height - 500))
+            height = min(190, max(130, event.height - 680))
             if int(self.mapping_canvas.cget('height')) != height:
                 self.mapping_canvas.configure(height=height)
         form.bind('<Configure>', resize_mapping)
@@ -444,11 +470,14 @@ class App(tk.Tk):
     def source_mode_changed(self, clear_data=True):
         """Alihkan sumber tanpa mengubah perilaku mode file yang lama."""
         database_mode = self.source_mode.get() == 'database'
+        self.path_entry.configure(state='disabled' if database_mode else 'readonly')
         self.file_button.configure(state='disabled' if database_mode else 'normal')
         self.sheet_box.configure(state='disabled' if database_mode else 'readonly')
+        self.batch_box.configure(state='readonly' if database_mode else 'disabled')
         if clear_data:
             self.rows = []
             self.tree.delete(*self.tree.get_children())
+            self.preview_info.set('Belum ada pratinjau data.')
         if not database_mode:
             self.status.set('Pilih file lokal.')
             return
@@ -480,6 +509,7 @@ class App(tk.Tk):
 
     def settings(self):
         return (self.source_mode.get(), self.path.get(), self.sheet.get(), self.kategori.get().strip().upper(), self.wilayah.get().strip(),
+                self.batch_number.get().strip(), self.batch_total.get().strip(),
                 self.limit.get().strip(), self.pembagian.get(), self.reverse.get(), self.skip_errors.get(),
                 self.only_dc00.get(), self.round_values.get(), self.retry_errors.get(), tuple((m.blok, m.kode, m.nilai, m.remark) for m in self.get_mappings()))
 
@@ -524,11 +554,18 @@ class App(tk.Tk):
 
     def preview(self):
         try:
-            mappings = self.get_mappings()
             kategori, wilayah = self.kategori.get().strip().upper(), self.wilayah.get().strip()
+            if not (wilayah.isdigit() and len(wilayah) == 4):
+                raise ValueError('Kode kabupaten/kota wajib diisi tepat 4 digit, misalnya 3201.')
             retry_errors = self.retry_errors.get()
             database_mode = self.source_mode.get() == 'database'
             if database_mode:
+                if self.batch_number.get().strip() not in {'1', '2', '3', '4', '5'}:
+                    raise ValueError('Batch bot wajib dipilih antara 1 sampai 5 saat memakai Database pusat.')
+                batch_number = int(self.batch_number.get().strip())
+                batch_total = 5
+                if self.pembagian.get() != 'semua':
+                    raise ValueError('Saat memakai pembagian batch bot, pilih Bagian: semua agar tidak ada data yang terlewat.')
                 if not self.central:
                     raise ValueError('Atur DB pusat sebelum memakai sumber database.')
                 requested = int(self.limit.get())
@@ -536,6 +573,7 @@ class App(tk.Tk):
                 records = self.central.source_rows(
                     kategori, wilayah, fetch_limit, reverse=self.reverse.get(),
                     split=self.pembagian.get(), retry_errors=retry_errors,
+                    batch_number=batch_number, batch_total=batch_total,
                 )
                 data = pd.DataFrame(records).fillna('')
                 if data.empty:
@@ -547,14 +585,21 @@ class App(tk.Tk):
                     data['_baris_sumber'] = data['source_row']
                 elif 'id' in data.columns:
                     data['_baris_sumber'] = data['id']
+                # Pemetaan bawaan baru dapat diaktifkan setelah nama kolom tabel
+                # diketahui. Dengan ini database bisa menjadi sumber otomatis
+                # tanpa query tambahan saat jendela baru dibuka.
+                self.data = data
+                self.refresh_mapping_columns()
                 done = set()
             else:
+                batch_number, batch_total = 1, 1
                 if self.data is None:
                     raise ValueError('Pilih file terlebih dahulu.')
                 # Muat ulang saat pratinjau agar perubahan terakhir pada file terbaca.
                 data = read_source(Path(self.path.get()), None if self.sheet.get() == 'CSV' else self.sheet.get())
                 done = old_ids(Path(self.path.get()).parent, kategori, wilayah,
                                self.skip_errors.get() and not retry_errors)
+            mappings = self.get_mappings()
             central_count = 0
             if self.central:
                 try:
@@ -609,15 +654,21 @@ class App(tk.Tk):
                                  (f' → {value}' + (f' (sumber: {row[m.nilai]})' if str(row[m.nilai]).strip() != value else '') if change else '')
                                  for m, remark, value, change in preview_actions(row, mappings, self.round_values.get()))
                 self.tree.insert('', 'end', values=(row['_baris_sumber'], row['assignment_id'], row['nama_usaha'], plan))
-            self.status.set(f'{len(self.rows)} baris siap diproses')
+            preview_count = f'{len(self.rows):,}'.replace(',', '.')
+            self.preview_info.set(
+                f'Ukuran pratinjau: {preview_count} baris × 4 kolom '
+                '(baris sumber, assignment ID, nama usaha, rencana perubahan).'
+            )
+            self.status.set(f'{len(self.rows)} baris siap diproses · batch {batch_number}/{batch_total}')
             source_note = ('Data diambil bertahap dari database pusat.' if database_mode
                            else 'Log GUI dan log notebook yang sesuai sudah diperiksa.')
-            self.log(f'Pratinjau: {len(self.rows)} baris. {source_note}' +
+            self.log(f'Pratinjau batch {batch_number}/{batch_total}: {len(self.rows)} baris. {source_note}' +
                      (f' Database pusat memuat {central_count} ID berhasil untuk kategori/wilayah ini.' if self.central else ' Database pusat belum aktif.') +
                      (f' {len(duplicate_assignments)} assignment ganda ({duplicate_rows} baris pada batch) ditahan untuk penanganan gabungan.' if duplicate_assignments else '') +
                      (' Error dan baris perlu data diikutsertakan; periksa perubahan sebagian di FASIH sebelum menjalankan.' if retry_errors else ''))
         except Exception as exc:
             self.rows = []
+            self.preview_info.set('Pratinjau belum tersedia karena terjadi kesalahan.')
             messagebox.showerror('Pratinjau gagal', str(exc))
 
     def open_browser(self):
@@ -633,12 +684,17 @@ class App(tk.Tk):
                 raise ValueError('Buka browser, login manual, lalu tunggu browser siap.')
             if not self.rows:
                 raise ValueError('Buat pratinjau antrean yang tidak kosong.')
+            wilayah = self.wilayah.get().strip()
+            if not (wilayah.isdigit() and len(wilayah) == 4):
+                raise ValueError('Kode kabupaten/kota wajib diisi tepat 4 digit, misalnya 3201.')
             database_mode = self.source_mode.get() == 'database'
             source_changed = (not database_mode and Path(self.path.get()).stat().st_mtime_ns != self.source_mtime)
             if self.settings() != self.preview_settings or source_changed:
                 raise ValueError('Pengaturan atau file berubah. Buat ulang pratinjau.')
             if not messagebox.askyesno('Konfirmasi proses',
-                f'Proses {len(self.rows)} assignment?\n\nProses dapat revoke, mengubah nilai/catatan, mengirim dan approve. '
+                f'Proses {len(self.rows)} assignment' +
+                (f' dari batch {self.batch_number.get()}/5' if database_mode else '') + '?\n\n'
+                'Proses dapat revoke, mengubah nilai/catatan, mengirim dan approve. '
                 f'Pembulatan desimal: {"aktif" if self.round_values.get() else "tidak aktif"}. '
                 'Pastikan akun sesuai wilayah. Jika gagal setelah revoke, status perlu diperiksa manual.' +
                 ('\n\nError dan baris perlu data ikut diproses ulang. Pastikan status, nilai, dan remark sudah diperiksa di FASIH.' if self.retry_errors.get() else '')):

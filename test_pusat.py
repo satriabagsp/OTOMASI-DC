@@ -51,11 +51,22 @@ class CentralTests(unittest.TestCase):
     def test_source_rows_membaca_batch_siap_input(self):
         post = MagicMock(return_value=self.response({'results': [{'id': 7, 'kategori': 'G'}]}))
         api = CentralAPI(self.config(), post=post)
-        self.assertEqual(api.source_rows('g', '3201', 25), [{'id': 7, 'kategori': 'G'}])
+        self.assertEqual(
+            api.source_rows('g', '3201', 25, batch_number=2, batch_total=5),
+            [{'id': 7, 'kategori': 'G'}],
+        )
         sql = post.call_args.kwargs['json']['sql']
+        self.assertIn("MOD(id,5)=1", sql)
         self.assertIn("`Siap Input`=1", sql)
         self.assertIn("COALESCE(`Sudah Diinput`,0)=0", sql)
         self.assertIn("ORDER BY id ASC LIMIT 25", sql)
+
+    def test_source_rows_menolak_kabkot_dan_batch_tidak_valid(self):
+        api = CentralAPI(self.config(), post=MagicMock())
+        with self.assertRaisesRegex(ValueError, '4 digit'):
+            api.source_rows('G', '320', 10)
+        with self.assertRaisesRegex(ValueError, 'Nomor batch'):
+            api.source_rows('G', '3201', 10, batch_number=4, batch_total=3)
 
     def test_pemeriksaan_duplikat_dipecah_menjadi_batch_kecil(self):
         ids = [f'00000000-0000-0000-0000-{number:012d}' for number in range(205)]

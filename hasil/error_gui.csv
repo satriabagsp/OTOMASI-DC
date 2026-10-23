@@ -23,3 +23,618 @@ dcd7570e-4936-4efd-ada3-7c0e851365e1,"AKUR PRATAMA, PT",C:/Users/user/Downloads/
 Call log:
   - waiting for locator(""button:has(svg.tabler-icon-rotate-clockwise):visible, button:has(svg.tabler-icon-edit):visible"").first to be visible
 ",2026-10-20 04:15:36
+5b20d321-6009-4d0b-a3a0-69fbcfd4b87f,GUDANG KEDELAI ,DB:data_split_usaha_20261016,29,error,Tahun operasi '2026' tidak didukung; isian bulanan perlu penanganan manual.,2026-10-22 06:47:30
+44d5e3c2-f82b-496c-8cd6-7ca630c57557,PEMBORONG HASIL PETANI ,DB:data_split_usaha_20261016,30,error,Tahun operasi '2026' tidak didukung; isian bulanan perlu penanganan manual.,2026-10-22 06:47:34
+fed2dada-f2ec-4b66-8a7c-a0f57df209bb,PENGEPUL KELAPA SAWIT (SOPIAN),DB:data_split_usaha_20261016,31,error,Tahun operasi '2026' tidak didukung; isian bulanan perlu penanganan manual.,2026-10-22 06:47:36
+aaa98b3e-13ef-4858-94b7-fcecf4f8fa1f,PENGEPUL BIJI PALA < DIDIN ABIDIN >,DB:data_split_usaha_20261016,59,error,"Locator.wait_for: Timeout 30000ms exceeded.
+Call log:
+  - waiting for locator(""button:has(svg.tabler-icon-rotate-clockwise):visible, button:has(svg.tabler-icon-edit):visible"").first to be visible
+",2026-10-22 07:02:57
+9745d51a-39b8-41e0-be3c-205add4c4752,ABDULAH KELAPA,DB:data_split_usaha_20261016,70,error,Tahun operasi '2026' tidak didukung; isian bulanan perlu penanganan manual.,2026-10-22 07:07:55
+a2c216bf-3647-49f9-aa15-c08417aa5ddf,THE BEARS,DB:data_split_usaha_20261016,71,error,Tahun operasi '2026' tidak didukung; isian bulanan perlu penanganan manual.,2026-10-22 07:07:58
+c4b031a2-be4b-47fb-8ff5-98adcd19fd93,PELANGSIRAN AYAM DULMUTI,DB:data_split_usaha_20261016,115,error,Tahun operasi '2026' tidak didukung; isian bulanan perlu penanganan manual.,2026-10-22 07:32:08
+274f0fe8-c99d-40e8-81b7-47106b197bd6,USAHA BUDIMAN LUKMAN,DB:data_split_usaha_20261016,117,error,Tahun operasi '2026' tidak didukung; isian bulanan perlu penanganan manual.,2026-10-22 07:32:13
+41454494-2d9f-45cd-9aeb-b94dc8e8522c,"ANGKASA AQUARIUM, CV",DB:data_split_usaha_20261016,127,error,"Locator.wait_for: Timeout 30000ms exceeded.
+Call log:
+  - waiting for locator(""div.fasih-form-sidebar > div[title=\""SE2026 - L BLOK II\""]:visible, div.fasih-form-sidebar > div[title=\""BLOK I\""]:visible, div.fasih-form-sidebar > div[title=\""BLOK II\""]:visible"").first to be visible
+",2026-10-22 07:37:33
+295ff51f-63ae-4aad-b60c-bd0361cadd24,USAHA IKAN PATIN,DB:data_split_usaha_20261016,129,error,"Locator.wait_for: Timeout 30000ms exceeded.
+Call log:
+  - waiting for locator(""button:has(svg.tabler-icon-rotate-clockwise):visible, button:has(svg.tabler-icon-edit):visible"").first to be visible
+",2026-10-22 07:39:05
+5b23b8e9-1abc-4448-bd84-d559bd2d1db3,JUAL BELI KAYU,DB:data_split_usaha_20261016,203,error,Tahun operasi '2026' tidak didukung; isian bulanan perlu penanganan manual.,2026-10-22 08:22:00
+8b30c51a-bcb9-4cc5-ab7c-4c9ba31c6f00,JUAL BELI KAYU (ISMAT) ,DB:data_split_usaha_20261016,204,error,Tahun operasi '2026' tidak didukung; isian bulanan perlu penanganan manual.,2026-10-22 08:22:04
+2d3e5e80-4047-4bf6-9544-3143079da02d,TOKO KULIT PANASONIC,DB:data_split_usaha_20261016,207,error,"Locator.wait_for: Timeout 30000ms exceeded.
+Call log:
+  - waiting for locator(""button:has(svg.tabler-icon-rotate-clockwise):visible, button:has(svg.tabler-icon-edit):visible"").first to be visible
+",2026-10-22 08:24:30
+6f32c069-01ab-47c6-bc7f-d86f381e0c5f,TOKO ALIKA,DB:data_split_usaha_20261016,219,error,Tahun operasi '2026' tidak didukung; isian bulanan perlu penanganan manual.,2026-10-22 08:28:39
+5d27752e-60ea-4264-9f4d-89cf2ec48a86,JUAL BELI BERAS <ANAS>,DB:data_split_usaha_20261016,231,error,Page.wait_for_function: Timeout 30000ms exceeded.,2026-10-22 08:33:27
+2dd25c68-3ed7-40c7-a6bb-8792259dff3d,WARUNG SEMBAKO POPON,DB:data_split_usaha_20261016,236,error,"Locator.wait_for: Timeout 30000ms exceeded.
+Call log:
+  - waiting for locator("":is([id=\""tahun_operasi\""], [id^=\""tahun_operasi#\""]):visible"").first to be visible
+",2026-10-22 08:35:37
+a01a4198-65a4-4885-a1ae-401f2f2cdbbd,PEDAGANG BERAS (HIDAYAT) ,DB:data_split_usaha_20261016,282,error,Input nilai_pendapatan tidak dapat diedit pada assignment ini.,2026-10-22 08:52:03
+554427fa-9587-40b4-8597-8dbd5915b3fc,AGEN BERAS (SOFIAN),DB:data_split_usaha_20261016,293,error,"Locator.wait_for: Timeout 30000ms exceeded.
+Call log:
+  - waiting for locator(""button:has(svg.tabler-icon-rotate-clockwise):visible, button:has(svg.tabler-icon-edit):visible"").first to be visible
+",2026-10-22 08:58:08
+9c7359e3-5161-4554-986b-ee6cc72438bc,TOKO BERAS BAPAK KOMAR ,DB:data_split_usaha_20261016,298,error,"Locator.wait_for: Timeout 30000ms exceeded.
+Call log:
+  - waiting for locator(""button:has(svg.tabler-icon-rotate-clockwise):visible, button:has(svg.tabler-icon-edit):visible"").first to be visible
+",2026-10-22 09:01:27
+89ea02a9-7eb4-4eb8-adc4-373906516b0c,TOKO BERAS ENCUP,DB:data_split_usaha_20261016,299,error,"Locator.wait_for: Timeout 30000ms exceeded.
+Call log:
+  - waiting for locator(""button:has(svg.tabler-icon-rotate-clockwise):visible, button:has(svg.tabler-icon-edit):visible"").first to be visible
+",2026-10-22 09:02:58
+fbeb98bc-27de-4b49-9e68-1e96768cfaf2,AGEN BERAS,DB:data_split_usaha_20261016,313,error,Tahun operasi '2026' tidak didukung; isian bulanan perlu penanganan manual.,2026-10-22 09:10:04
+5cb9e6b1-ec78-4bd5-a8ad-4e139961b94c,ANGGA BERAS,DB:data_split_usaha_20261016,314,error,Tahun operasi '2026' tidak didukung; isian bulanan perlu penanganan manual.,2026-10-22 09:10:08
+55b4796e-f92d-42c4-a24d-e2feca24218a,TOKO BERAS AGEN RIYAN,DB:data_split_usaha_20261016,316,error,Tahun operasi '2026' tidak didukung; isian bulanan perlu penanganan manual.,2026-10-22 09:10:11
+bf3e2419-ea42-4d8e-85e0-140924f5a525,TOKO BERAS DIVAN JAYA,DB:data_split_usaha_20261016,317,error,Tahun operasi '2026' tidak didukung; isian bulanan perlu penanganan manual.,2026-10-22 09:10:16
+c45802f6-3c99-43eb-a9b0-8a1bab6b19e8,TOKO BERAS LUBIS,DB:data_split_usaha_20261016,318,error,Tahun operasi '2026' tidak didukung; isian bulanan perlu penanganan manual.,2026-10-22 09:10:19
+fc6890bf-a2d3-44be-a663-ed210e3a4f73,TOKO DAENG,DB:data_split_usaha_20261016,319,error,Tahun operasi '2026' tidak didukung; isian bulanan perlu penanganan manual.,2026-10-22 09:10:21
+b3a663ba-77eb-4a41-a7c1-b61f2d1ca9c8,TUKANG SAYUR ELIS,DB:data_split_usaha_20261016,340,error,"Locator.wait_for: Timeout 30000ms exceeded.
+Call log:
+  - waiting for locator(""div.fasih-form-sidebar > div[title=\""SE2026 - L BLOK II\""]:visible, div.fasih-form-sidebar > div[title=\""BLOK I\""]:visible, div.fasih-form-sidebar > div[title=\""BLOK II\""]:visible"").first to be visible
+",2026-10-22 09:17:56
+c5aeb02e-9ca0-46e4-8862-6f258b8390ff,JUALAN BUAH-BUAHAN,DB:data_split_usaha_20261016,341,error,Sesi login FASIH belum siap. Selesaikan login di browser GUI lalu ulangi.,2026-10-22 09:18:28
+ca03a3ac-0547-4810-874b-8b6f83d45551,Jual beli pisang,DB:data_split_usaha_20261016,342,error,Sesi login FASIH belum siap. Selesaikan login di browser GUI lalu ulangi.,2026-10-22 09:18:59
+72aa79b4-ace5-43b8-ad98-f5b97ea787d0,SUPPLIER BUAH PEPAYA ( MANG OJI ),DB:data_split_usaha_20261016,343,error,Sesi login FASIH belum siap. Selesaikan login di browser GUI lalu ulangi.,2026-10-22 09:19:30
+bedfb46e-dcaa-4a6c-8a09-1b93cb0529e8,GROSIR BUAH UMMU FATHINA,DB:data_split_usaha_20261016,344,error,Sesi login FASIH belum siap. Selesaikan login di browser GUI lalu ulangi.,2026-10-22 09:20:01
+e7818267-4bd1-48d3-81ae-04c70caa80db,JUAL BELI PISANG KI AMUD,DB:data_split_usaha_20261016,345,error,Sesi login FASIH belum siap. Selesaikan login di browser GUI lalu ulangi.,2026-10-22 09:20:32
+8b8eccec-91f3-4a3e-a70a-eb41aeb34a73,LAPAK PISANG SAIRIH,DB:data_split_usaha_20261016,346,error,Sesi login FASIH belum siap. Selesaikan login di browser GUI lalu ulangi.,2026-10-22 09:21:04
+bf39baee-2db7-4de7-8768-47a89159d3ca,PEDAGANG BUAH NAJARUDIN,DB:data_split_usaha_20261016,347,error,Sesi login FASIH belum siap. Selesaikan login di browser GUI lalu ulangi.,2026-10-22 09:21:35
+755b56aa-9949-4f62-b2f7-9997dbf18070,PEDAGANG BUAH PURWANTO,DB:data_split_usaha_20261016,348,error,Sesi login FASIH belum siap. Selesaikan login di browser GUI lalu ulangi.,2026-10-22 09:22:06
+08593bb5-d03b-4a58-8dc6-d77a9410c280,SUPLIER PISANG (PA SUALIM),DB:data_split_usaha_20261016,349,error,Sesi login FASIH belum siap. Selesaikan login di browser GUI lalu ulangi.,2026-10-22 09:22:37
+9cabfc94-dc28-4b9c-8635-4469ab764e57,TENGKULAK H ADING MUSIMAN,DB:data_split_usaha_20261016,350,error,Sesi login FASIH belum siap. Selesaikan login di browser GUI lalu ulangi.,2026-10-22 09:23:09
+8579f76d-4112-4343-98e5-216c03f136c0,ACUY PISANG ,DB:data_split_usaha_20261016,351,error,Sesi login FASIH belum siap. Selesaikan login di browser GUI lalu ulangi.,2026-10-22 09:23:40
+29ee60a2-0bac-45f4-a9ed-c671fe3a8f5d,BUAH SEGAR PA JAMIL LOS PASAR BARU JONGGOL ,DB:data_split_usaha_20261016,352,error,Sesi login FASIH belum siap. Selesaikan login di browser GUI lalu ulangi.,2026-10-22 09:24:11
+08a38d23-f1a7-404e-a00d-e94b996f6daa,JUAL BUAH-BUAHAN (MAMAN),DB:data_split_usaha_20261016,353,error,Sesi login FASIH belum siap. Selesaikan login di browser GUI lalu ulangi.,2026-10-22 09:24:42
+ee669d75-e746-44b4-8ad9-f6b108613442,PEDAGANG BUAH KELILING PAK SUPANDI,DB:data_split_usaha_20261016,354,error,Sesi login FASIH belum siap. Selesaikan login di browser GUI lalu ulangi.,2026-10-22 09:25:13
+3642220f-f6bf-4d59-a75d-295bd2498845,PENGEPUL PISANG DANU,DB:data_split_usaha_20261016,355,error,Sesi login FASIH belum siap. Selesaikan login di browser GUI lalu ulangi.,2026-10-22 09:25:45
+ff4922d7-4158-4ddf-aba7-d3bd4dcfc5fb,SARI BUAH RUDI PASAR BARU JONGGOL ,DB:data_split_usaha_20261016,356,error,Sesi login FASIH belum siap. Selesaikan login di browser GUI lalu ulangi.,2026-10-22 09:26:16
+02c63de3-c855-43e9-8f1e-1b3f97e81dc6,USAHA HADI,DB:data_split_usaha_20261016,357,error,Sesi login FASIH belum siap. Selesaikan login di browser GUI lalu ulangi.,2026-10-22 09:26:47
+1ee2e3f2-62fb-4ea5-9503-76c1599a36f2,WARUNG TEH ISOH HANDAYANI,DB:data_split_usaha_20261016,358,error,Sesi login FASIH belum siap. Selesaikan login di browser GUI lalu ulangi.,2026-10-22 09:27:18
+19a6abbe-4238-4307-9bad-b6d0db8e06b9,BUAH ISAK (UDIN),DB:data_split_usaha_20261016,359,error,Sesi login FASIH belum siap. Selesaikan login di browser GUI lalu ulangi.,2026-10-22 09:27:50
+c3947cd9-812f-47ce-b2e4-118c4f6817bf,MENJUAL BUAH BUAHAN ONLINE (DITA AYU PRATIWI),DB:data_split_usaha_20261016,360,error,Sesi login FASIH belum siap. Selesaikan login di browser GUI lalu ulangi.,2026-10-22 09:28:20
+af0bc82b-3b68-4d6e-8c10-b428a4f0ace2,"PEDAGANG BUAH DURIAN, MANGGIS (HENDAR) ",DB:data_split_usaha_20261016,361,error,Sesi login FASIH belum siap. Selesaikan login di browser GUI lalu ulangi.,2026-10-22 09:28:52
+6c613ca3-795b-4b30-8122-b451243eeef0,TOKO BUAH (BU NENENG),DB:data_split_usaha_20261016,362,error,Sesi login FASIH belum siap. Selesaikan login di browser GUI lalu ulangi.,2026-10-22 09:29:23
+d1ef3337-69a1-4d0e-9bdd-6a38482ac7cd,TOKO BUAH FAJAR ANDAKA,DB:data_split_usaha_20261016,363,error,Sesi login FASIH belum siap. Selesaikan login di browser GUI lalu ulangi.,2026-10-22 09:29:54
+dc55b1ac-f742-4248-8649-6520bfbdfa1d,BUAH BUAHAN (ZIA BASTI FAUZIAH),DB:data_split_usaha_20261016,364,error,Sesi login FASIH belum siap. Selesaikan login di browser GUI lalu ulangi.,2026-10-22 09:30:25
+ea3d2f9b-a5cd-4f22-930d-a85feeb16eae,BUAH POTONG BUU NINING,DB:data_split_usaha_20261016,365,error,Sesi login FASIH belum siap. Selesaikan login di browser GUI lalu ulangi.,2026-10-22 09:30:56
+9ab06f0d-76df-4980-897a-454cb2d29b30,BUAH SEGAR,DB:data_split_usaha_20261016,366,error,Sesi login FASIH belum siap. Selesaikan login di browser GUI lalu ulangi.,2026-10-22 09:31:27
+a1040bd8-6b81-4852-aea4-14a8dce6065d,DAGANG BUAH SEGAR,DB:data_split_usaha_20261016,367,error,Sesi login FASIH belum siap. Selesaikan login di browser GUI lalu ulangi.,2026-10-22 09:31:58
+5bbb39a3-4733-4fc6-9374-da362572f42b,JUAL BELI BUAH ( JAJANG ),DB:data_split_usaha_20261016,368,error,Sesi login FASIH belum siap. Selesaikan login di browser GUI lalu ulangi.,2026-10-22 09:32:30
+6855f7ee-6862-48ee-a5f7-c3da8c17951f,JUAL BELI BUAH DURIAN (JULI),DB:data_split_usaha_20261016,369,error,Sesi login FASIH belum siap. Selesaikan login di browser GUI lalu ulangi.,2026-10-22 09:33:01
+b3b652f5-dce6-4741-9f92-bd4e856c78b2,JUAL PISANG (ASEP JUEN),DB:data_split_usaha_20261016,370,error,Sesi login FASIH belum siap. Selesaikan login di browser GUI lalu ulangi.,2026-10-22 09:33:32
+d00885d0-43d9-4890-9f3a-2f351227b33e,JUALAN NANAS ,DB:data_split_usaha_20261016,371,error,Sesi login FASIH belum siap. Selesaikan login di browser GUI lalu ulangi.,2026-10-22 09:34:03
+f2cf36c2-26a6-474d-8696-564381bdc7be,KIOS PISANG BAPAK(AGUS),DB:data_split_usaha_20261016,372,error,Sesi login FASIH belum siap. Selesaikan login di browser GUI lalu ulangi.,2026-10-22 09:34:34
+d47de7a7-ee15-47d5-9e27-58a995540257,PEDAGANG ASONGAN PAK PARDI,DB:data_split_usaha_20261016,373,error,Sesi login FASIH belum siap. Selesaikan login di browser GUI lalu ulangi.,2026-10-22 09:35:05
+21c130ee-a459-47a6-9be9-54864592db4b,PEDAGANG PISANG ICAH NO 43 PASAR BARU JONGGOL ,DB:data_split_usaha_20261016,374,error,Sesi login FASIH belum siap. Selesaikan login di browser GUI lalu ulangi.,2026-10-22 09:35:36
+8d3a2624-4d3f-46a0-a92e-a65fc2ed986f,PENGEPUL PISANG,DB:data_split_usaha_20261016,375,error,Sesi login FASIH belum siap. Selesaikan login di browser GUI lalu ulangi.,2026-10-22 09:36:07
+7423d7b7-5135-4518-b95c-8889169e6450,TOKO SHAVA-QI,DB:data_split_usaha_20261016,376,error,Sesi login FASIH belum siap. Selesaikan login di browser GUI lalu ulangi.,2026-10-22 09:36:39
+7c3ee7d8-779c-4f14-b5aa-5b5f702d4054,AGEN PENGEPUL JAMBU BIJI,DB:data_split_usaha_20261016,377,error,Sesi login FASIH belum siap. Selesaikan login di browser GUI lalu ulangi.,2026-10-22 09:37:10
+05e63c4b-7b01-4f08-8f92-07afd0baf228,BUAH SEGAR,DB:data_split_usaha_20261016,378,error,Sesi login FASIH belum siap. Selesaikan login di browser GUI lalu ulangi.,2026-10-22 09:37:41
+fd4ad687-7f2e-4ad4-b78c-af84a2d76201,ES KELAPA SI KEMBAR,DB:data_split_usaha_20261016,379,error,Sesi login FASIH belum siap. Selesaikan login di browser GUI lalu ulangi.,2026-10-22 09:38:12
+60ef6f7e-d87a-4ce5-bb7d-989b1a09ffee,Jual beli buah uri,DB:data_split_usaha_20261016,380,error,Sesi login FASIH belum siap. Selesaikan login di browser GUI lalu ulangi.,2026-10-22 09:38:43
+96594dc2-9696-4acc-8063-44a299faf6dd,MINUMAN ES KOCOK BUAH,DB:data_split_usaha_20261016,381,error,Sesi login FASIH belum siap. Selesaikan login di browser GUI lalu ulangi.,2026-10-22 09:39:14
+7434d201-2ffb-4612-bf21-e6cb724aafc7,PEDAGANG BUAH AGUNG,DB:data_split_usaha_20261016,382,error,Sesi login FASIH belum siap. Selesaikan login di browser GUI lalu ulangi.,2026-10-22 09:39:45
+7ce523d3-21f5-445b-9d60-165ef85b16ed,PEDAGANG BUAH KELILING PAK ACE,DB:data_split_usaha_20261016,383,error,Sesi login FASIH belum siap. Selesaikan login di browser GUI lalu ulangi.,2026-10-22 09:40:16
+b2a04e31-7fd0-412a-8496-881852e0eed3,PENGEPUL BUAH DURIAN (KOSIMUDIN),DB:data_split_usaha_20261016,384,error,Sesi login FASIH belum siap. Selesaikan login di browser GUI lalu ulangi.,2026-10-22 09:40:47
+520ca4de-f37a-4c68-bea0-ba5988014ccb,PENGEPUL SAYURAN DAN BUAH,DB:data_split_usaha_20261016,385,error,Sesi login FASIH belum siap. Selesaikan login di browser GUI lalu ulangi.,2026-10-22 09:41:19
+119644f7-7e1b-4ab3-b951-a57fedee54ae,PERDAGANGAN PISANG,DB:data_split_usaha_20261016,386,error,Sesi login FASIH belum siap. Selesaikan login di browser GUI lalu ulangi.,2026-10-22 09:41:50
+107baf6f-624f-4127-8a87-4b63e3734e6e,PERTANIAN PERKEBUNAN PAK AGUNG,DB:data_split_usaha_20261016,387,error,Sesi login FASIH belum siap. Selesaikan login di browser GUI lalu ulangi.,2026-10-22 09:42:21
+ee91e7ba-fb0e-4dcd-a6da-1bafca911bc0,PISANG DAN KELAPA MUKO,DB:data_split_usaha_20261016,388,error,Sesi login FASIH belum siap. Selesaikan login di browser GUI lalu ulangi.,2026-10-22 09:42:52
+ee3bebc8-1bce-4cc2-9284-59d96d6df18e,RAJA BUAH,DB:data_split_usaha_20261016,389,error,Sesi login FASIH belum siap. Selesaikan login di browser GUI lalu ulangi.,2026-10-22 09:43:23
+7aecc09f-e2a3-4eda-acc4-b39d727c3151,RANUM BUAH,DB:data_split_usaha_20261016,390,error,Sesi login FASIH belum siap. Selesaikan login di browser GUI lalu ulangi.,2026-10-22 09:43:54
+25f45756-fa7e-47a1-939e-4bfbc0aedfa1,TENGKULAK PISANG (HENDRA),DB:data_split_usaha_20261016,391,error,Sesi login FASIH belum siap. Selesaikan login di browser GUI lalu ulangi.,2026-10-22 09:44:25
+0bcf297b-3b9a-4fad-90a8-2324701d0a18,TOKO BUAH BANG ACENG,DB:data_split_usaha_20261016,392,error,Sesi login FASIH belum siap. Selesaikan login di browser GUI lalu ulangi.,2026-10-22 09:44:56
+9c936c92-68e2-4ca6-9ab0-c07e7022b38a,TOKO BUAH GROSIR DAN ECER,DB:data_split_usaha_20261016,393,error,Sesi login FASIH belum siap. Selesaikan login di browser GUI lalu ulangi.,2026-10-22 09:45:28
+f6096754-7aa6-4590-b6a4-e96d4e25932b,Warung sembako pak manap,DB:data_split_usaha_20261016,394,error,Sesi login FASIH belum siap. Selesaikan login di browser GUI lalu ulangi.,2026-10-22 09:45:59
+8cf28400-bf72-4846-9c50-4f6d5b5b61cb,GUDANG STRAWBERRY PAK AMRI,DB:data_split_usaha_20261016,395,error,Sesi login FASIH belum siap. Selesaikan login di browser GUI lalu ulangi.,2026-10-22 09:46:30
+6db46fbb-6838-4e5b-9072-e5e8d65c8b1d,JUAL BUAH2AN ,DB:data_split_usaha_20261016,396,error,Sesi login FASIH belum siap. Selesaikan login di browser GUI lalu ulangi.,2026-10-22 09:47:02
+8450e60b-006c-4bed-92c4-c24efff51f14,Perkebunan ,DB:data_split_usaha_20261016,397,error,Sesi login FASIH belum siap. Selesaikan login di browser GUI lalu ulangi.,2026-10-22 09:47:33
+c6f40431-3221-4a0e-a1a5-2a1b17822113,TOKO BUAH,DB:data_split_usaha_20261016,398,error,Sesi login FASIH belum siap. Selesaikan login di browser GUI lalu ulangi.,2026-10-22 09:48:04
+eb75aae7-309d-4520-80d8-43270e63dbd6,TOKO BUAH SEMANGKA,DB:data_split_usaha_20261016,399,error,Sesi login FASIH belum siap. Selesaikan login di browser GUI lalu ulangi.,2026-10-22 09:48:35
+83af8e51-2848-435a-8ad8-d900209ca1db,UTHE PAKANSARI ,DB:data_split_usaha_20261016,400,error,Sesi login FASIH belum siap. Selesaikan login di browser GUI lalu ulangi.,2026-10-22 09:49:06
+e73df4b8-c00a-43de-90cd-08e7e16d2006,BUAH PERKEBUNAN BAPAK(NISIN),DB:data_split_usaha_20261016,401,error,Sesi login FASIH belum siap. Selesaikan login di browser GUI lalu ulangi.,2026-10-22 09:49:37
+eed10d15-b818-49b4-a246-4101be87c4dc,BUAH SEGAR,DB:data_split_usaha_20261016,402,error,Sesi login FASIH belum siap. Selesaikan login di browser GUI lalu ulangi.,2026-10-22 09:50:08
+63b55583-0746-4403-ad0e-363e5c22801a,JUAL BELI SAYURAN (MAHMUDIN),DB:data_split_usaha_20261016,403,error,Sesi login FASIH belum siap. Selesaikan login di browser GUI lalu ulangi.,2026-10-22 09:50:39
+ab8fbe04-6b4e-4b61-9a7c-70e74c918124,JUAL MACAM BUAH YUNITA,DB:data_split_usaha_20261016,404,error,Sesi login FASIH belum siap. Selesaikan login di browser GUI lalu ulangi.,2026-10-22 09:51:10
+d28a9c76-89e2-45a5-9cc7-ad69b8ecf0a2,PENGEPUL HASIL TANI,DB:data_split_usaha_20261016,405,error,Sesi login FASIH belum siap. Selesaikan login di browser GUI lalu ulangi.,2026-10-22 09:51:42
+c131673c-9926-4d39-9a70-b15d1f9cadd1,PENGEPUL PISANG (USMAN),DB:data_split_usaha_20261016,406,error,Sesi login FASIH belum siap. Selesaikan login di browser GUI lalu ulangi.,2026-10-22 09:52:13
+47b006da-27a8-43aa-a573-c61e648c2bad,PENGEPUL PISANG AMUNG,DB:data_split_usaha_20261016,407,error,Sesi login FASIH belum siap. Selesaikan login di browser GUI lalu ulangi.,2026-10-22 09:52:44
+62bbb0d8-3eca-4679-b2fc-7d0a87ea53af,PERDAGANGAN PISANG ,DB:data_split_usaha_20261016,408,error,Sesi login FASIH belum siap. Selesaikan login di browser GUI lalu ulangi.,2026-10-22 09:53:16
+a6c697a6-8a6c-4659-b177-e5a1891cf582,TOKO BUAH ECA,DB:data_split_usaha_20261016,409,error,Sesi login FASIH belum siap. Selesaikan login di browser GUI lalu ulangi.,2026-10-22 09:53:48
+abdf9cdc-a0ef-4cb4-84b3-6dc5d26acf4e,WARUNG BUAH ( IDIS),DB:data_split_usaha_20261016,410,error,Sesi login FASIH belum siap. Selesaikan login di browser GUI lalu ulangi.,2026-10-22 09:54:19
+3c0388fb-6a70-48f0-9fdc-4d80c584e383,BUAH FEBY,DB:data_split_usaha_20261016,411,error,Sesi login FASIH belum siap. Selesaikan login di browser GUI lalu ulangi.,2026-10-22 09:54:50
+fd824ef5-41b6-4804-a6a6-7f26f047864f,PEDAGANG BUAH DURIAN (OBIH) ,DB:data_split_usaha_20261016,413,error,Sesi login FASIH belum siap. Selesaikan login di browser GUI lalu ulangi.,2026-10-22 09:55:21
+f12a633d-eae6-4145-8b87-dc326874a395,PENGEPUL PISANG ,DB:data_split_usaha_20261016,414,error,Sesi login FASIH belum siap. Selesaikan login di browser GUI lalu ulangi.,2026-10-22 09:55:52
+11b2bf98-f4a1-491d-aa7f-c57874d0c1ce,PENGEPUL PISANG ( ABUD ),DB:data_split_usaha_20261016,415,error,Sesi login FASIH belum siap. Selesaikan login di browser GUI lalu ulangi.,2026-10-22 09:56:23
+7cf1e311-11fd-4f4e-a94f-d27e48b0a8d0,TOKO BUAH MERAH DELIMA,DB:data_split_usaha_20261016,417,error,Sesi login FASIH belum siap. Selesaikan login di browser GUI lalu ulangi.,2026-10-22 09:56:54
+eba3cd53-a6a0-4835-a6ef-a151222295a6,TOKO BUAH SEDERHANA ,DB:data_split_usaha_20261016,418,error,Sesi login FASIH belum siap. Selesaikan login di browser GUI lalu ulangi.,2026-10-22 09:57:25
+4c51e29a-eb98-411d-9bd5-597698588515,Usaha dagang jaih,DB:data_split_usaha_20261016,419,error,Sesi login FASIH belum siap. Selesaikan login di browser GUI lalu ulangi.,2026-10-22 09:57:57
+2556bf07-acde-46d9-90e5-6120eb354a50,Usaha dagang rosad,DB:data_split_usaha_20261016,420,error,Sesi login FASIH belum siap. Selesaikan login di browser GUI lalu ulangi.,2026-10-22 09:58:28
+b9ab4102-a6d1-4633-9578-be5e41c1fb44,ALIMART,DB:data_split_usaha_20261016,421,error,Sesi login FASIH belum siap. Selesaikan login di browser GUI lalu ulangi.,2026-10-22 09:58:59
+500a01c3-89aa-48ab-b595-63b061d2df24,JUALAN PISANG,DB:data_split_usaha_20261016,422,error,Sesi login FASIH belum siap. Selesaikan login di browser GUI lalu ulangi.,2026-10-22 09:59:30
+6f12fff3-67e7-4a64-9997-de6b0cf3794c,LAPAK PISANG(ALJABAR),DB:data_split_usaha_20261016,423,error,Sesi login FASIH belum siap. Selesaikan login di browser GUI lalu ulangi.,2026-10-22 10:00:01
+47259a21-8d3f-4e48-bcfe-0f79f518179f,PEDAGANG ATAU PENGEPUL,DB:data_split_usaha_20261016,424,error,Sesi login FASIH belum siap. Selesaikan login di browser GUI lalu ulangi.,2026-10-22 10:00:32
+deca3085-979a-4d07-9e53-2195c5507aec,PEDAGANG PISANG,DB:data_split_usaha_20261016,425,error,Sesi login FASIH belum siap. Selesaikan login di browser GUI lalu ulangi.,2026-10-22 10:01:04
+ae89b247-8193-4a70-862c-6884eb0e0ffe,TOKO BUNDA RIRI,DB:data_split_usaha_20261016,426,error,Sesi login FASIH belum siap. Selesaikan login di browser GUI lalu ulangi.,2026-10-22 10:01:35
+41fa6357-c12b-4d52-80c3-1a94748f0858,TUKANG BUAH ,DB:data_split_usaha_20261016,427,error,Sesi login FASIH belum siap. Selesaikan login di browser GUI lalu ulangi.,2026-10-22 10:02:06
+9a1276ad-998e-4c2b-a8b7-746aaed9db41,BUAH BUAHAN BAPA HODAM,DB:data_split_usaha_20261016,428,error,Sesi login FASIH belum siap. Selesaikan login di browser GUI lalu ulangi.,2026-10-22 10:02:37
+2b9d0a96-4dfb-41e5-b1c6-29f5b27f0bc0,BUAH IBU CUCUM,DB:data_split_usaha_20261016,429,error,Sesi login FASIH belum siap. Selesaikan login di browser GUI lalu ulangi.,2026-10-22 10:03:08
+73d51231-9253-4934-9015-9ceadb25ac2f,DR GROSIR NIA,DB:data_split_usaha_20261016,430,error,Sesi login FASIH belum siap. Selesaikan login di browser GUI lalu ulangi.,2026-10-22 10:03:40
+13453e88-04b2-41f1-a3e2-be7ceab62b8c,HONEYRA JAYA ABADI,DB:data_split_usaha_20261016,431,error,Sesi login FASIH belum siap. Selesaikan login di browser GUI lalu ulangi.,2026-10-22 10:04:11
+30c6ddb9-889f-4034-89ae-1791ceaae1dc,KEBUN BUAH DURIAN,DB:data_split_usaha_20261016,432,error,Sesi login FASIH belum siap. Selesaikan login di browser GUI lalu ulangi.,2026-10-22 10:04:42
+380dcdaa-d3d8-4fa2-991e-8b31fe12f15f,KEBUN H UTANG,DB:data_split_usaha_20261016,433,error,Sesi login FASIH belum siap. Selesaikan login di browser GUI lalu ulangi.,2026-10-22 10:05:13
+8623fd61-8b5d-4282-994d-bd267c28e25e,LAPAK BUAH SEGAR RAYA,DB:data_split_usaha_20261016,434,error,Sesi login FASIH belum siap. Selesaikan login di browser GUI lalu ulangi.,2026-10-22 10:05:44
+458acd32-5fc4-49be-bfbd-4757f5c8a387,MENJUAL BUAH ,DB:data_split_usaha_20261016,435,error,Sesi login FASIH belum siap. Selesaikan login di browser GUI lalu ulangi.,2026-10-22 10:06:16
+1dfbde2b-801b-40f8-ad9c-7d21098bc121,"SEGAR GROSIR INDONESIA, CV",DB:data_split_usaha_20261016,436,error,Sesi login FASIH belum siap. Selesaikan login di browser GUI lalu ulangi.,2026-10-22 10:06:47
+e4140fd5-72ce-4067-8baa-107e999a05f7,TUKANG PISANG,DB:data_split_usaha_20261016,437,error,Sesi login FASIH belum siap. Selesaikan login di browser GUI lalu ulangi.,2026-10-22 10:07:18
+b2f538f2-107a-42c9-b540-26abd66b12db,USAHA ERWIN,DB:data_split_usaha_20261016,438,error,Sesi login FASIH belum siap. Selesaikan login di browser GUI lalu ulangi.,2026-10-22 10:07:50
+f4349f59-6ddd-4c7c-9779-17afddd35db1,AGEN SAYUR DAN BUAH ABANG AZ,DB:data_split_usaha_20261016,439,error,Sesi login FASIH belum siap. Selesaikan login di browser GUI lalu ulangi.,2026-10-22 10:08:21
+3a3cdefb-8eeb-4577-bd57-4dceea45c721,JUAL BUAH - BUAHAN,DB:data_split_usaha_20261016,440,error,Sesi login FASIH belum siap. Selesaikan login di browser GUI lalu ulangi.,2026-10-22 10:08:52
+5557127e-4b9c-4934-84d4-37ce49a35edb,LAPAK BUAH SIGER,DB:data_split_usaha_20261016,441,error,Sesi login FASIH belum siap. Selesaikan login di browser GUI lalu ulangi.,2026-10-22 10:09:23
+bfcdec59-e42a-44ce-8a28-407fe9c97d0c,PEDAGANG BUAH KELILING (ALVANDO),DB:data_split_usaha_20261016,442,error,Sesi login FASIH belum siap. Selesaikan login di browser GUI lalu ulangi.,2026-10-22 10:09:55
+beb268c8-bf43-4c71-8ee7-9320a835a6d6,PENJUAL DURIAN LOKAL (DEDI SURYADI),DB:data_split_usaha_20261016,443,error,Sesi login FASIH belum siap. Selesaikan login di browser GUI lalu ulangi.,2026-10-22 10:10:26
+90f04122-7a9f-4980-b483-767bcffc67fa,SUPLAYER BUAH HIDAYAT,DB:data_split_usaha_20261016,444,error,Sesi login FASIH belum siap. Selesaikan login di browser GUI lalu ulangi.,2026-10-22 10:10:57
+f1ba13c2-5052-4e18-b8a9-bf4b4032e51a,TOKO PISANG AGUS NURDIN,DB:data_split_usaha_20261016,445,error,Sesi login FASIH belum siap. Selesaikan login di browser GUI lalu ulangi.,2026-10-22 10:11:28
+93c569fe-73fa-4cb9-840c-d9ff6599b708,YANTI OLSHOP,DB:data_split_usaha_20261016,447,error,Sesi login FASIH belum siap. Selesaikan login di browser GUI lalu ulangi.,2026-10-22 10:12:00
+0f654461-29da-4ec8-936b-7993adc2bb15,TANI BETSAMA DEDE,DB:data_split_usaha_20261016,448,error,Sesi login FASIH belum siap. Selesaikan login di browser GUI lalu ulangi.,2026-10-22 10:12:31
+c31b9aa3-5ec3-4cc4-ad8f-bb203ae2e3b0,PEDAGANG SAYURAN,DB:data_split_usaha_20261016,449,error,Sesi login FASIH belum siap. Selesaikan login di browser GUI lalu ulangi.,2026-10-22 10:13:02
+b1d90686-e24f-44bd-b00c-05c4945d12be,SAYURAN (ATENG),DB:data_split_usaha_20261016,450,error,Sesi login FASIH belum siap. Selesaikan login di browser GUI lalu ulangi.,2026-10-22 10:13:33
+cb889c88-0f0d-4259-800f-d295a46899ad,WARUNG SAYURAN PUPU,DB:data_split_usaha_20261016,451,error,Sesi login FASIH belum siap. Selesaikan login di browser GUI lalu ulangi.,2026-10-22 10:14:05
+46ccb9a8-07ac-4c5f-85bf-54b313028d61,BUDIDAYA PISANG DAUN ,DB:data_split_usaha_20261016,452,error,Sesi login FASIH belum siap. Selesaikan login di browser GUI lalu ulangi.,2026-10-22 10:14:36
+497f0494-6415-433f-bf01-7030f3dc17bc,PEDAGANG SAYURAN AYANAH,DB:data_split_usaha_20261016,453,error,Sesi login FASIH belum siap. Selesaikan login di browser GUI lalu ulangi.,2026-10-22 10:15:07
+c79d8065-48e0-4af7-a0b2-048613aa01ce,Pemborong sayuran,DB:data_split_usaha_20261016,454,error,Sesi login FASIH belum siap. Selesaikan login di browser GUI lalu ulangi.,2026-10-22 10:15:38
+6cfffde8-571e-4d8c-9f8c-15a54ca67abd,TOKO SAYUR MANG DADAN,DB:data_split_usaha_20261016,455,error,Sesi login FASIH belum siap. Selesaikan login di browser GUI lalu ulangi.,2026-10-22 10:16:10
+723c79fa-710e-43c6-a0ab-5930777c1465,ACEP PEDAGANG SAYURAN ,DB:data_split_usaha_20261016,456,error,Sesi login FASIH belum siap. Selesaikan login di browser GUI lalu ulangi.,2026-10-22 10:16:41
+1c8e6a23-49d4-4c44-9ef1-c2a94cf067e7,BUDIDAYA PISANG DAUN ,DB:data_split_usaha_20261016,457,error,Sesi login FASIH belum siap. Selesaikan login di browser GUI lalu ulangi.,2026-10-22 10:17:12
+932ed122-7a14-445b-93d5-4cde0b48251d,BANGUNAN USAHA BPK EDI,DB:data_split_usaha_20261016,458,error,Sesi login FASIH belum siap. Selesaikan login di browser GUI lalu ulangi.,2026-10-22 10:17:43
+b491ae5a-78cb-44e1-8134-1333630a7735,JUAL BELI SARUYAN HAMDUN,DB:data_split_usaha_20261016,459,error,Sesi login FASIH belum siap. Selesaikan login di browser GUI lalu ulangi.,2026-10-22 10:18:15
+90e020ea-098a-408b-bb96-78c1d9f60cf4,JUAL BELI SINGKONG DAN UBI,DB:data_split_usaha_20261016,460,error,Sesi login FASIH belum siap. Selesaikan login di browser GUI lalu ulangi.,2026-10-22 10:18:46
+c43a1724-ebe9-4799-822a-891a402503fb,PERDAGANGAN HASIL PERTANIAN POHPOHAN PAK SUTISNA,DB:data_split_usaha_20261016,461,error,Sesi login FASIH belum siap. Selesaikan login di browser GUI lalu ulangi.,2026-10-22 10:19:17
+3ce5dadb-5896-4c5c-af08-82dab602aeaa,SAYUR (WATA) ,DB:data_split_usaha_20261016,462,error,Sesi login FASIH belum siap. Selesaikan login di browser GUI lalu ulangi.,2026-10-22 10:19:48
+39e60d52-7ad0-476a-a202-82eb7795c8c6,SAYUR BAYAM DAN KANGKUNG,DB:data_split_usaha_20261016,463,error,Sesi login FASIH belum siap. Selesaikan login di browser GUI lalu ulangi.,2026-10-22 10:20:19
+8e06fdc7-c825-495f-b88b-d155d640e2f9,SUPLAYER SAYUR SANAM,DB:data_split_usaha_20261016,464,error,Sesi login FASIH belum siap. Selesaikan login di browser GUI lalu ulangi.,2026-10-22 10:20:50
+8a934421-2386-4fd1-ae39-02bdcdd00f3d,UTP HOLTIKULTURA TATANG,DB:data_split_usaha_20261016,465,error,Sesi login FASIH belum siap. Selesaikan login di browser GUI lalu ulangi.,2026-10-22 10:21:22
+800e5b35-83f3-4cbc-892e-630b19fd4389,WARUNG SAYURAN (EMAR),DB:data_split_usaha_20261016,467,error,Sesi login FASIH belum siap. Selesaikan login di browser GUI lalu ulangi.,2026-10-22 10:21:53
+3ed25818-f363-478b-9bcd-635f4f2ff3d3,WARUNG(RUKMANAH) ,DB:data_split_usaha_20261016,468,error,Sesi login FASIH belum siap. Selesaikan login di browser GUI lalu ulangi.,2026-10-22 10:22:24
+3b72aecf-2dc7-484e-8389-5fe905df43cb,JUAL SAYURAN (ADE SUNARWAN),DB:data_split_usaha_20261016,469,error,Sesi login FASIH belum siap. Selesaikan login di browser GUI lalu ulangi.,2026-10-22 10:22:56
+5805bcee-2264-473d-88c0-9d040e9a1dd2,PEMBORONG SAYURAN (MITRA) ,DB:data_split_usaha_20261016,470,error,Sesi login FASIH belum siap. Selesaikan login di browser GUI lalu ulangi.,2026-10-22 10:23:27
+3d07cd4c-2c3f-48de-bc35-e288ad3c139d,SAYURAN (JUNAEDI),DB:data_split_usaha_20261016,471,error,Sesi login FASIH belum siap. Selesaikan login di browser GUI lalu ulangi.,2026-10-22 10:23:58
+1d63354e-732a-4828-b7b6-a858547fb1e3,TUKANG SAYUR (EDI),DB:data_split_usaha_20261016,472,error,Sesi login FASIH belum siap. Selesaikan login di browser GUI lalu ulangi.,2026-10-22 10:24:29
+5afe41d2-c997-46db-9987-1e6d262a0a81,MURAH RIZKI TELAGA IJO <RIDWAN>,DB:data_split_usaha_20261016,473,error,Sesi login FASIH belum siap. Selesaikan login di browser GUI lalu ulangi.,2026-10-22 10:25:00
+69f4c712-70f5-4f5f-85da-12b022891221,TOKO SAYURAN (IPIN) ,DB:data_split_usaha_20261016,474,error,Sesi login FASIH belum siap. Selesaikan login di browser GUI lalu ulangi.,2026-10-22 10:25:31
+80e4b1e5-27f2-424b-8795-de8eab0fc07d,PEDAGANG KATUK MA'AT,DB:data_split_usaha_20261016,475,error,Sesi login FASIH belum siap. Selesaikan login di browser GUI lalu ulangi.,2026-10-22 10:26:03
+b30bd80e-2954-4da5-aca3-b2ac0a02cc78,PEDAGANG SAYUR ENCEP ARYA GUNA,DB:data_split_usaha_20261016,476,error,Sesi login FASIH belum siap. Selesaikan login di browser GUI lalu ulangi.,2026-10-22 10:26:34
+c430e14b-5d2c-46e0-a8a8-fa110653475b,DAMAN SAYUR ( DAMAN),DB:data_split_usaha_20261016,477,error,Sesi login FASIH belum siap. Selesaikan login di browser GUI lalu ulangi.,2026-10-22 10:27:06
+6420d62f-20c9-4400-9702-c20800d99f54,SAYUR (MIHAD),DB:data_split_usaha_20261016,478,error,Sesi login FASIH belum siap. Selesaikan login di browser GUI lalu ulangi.,2026-10-22 10:27:37
+35057dcc-2504-4390-b651-1b2c21d057da,SAYUR BABEH,DB:data_split_usaha_20261016,479,error,Sesi login FASIH belum siap. Selesaikan login di browser GUI lalu ulangi.,2026-10-22 10:28:09
+0c3d87fe-33c7-488b-9eff-16e3196738fc,WARUNG BI IKAH (ATIKAH BINTI HASIM),DB:data_split_usaha_20261016,480,error,Sesi login FASIH belum siap. Selesaikan login di browser GUI lalu ulangi.,2026-10-22 10:28:40
+fd299f4f-5c17-4e86-8e83-e59167ba8e7e,GUDANG TANGKULAK ANDRI,DB:data_split_usaha_20261016,481,error,Sesi login FASIH belum siap. Selesaikan login di browser GUI lalu ulangi.,2026-10-22 10:29:12
+3bce1923-9c0f-439f-ac89-dde8d61c31e5,SAYURAN TEH YAYANG,DB:data_split_usaha_20261016,482,error,Sesi login FASIH belum siap. Selesaikan login di browser GUI lalu ulangi.,2026-10-22 10:29:43
+b9be4f2a-0eba-4a07-abe4-4c68888acfb6,DEDE ROHMANSA,DB:data_split_usaha_20261016,483,error,Sesi login FASIH belum siap. Selesaikan login di browser GUI lalu ulangi.,2026-10-22 10:30:15
+ecaf05bf-7fe8-40c8-8ce4-b7d4ed8ab30d,JUAL SAYURAN (ARIYADI),DB:data_split_usaha_20261016,484,error,Sesi login FASIH belum siap. Selesaikan login di browser GUI lalu ulangi.,2026-10-22 10:30:46
+3df2a77a-6a18-4e7c-9e77-09746d509586,LAPAK SAYUR DINDIN,DB:data_split_usaha_20261016,485,error,Sesi login FASIH belum siap. Selesaikan login di browser GUI lalu ulangi.,2026-10-22 10:31:19
+325bdbef-3056-4006-a6b8-52227000ddab,PENGEPUL SAYURAN (MUSLIM),DB:data_split_usaha_20261016,486,error,Sesi login FASIH belum siap. Selesaikan login di browser GUI lalu ulangi.,2026-10-22 10:31:50
+728ad559-8a06-4d21-8be4-96d6f3586041,Pengepul katuk,DB:data_split_usaha_20261016,487,error,Sesi login FASIH belum siap. Selesaikan login di browser GUI lalu ulangi.,2026-10-22 10:32:21
+06bc4e7c-d382-41e4-9f08-d5680a51aacd,TENGKULAK SAYURAN DILI,DB:data_split_usaha_20261016,488,error,Sesi login FASIH belum siap. Selesaikan login di browser GUI lalu ulangi.,2026-10-22 10:32:52
+1830e117-fb0e-4925-9545-8bebb36a9f8c,Usaha jualan sayuran kangkung bayam ,DB:data_split_usaha_20261016,489,error,Sesi login FASIH belum siap. Selesaikan login di browser GUI lalu ulangi.,2026-10-22 10:33:23
+a068ae1a-1401-43d4-8d22-94f5bb63c310,"BAYAM, KANGKUNG (RONI)",DB:data_split_usaha_20261016,490,error,Sesi login FASIH belum siap. Selesaikan login di browser GUI lalu ulangi.,2026-10-22 10:33:54
+1bc88327-a92c-4829-85b4-b529306fa572,MENJUAL SAYURAN KANGKUNG DAN BAYAM ,DB:data_split_usaha_20261016,491,error,Sesi login FASIH belum siap. Selesaikan login di browser GUI lalu ulangi.,2026-10-22 10:34:25
+224ddbe9-5d35-4ab0-8af4-0c98404c6336,PEMBORONG SAYURAN,DB:data_split_usaha_20261016,492,error,Sesi login FASIH belum siap. Selesaikan login di browser GUI lalu ulangi.,2026-10-22 10:34:56
+e11dace6-e58b-468f-b5fa-2cd254d47b24,PENGEPUL SAYURAN BAEKANDI,DB:data_split_usaha_20261016,493,error,Sesi login FASIH belum siap. Selesaikan login di browser GUI lalu ulangi.,2026-10-22 10:35:28
+9b77d106-57db-400b-8510-48cc96d054c2,PERDAGANGAN SAYURAN BAYAM DAN KANGKUNG,DB:data_split_usaha_20261016,494,error,Sesi login FASIH belum siap. Selesaikan login di browser GUI lalu ulangi.,2026-10-22 10:35:59
+714259d4-764a-4f27-9ff7-37493a4b8c14,PUCUK (ANDI) ,DB:data_split_usaha_20261016,495,error,Sesi login FASIH belum siap. Selesaikan login di browser GUI lalu ulangi.,2026-10-22 10:36:30
+ad35e8de-d9fb-410f-babb-109b96a884b1,SAYUR (JAJAT),DB:data_split_usaha_20261016,496,error,Sesi login FASIH belum siap. Selesaikan login di browser GUI lalu ulangi.,2026-10-22 10:37:01
+8b0d42e6-fc53-423a-b87d-206d0396f462,SUPPLIER SAYURAN (MULYADI),DB:data_split_usaha_20261016,497,error,Sesi login FASIH belum siap. Selesaikan login di browser GUI lalu ulangi.,2026-10-22 10:37:32
+158b47ca-645f-4720-b540-89a9caacb3c5,Usaha Hortikultura,DB:data_split_usaha_20261016,499,error,Sesi login FASIH belum siap. Selesaikan login di browser GUI lalu ulangi.,2026-10-22 10:38:04
+2ccec61c-da61-4480-9a8b-99628c89abe8,WARUNG SAYUR UDIN ,DB:data_split_usaha_20261016,500,error,Sesi login FASIH belum siap. Selesaikan login di browser GUI lalu ulangi.,2026-10-22 10:38:35
+283e991d-cace-40ec-b215-cf97d927de30,WARUNG SAYURAN (DAE),DB:data_split_usaha_20261016,501,error,Sesi login FASIH belum siap. Selesaikan login di browser GUI lalu ulangi.,2026-10-22 10:39:07
+a55822e7-39a0-4405-93e0-992a95abb51b,SAYUR KELILING ,DB:data_split_usaha_20261016,502,error,Sesi login FASIH belum siap. Selesaikan login di browser GUI lalu ulangi.,2026-10-22 10:39:38
+75252ce2-aecb-4de4-982f-c0b0c5f13c69,SAYURAN GOPUR,DB:data_split_usaha_20261016,503,error,Sesi login FASIH belum siap. Selesaikan login di browser GUI lalu ulangi.,2026-10-22 10:40:09
+bf9b994c-1de9-4904-bcb5-e0e5624d5c22,JUALAN JENGKOL ,DB:data_split_usaha_20261016,504,error,Sesi login FASIH belum siap. Selesaikan login di browser GUI lalu ulangi.,2026-10-22 10:40:40
+1883da30-fadf-4cc9-b082-794d64265219,JUALAN SAYUR MAYUR,DB:data_split_usaha_20261016,505,error,Sesi login FASIH belum siap. Selesaikan login di browser GUI lalu ulangi.,2026-10-22 10:41:12
+d1d3b34d-9656-45f1-a206-7f114c1c6570,MENJUAL SAYUR KAKINYA LIMA,DB:data_split_usaha_20261016,506,error,Sesi login FASIH belum siap. Selesaikan login di browser GUI lalu ulangi.,2026-10-22 10:41:43
+c08f2f2d-813f-48f1-bf3e-cb7db1b3b86a,PENGEPUL DAUN PISANG ,DB:data_split_usaha_20261016,507,error,Sesi login FASIH belum siap. Selesaikan login di browser GUI lalu ulangi.,2026-10-22 10:42:14
+e7256843-2700-4661-b0b7-909cf0e6d744,WARUNG SAYURAN MAS JOKO (JOKO SUTRISNO) ,DB:data_split_usaha_20261016,509,error,Sesi login FASIH belum siap. Selesaikan login di browser GUI lalu ulangi.,2026-10-22 10:42:45
+4b8837c3-da0e-4e58-a14a-3bc5228b1e0f,AGV FARM,DB:data_split_usaha_20261016,510,error,Sesi login FASIH belum siap. Selesaikan login di browser GUI lalu ulangi.,2026-10-22 10:43:16
+9cec66b1-6717-4f01-94af-19ad93451d08,BUDIDAYA PISANG DAUN ,DB:data_split_usaha_20261016,511,error,Sesi login FASIH belum siap. Selesaikan login di browser GUI lalu ulangi.,2026-10-22 10:43:47
+718e3213-91b4-43cb-842b-6b3e647b743b,SAYUR PAK ERI (ERI CHUSAERI),DB:data_split_usaha_20261016,512,error,Sesi login FASIH belum siap. Selesaikan login di browser GUI lalu ulangi.,2026-10-22 10:44:18
+ac89eed1-50ca-4a91-a1cc-e09f6aca2062,PEDAGANG SAYURAN ,DB:data_split_usaha_20261016,513,error,Sesi login FASIH belum siap. Selesaikan login di browser GUI lalu ulangi.,2026-10-22 10:44:50
+9c2318d0-1518-407f-a83f-a9ff76aecddf,PENGEPUL KATUK,DB:data_split_usaha_20261016,514,error,Sesi login FASIH belum siap. Selesaikan login di browser GUI lalu ulangi.,2026-10-22 10:45:21
+4fb5af07-c2c9-4185-a30a-83c0dfe4823d,SATA,DB:data_split_usaha_20261016,515,error,Sesi login FASIH belum siap. Selesaikan login di browser GUI lalu ulangi.,2026-10-22 10:45:52
+7b9cab61-ee16-4899-8593-f5840624afa0,SAYUR MAYUR BI IIS ISNAWATI,DB:data_split_usaha_20261016,516,error,Sesi login FASIH belum siap. Selesaikan login di browser GUI lalu ulangi.,2026-10-22 10:46:23
+fd492101-2d85-4a51-aba0-0128c6c96aac,SAYURAN ODANG,DB:data_split_usaha_20261016,517,error,Sesi login FASIH belum siap. Selesaikan login di browser GUI lalu ulangi.,2026-10-22 10:46:54
+36843517-2eb1-41ec-aeee-19c06e145f0c,SUPPLIER SAYURAN BENY,DB:data_split_usaha_20261016,518,error,Sesi login FASIH belum siap. Selesaikan login di browser GUI lalu ulangi.,2026-10-22 10:47:26
+8c0c58f5-dd04-44c9-946c-a4c35384a41f,SUPPLIER SAYURAN ICAN,DB:data_split_usaha_20261016,519,error,Sesi login FASIH belum siap. Selesaikan login di browser GUI lalu ulangi.,2026-10-22 10:47:57
+0ac73126-4352-450f-9960-b3643cc4a200,SUPPLIER SAYURAN SYAYID,DB:data_split_usaha_20261016,520,error,Sesi login FASIH belum siap. Selesaikan login di browser GUI lalu ulangi.,2026-10-22 10:48:28
+d389fdf3-43b0-451f-988c-621b98e1f935,USAHA DAGANG(MASHURI) ,DB:data_split_usaha_20261016,521,error,Sesi login FASIH belum siap. Selesaikan login di browser GUI lalu ulangi.,2026-10-22 10:49:00
+7dedc06f-b020-491b-a147-997775090dd4, LEEFOOD,DB:data_split_usaha_20261016,522,error,Sesi login FASIH belum siap. Selesaikan login di browser GUI lalu ulangi.,2026-10-22 10:49:31
+940a05c7-9c2d-47c3-81da-b16d3be066a7,JUALAN SAYUR DI PASAR,DB:data_split_usaha_20261016,523,error,Sesi login FASIH belum siap. Selesaikan login di browser GUI lalu ulangi.,2026-10-22 10:50:02
+81c3ee4d-a565-49a3-8369-7a1bb6f3d604,JUALAN SAYUR KELILING(OTIB),DB:data_split_usaha_20261016,524,error,Sesi login FASIH belum siap. Selesaikan login di browser GUI lalu ulangi.,2026-10-22 10:50:33
+8c2fe5da-189a-49c5-b985-6640a0d68fee,JUALAN SAYURAN,DB:data_split_usaha_20261016,525,error,Sesi login FASIH belum siap. Selesaikan login di browser GUI lalu ulangi.,2026-10-22 10:51:04
+c29f1d60-519e-4dd1-aeb6-8bbfddffd43a,PEDAGANG SAYUR ,DB:data_split_usaha_20261016,526,error,Sesi login FASIH belum siap. Selesaikan login di browser GUI lalu ulangi.,2026-10-22 10:51:36
+2a773705-1a47-4b5c-a4b1-d671b304cde5,PEDAGANG SAYUR MARSAN,DB:data_split_usaha_20261016,527,error,Sesi login FASIH belum siap. Selesaikan login di browser GUI lalu ulangi.,2026-10-22 10:52:07
+89e34b95-ba74-491e-b453-7143356177f4,PEDAGANG SAYURAN,DB:data_split_usaha_20261016,528,error,Sesi login FASIH belum siap. Selesaikan login di browser GUI lalu ulangi.,2026-10-22 10:52:38
+bfd6fcbc-4b68-4881-a223-39a8dea3b166,PEMGEPUL SAYUR CECE,DB:data_split_usaha_20261016,529,error,Sesi login FASIH belum siap. Selesaikan login di browser GUI lalu ulangi.,2026-10-22 10:53:09
+777871a9-4673-4fe8-8ac9-8651721b1ad6,PENGEPUL KATUK ODING,DB:data_split_usaha_20261016,530,error,Sesi login FASIH belum siap. Selesaikan login di browser GUI lalu ulangi.,2026-10-22 10:53:41
+71585a26-5f27-4f1b-bb59-d9c4787baa01,SAYUR MARSAN,DB:data_split_usaha_20261016,531,error,Sesi login FASIH belum siap. Selesaikan login di browser GUI lalu ulangi.,2026-10-22 10:54:12
+a8e6aa1e-ccc5-41fa-a148-8bdfca12d8d0,TOKO SAYURAN ( EMAN) ,DB:data_split_usaha_20261016,533,error,Sesi login FASIH belum siap. Selesaikan login di browser GUI lalu ulangi.,2026-10-22 10:54:43
+81607e7f-ef89-4768-8d8c-534fc04142a6,USAHA PENGEPUL SAYURAN BESAR (RIDWAN),DB:data_split_usaha_20261016,534,error,Sesi login FASIH belum siap. Selesaikan login di browser GUI lalu ulangi.,2026-10-22 10:55:14
+4832ecad-b7e9-40b6-9b6a-d316aa25bc68,WARUNG SAYURAN KELILING EEM,DB:data_split_usaha_20261016,535,error,Sesi login FASIH belum siap. Selesaikan login di browser GUI lalu ulangi.,2026-10-22 10:55:45
+64916c27-e33e-4726-826e-d8ddfb30f4d9,WARUNG SUMBER REZEKI SAYURAN,DB:data_split_usaha_20261016,536,error,Sesi login FASIH belum siap. Selesaikan login di browser GUI lalu ulangi.,2026-10-22 10:56:18
+eba73a66-b23a-42e5-a51f-b31dc67bcff1,JUAL BELI UMBI-UMBIAN SUHERI,DB:data_split_usaha_20261016,537,error,Baris database sedang diproses PC lain atau statusnya berubah.,2026-10-22 10:56:19
+8e559f8d-488d-4bdf-97ac-a3868c5d64a1,JUALAN SAYURAN(OPIH),DB:data_split_usaha_20261016,538,error,Sesi login FASIH belum siap. Selesaikan login di browser GUI lalu ulangi.,2026-10-22 10:56:49
+037d9077-a5f9-4886-9d7a-5c55f248a411,PEDAGANG KELAPA (HERMAWAN),DB:data_split_usaha_20261016,539,error,Baris database sedang diproses PC lain atau statusnya berubah.,2026-10-22 10:56:50
+c91e43b6-4194-4291-86b4-d3fa2e5b6c37,PENGEPUL SAYURAN ( DIDI SURYADI),DB:data_split_usaha_20261016,540,error,Sesi login FASIH belum siap. Selesaikan login di browser GUI lalu ulangi.,2026-10-22 10:57:21
+0866ec9e-63c4-42bc-8ddb-be1ab89c927a,SAYURAN (IMANG),DB:data_split_usaha_20261016,544,error,Baris database sedang diproses PC lain atau statusnya berubah.,2026-10-22 10:57:22
+5342505d-81e3-419d-8d4b-2648237eb383,SAYUR ABDUL ROHIM,DB:data_split_usaha_20261016,542,error,Baris database sedang diproses PC lain atau statusnya berubah.,2026-10-22 10:57:22
+6ffa4d6d-2b74-491f-8915-1fb7b908d1bb,SUPPLIER SAYURAN (BUDI SUMINTA) ,DB:data_split_usaha_20261016,545,error,Sesi login FASIH belum siap. Selesaikan login di browser GUI lalu ulangi.,2026-10-22 10:57:53
+6079eaac-e5d6-419e-b9c4-55d91850ab5e,TOKO SEDERHANA MAKMUR SAYURAN,DB:data_split_usaha_20261016,546,error,Baris database sedang diproses PC lain atau statusnya berubah.,2026-10-22 10:57:54
+1d6d638f-84b0-425d-ae5a-4a44388b8004,TUKANG SAYUR KELILING AN BIN MARAN,DB:data_split_usaha_20261016,547,error,Sesi login FASIH belum siap. Selesaikan login di browser GUI lalu ulangi.,2026-10-22 10:58:25
+997f2b50-0b90-4411-b411-02172bf3d448,USAHA (BAPAK DADI) ,DB:data_split_usaha_20261016,548,error,Baris database sedang diproses PC lain atau statusnya berubah.,2026-10-22 10:58:26
+f031c483-2795-4952-9a76-f55037df1acf,USAHA NONOH,DB:data_split_usaha_20261016,549,error,Baris database sedang diproses PC lain atau statusnya berubah.,2026-10-22 10:58:26
+7f08d8f3-0776-4472-983c-e00723abc951,WARUNG SAYURAN RUDI,DB:data_split_usaha_20261016,550,error,Sesi login FASIH belum siap. Selesaikan login di browser GUI lalu ulangi.,2026-10-22 10:58:57
+6a2d9a0c-2b12-467b-95e0-d0367660b3ba,JUALAN BAJU KELILING / NNANA,DB:data_split_usaha_20261016,551,error,Baris database sedang diproses PC lain atau statusnya berubah.,2026-10-22 10:58:58
+0fa1a069-c4d3-4ec8-bf6a-367a01464aad,JUALAN SAYURAN ( AOS ),DB:data_split_usaha_20261016,552,error,Sesi login FASIH belum siap. Selesaikan login di browser GUI lalu ulangi.,2026-10-22 10:59:29
+917f6045-d366-43e8-baab-713b0bd06069,LAPAK CABE PAK ASEP,DB:data_split_usaha_20261016,554,error,Baris database sedang diproses PC lain atau statusnya berubah.,2026-10-22 10:59:30
+9783fee4-5cd0-40ef-8735-22d491752c8f,PENGEPUL SAYUR ABDUL ROHIM,DB:data_split_usaha_20261016,555,error,Baris database sedang diproses PC lain atau statusnya berubah.,2026-10-22 10:59:30
+cef4b4a1-0f6d-4e06-948e-73b29ec4e879,SAYURAN MAMAN SUHERMAN,DB:data_split_usaha_20261016,556,error,Sesi login FASIH belum siap. Selesaikan login di browser GUI lalu ulangi.,2026-10-22 11:00:01
+d3ae6406-d421-4703-a365-1b6da6ca4a86,TOKO SAYUR ( EKO),DB:data_split_usaha_20261016,557,error,Baris database sedang diproses PC lain atau statusnya berubah.,2026-10-22 11:00:02
+62e4b500-a690-41ea-b65d-e259aede92ab,TOKO SAYUR PUTRA SUNDA,DB:data_split_usaha_20261016,558,error,Sesi login FASIH belum siap. Selesaikan login di browser GUI lalu ulangi.,2026-10-22 11:00:32
+1e4af9b8-3a2b-4a06-9678-5e953dfe71cd,USAHA SANIM,DB:data_split_usaha_20261016,560,error,Baris database sedang diproses PC lain atau statusnya berubah.,2026-10-22 11:00:33
+beb52899-fc53-4928-87b7-6efd476fd955,USAHA SAYUR SARJA WIJAYA ,DB:data_split_usaha_20261016,561,error,Baris database sedang diproses PC lain atau statusnya berubah.,2026-10-22 11:00:34
+afff018c-7c10-427a-90e4-fb7ecf150455,WARUNG SYAKIRA,DB:data_split_usaha_20261016,562,error,Sesi login FASIH belum siap. Selesaikan login di browser GUI lalu ulangi.,2026-10-22 11:01:04
+ac50091b-5c2b-41b9-8d56-a67562fd8ffb,BUDIDAYA PISANG DAUN ,DB:data_split_usaha_20261016,563,error,Baris database sedang diproses PC lain atau statusnya berubah.,2026-10-22 11:01:05
+270c86b9-c312-470a-921e-68d68ff321de,GADI-GADO(IBU MEY),DB:data_split_usaha_20261016,564,error,Sesi login FASIH belum siap. Selesaikan login di browser GUI lalu ulangi.,2026-10-22 11:01:36
+15d2ba45-3d75-4a96-a117-00f51c084422,PENGEPUL SAYURAN DUDI ,DB:data_split_usaha_20261016,566,error,Baris database sedang diproses PC lain atau statusnya berubah.,2026-10-22 11:01:38
+c0aeaf29-1a8d-4946-af4a-45c60e57204b,KIOS SAYURAN(KIO),DB:data_split_usaha_20261016,565,error,Baris database sedang diproses PC lain atau statusnya berubah.,2026-10-22 11:01:38
+2606a43b-234d-417b-89c5-840f310cfc02,SAYUR KELILING(MUHAMAD MUHAJIRIN),DB:data_split_usaha_20261016,567,error,Sesi login FASIH belum siap. Selesaikan login di browser GUI lalu ulangi.,2026-10-22 11:02:09
+9251d0bd-27fc-46cc-b2ac-8586497c66d5,SAYUR SEGAR PAK SUWITA,DB:data_split_usaha_20261016,568,error,Baris database sedang diproses PC lain atau statusnya berubah.,2026-10-22 11:02:10
+9ea35118-3a93-46f8-aba6-0696135c05e2,SAYURAN ( EDIH),DB:data_split_usaha_20261016,569,error,Baris database sedang diproses PC lain atau statusnya berubah.,2026-10-22 11:02:11
+60fb8fa7-b39d-4433-9ba3-50aa68725edd,SAYURAN (EDI),DB:data_split_usaha_20261016,570,error,Sesi login FASIH belum siap. Selesaikan login di browser GUI lalu ulangi.,2026-10-22 11:02:41
+4d190cb7-2beb-4408-960b-df76269c51aa,SAYURAN (TARSO),DB:data_split_usaha_20261016,571,error,Baris database sedang diproses PC lain atau statusnya berubah.,2026-10-22 11:02:42
+b7dd63db-c2dd-4243-ab77-2069fe96fbe4,SAYURAN (WATI) ,DB:data_split_usaha_20261016,572,error,Sesi login FASIH belum siap. Selesaikan login di browser GUI lalu ulangi.,2026-10-22 11:03:13
+866b4ef7-dc99-4d73-8d74-37a89deb653b,TOKO SAYURAN ALI,DB:data_split_usaha_20261016,575,error,Sesi login FASIH belum siap. Selesaikan login di browser GUI lalu ulangi.,2026-10-22 11:03:44
+6e718b01-c8a6-4776-aad0-bb4f1ed521d0,USAHA HORTIKULTURA DAUN PISANG,DB:data_split_usaha_20261016,576,error,Baris database sedang diproses PC lain atau statusnya berubah.,2026-10-22 11:03:45
+868889b9-1dda-4359-a625-48372cff0c45,BUBID PISANG DAUN,DB:data_split_usaha_20261016,577,error,Baris database sedang diproses PC lain atau statusnya berubah.,2026-10-22 11:03:46
+43d199d1-152d-4f02-b909-0e07bb5520d2,BUDIDAYA PISANG DAUN,DB:data_split_usaha_20261016,578,error,Sesi login FASIH belum siap. Selesaikan login di browser GUI lalu ulangi.,2026-10-22 11:04:16
+4b1de0eb-3f60-4b11-b312-4808adac9ca8,Dstibutor sayuran bpk saropik ,DB:data_split_usaha_20261016,579,error,Baris database sedang diproses PC lain atau statusnya berubah.,2026-10-22 11:04:17
+98706309-0a22-4b91-b3d9-cc5f6f9ce8a0,ELSA FARM,DB:data_split_usaha_20261016,580,error,Sesi login FASIH belum siap. Selesaikan login di browser GUI lalu ulangi.,2026-10-22 11:04:48
+782970d8-c38f-46d4-80a2-f3d3406a320c,H SOBARI,DB:data_split_usaha_20261016,581,error,Baris database sedang diproses PC lain atau statusnya berubah.,2026-10-22 11:04:49
+45936c22-b8b4-4b4d-a3dc-fdae51b7cc3f,JUAL SAYUR MAYUR,DB:data_split_usaha_20261016,582,error,Baris database sedang diproses PC lain atau statusnya berubah.,2026-10-22 11:04:50
+4c0a03fc-2886-40db-bb1b-72fa1514a98a,LAPAK SAYUR DAUN (OPIK) ,DB:data_split_usaha_20261016,583,error,Sesi login FASIH belum siap. Selesaikan login di browser GUI lalu ulangi.,2026-10-22 11:05:20
+52f03f5a-fa00-4e79-a089-d2f8237488ee,PEDAGANG SAYUR DI PASAR ARIS ,DB:data_split_usaha_20261016,584,error,Baris database sedang diproses PC lain atau statusnya berubah.,2026-10-22 11:05:22
+cec1fd5e-fb62-4857-9a14-cf33932cbb52,PENGEPUL HASIL TANI MUHUDIN,DB:data_split_usaha_20261016,585,error,Sesi login FASIH belum siap. Selesaikan login di browser GUI lalu ulangi.,2026-10-22 11:05:52
+b3d87ba3-fa6e-4631-ad93-11890ec1affb,PENJUAL SAYURAN KELILING RODA 3,DB:data_split_usaha_20261016,586,error,Baris database sedang diproses PC lain atau statusnya berubah.,2026-10-22 11:05:53
+fd2c32f1-1035-4ba8-b7a3-9d13940cc81d,SUPLYAYER SAYURAN DAUN TRISNA (TRISNA) ,DB:data_split_usaha_20261016,588,error,Baris database sedang diproses PC lain atau statusnya berubah.,2026-10-22 11:05:54
+3084f849-1937-481b-bed2-5d501a1ad3a0,USAHA PENGEPUL SAYURAN (MUHAEMIN IDI),DB:data_split_usaha_20261016,589,error,Sesi login FASIH belum siap. Selesaikan login di browser GUI lalu ulangi.,2026-10-22 11:06:24
+b65f682a-26c1-4b28-a955-342992a7087e,WARUNG ALAM,DB:data_split_usaha_20261016,590,error,Baris database sedang diproses PC lain atau statusnya berubah.,2026-10-22 11:06:25
+8cd91500-bab2-4564-85d0-4eb9a4706674,WARUNG KELONTONG TE PARTI (SANAH PARTI),DB:data_split_usaha_20261016,591,error,Sesi login FASIH belum siap. Selesaikan login di browser GUI lalu ulangi.,2026-10-22 11:06:56
+d0fe55b4-cd4f-4d03-a47e-a8310cfac6d7,WARUNG SAYURAN DAUD,DB:data_split_usaha_20261016,592,error,Sesi login FASIH belum siap. Selesaikan login di browser GUI lalu ulangi.,2026-10-22 11:07:27
+203e3ed5-4ff9-457e-a6f6-18bec73b00df,YANTI JUALAN SAYURAN SEGAR YANTI,DB:data_split_usaha_20261016,593,error,Baris database sedang diproses PC lain atau statusnya berubah.,2026-10-22 11:07:28
+5234b76a-484e-46d8-8150-d1c2153a1aff,EVERY FARM ,DB:data_split_usaha_20261016,594,error,Sesi login FASIH belum siap. Selesaikan login di browser GUI lalu ulangi.,2026-10-22 11:07:58
+692bf76a-d4d3-4b08-995b-c2026ec693f2,JUAL SAYURAN.,DB:data_split_usaha_20261016,596,error,Baris database sedang diproses PC lain atau statusnya berubah.,2026-10-22 11:08:00
+6bd51019-43a8-4366-8580-6910b545bf23,JUAL BELI JAMUR TIRAM,DB:data_split_usaha_20261016,595,error,Baris database sedang diproses PC lain atau statusnya berubah.,2026-10-22 11:08:00
+31dc0491-f927-4143-b188-fb2463e9bb91,KEBUN WIRA,DB:data_split_usaha_20261016,597,error,Sesi login FASIH belum siap. Selesaikan login di browser GUI lalu ulangi.,2026-10-22 11:08:31
+7f32e580-c9e1-4155-86bc-2fae2b4a8153,LAPAK SAYUR TEH YUNI,DB:data_split_usaha_20261016,598,error,Baris database sedang diproses PC lain atau statusnya berubah.,2026-10-22 11:08:32
+3cb3f45e-363c-4634-b346-58432b1aba01,PEDAGANG SAYURAN (MA'MUN ALAWI),DB:data_split_usaha_20261016,599,error,Sesi login FASIH belum siap. Selesaikan login di browser GUI lalu ulangi.,2026-10-22 11:09:02
+0136e159-d4a0-4ac0-97ec-0766324af97d,PEMBORONG SAYURAN (KOSIM),DB:data_split_usaha_20261016,601,error,Baris database sedang diproses PC lain atau statusnya berubah.,2026-10-22 11:09:04
+baf77ef6-4fde-4e68-9b05-419f6219908a,PEMBORONG HASIL KEBUN (IRWAN),DB:data_split_usaha_20261016,600,error,Baris database sedang diproses PC lain atau statusnya berubah.,2026-10-22 11:09:04
+8e600d40-b39c-40d4-85a4-3a3d3e1670ce,PENGANGKUT PERGUNANGAN UBI JALAR MULYANA,DB:data_split_usaha_20261016,602,error,Sesi login FASIH belum siap. Selesaikan login di browser GUI lalu ulangi.,2026-10-22 11:09:35
+6164ae98-d10a-4c91-bcfb-3a60379447a3,PENGEPUL DAUN PISANG,DB:data_split_usaha_20261016,603,error,Baris database sedang diproses PC lain atau statusnya berubah.,2026-10-22 11:09:36
+ba1fd5cc-18f6-49aa-a3df-600645234385,Pengepul daun pisang ( Ma'mun),DB:data_split_usaha_20261016,604,error,Sesi login FASIH belum siap. Selesaikan login di browser GUI lalu ulangi.,2026-10-22 11:10:06
+2daa933d-dd63-4f8b-88fd-9a1b508fb79a,SAYURAN (EKO),DB:data_split_usaha_20261016,606,error,Baris database sedang diproses PC lain atau statusnya berubah.,2026-10-22 11:10:07
+6150080b-6c15-4c89-bba0-9e5c306d5323,SUPLAYER SAYURAN DAUN SUDRAJAT (JAHAT SUDRAJAT) ,DB:data_split_usaha_20261016,607,error,Baris database sedang diproses PC lain atau statusnya berubah.,2026-10-22 11:10:08
+a1d04292-7140-4e5e-86b4-5f91d1bc6ae2,SUPLIER SAYURAN DAUN SINGKONG ANGGA,DB:data_split_usaha_20261016,608,error,Sesi login FASIH belum siap. Selesaikan login di browser GUI lalu ulangi.,2026-10-22 11:10:38
+5375a744-4fc9-4797-8b78-d2c4813d9207,SUPLYAYER SAYURAN DAUN ANWAR,DB:data_split_usaha_20261016,609,error,Baris database sedang diproses PC lain atau statusnya berubah.,2026-10-22 11:10:39
+9e5eee9d-11ee-4815-8a1c-6dfa861d16a4,SUPPLIER GROSIR SAYUR,DB:data_split_usaha_20261016,610,error,Sesi login FASIH belum siap. Selesaikan login di browser GUI lalu ulangi.,2026-10-22 11:11:10
+aeebdf0b-d381-4868-99b5-bd4cd7f1e01d,Sayuran fadilah,DB:data_split_usaha_20261016,611,error,Baris database sedang diproses PC lain atau statusnya berubah.,2026-10-22 11:11:11
+f7895711-f74d-4fee-80a1-d0ab9a7eb9d4,Sayuran ikah,DB:data_split_usaha_20261016,612,error,Baris database sedang diproses PC lain atau statusnya berubah.,2026-10-22 11:11:11
+566fad09-708d-40a2-b46f-e911c11de7a1,TENGKULAK KOMODITI SAYURAN ( EMI ERMAWATI ),DB:data_split_usaha_20261016,613,error,Sesi login FASIH belum siap. Selesaikan login di browser GUI lalu ulangi.,2026-10-22 11:11:42
+3a3e1c66-940d-4902-bc21-1fc0ccf75c8e,TUKANG SAYUR (MAHMUDIN),DB:data_split_usaha_20261016,614,error,Baris database sedang diproses PC lain atau statusnya berubah.,2026-10-22 11:11:43
+dedfee27-eff7-4b29-bb50-1d59c6355ce3,USAHA SAYURAN ,DB:data_split_usaha_20261016,615,error,Sesi login FASIH belum siap. Selesaikan login di browser GUI lalu ulangi.,2026-10-22 11:12:14
+2fa0e38c-1b14-4081-a8a2-1db2fc164b24,WARUNG (ROMLAH),DB:data_split_usaha_20261016,616,error,Baris database sedang diproses PC lain atau statusnya berubah.,2026-10-22 11:12:15
+d43978d1-46bb-4b9e-9f78-749288055c98,WARUNG SAYURAN,DB:data_split_usaha_20261016,617,error,Sesi login FASIH belum siap. Selesaikan login di browser GUI lalu ulangi.,2026-10-22 11:12:45
+31ff9d80-10ba-4c5c-b401-04e3c7d0338e,BUMDES CITAPEN BERKARYA,DB:data_split_usaha_20261016,618,error,Baris database sedang diproses PC lain atau statusnya berubah.,2026-10-22 11:12:47
+d6bf4b16-0777-4e43-ab1c-bd1836645d9c,DAGANG SAYUR KELILING,DB:data_split_usaha_20261016,619,error,Baris database sedang diproses PC lain atau statusnya berubah.,2026-10-22 11:12:47
+8e343c6a-c349-4d26-9aa7-3d43f586789b,SUPLIER SAYURAN HIJAU <ADE>,DB:data_split_usaha_20261016,620,error,Sesi login FASIH belum siap. Selesaikan login di browser GUI lalu ulangi.,2026-10-22 11:13:18
+335aba4c-e099-40f0-9d2f-5d79f0e3960f,SUPPLIER SAYURAN KAMSURI,DB:data_split_usaha_20261016,621,error,Baris database sedang diproses PC lain atau statusnya berubah.,2026-10-22 11:13:19
+fc75b018-b2b3-4230-acab-0b8944878849,SUPPLIER SAYURAN KATMA,DB:data_split_usaha_20261016,622,error,Baris database sedang diproses PC lain atau statusnya berubah.,2026-10-22 11:13:19
+2944187c-b127-4987-9cc2-f4ebec365ce9,WARUNG SAYURAN PAK ENDANG,DB:data_split_usaha_20261016,623,error,Sesi login FASIH belum siap. Selesaikan login di browser GUI lalu ulangi.,2026-10-22 11:13:50
+ea6914ba-8c5c-4eb6-b31e-adcb00dad430,BKU EPUL,DB:data_split_usaha_20261016,624,error,Baris database sedang diproses PC lain atau statusnya berubah.,2026-10-22 11:13:51
+39d6ebe7-eeed-4777-9480-fc40ae73af8f,KIOS SAYURAN MA TOAH,DB:data_split_usaha_20261016,625,error,Sesi login FASIH belum siap. Selesaikan login di browser GUI lalu ulangi.,2026-10-22 11:14:22
+8ef5862c-183d-4ff0-83b1-ae6518cfe5a0,PENGEPUL SAYURAN (HADIN),DB:data_split_usaha_20261016,627,error,Baris database sedang diproses PC lain atau statusnya berubah.,2026-10-22 11:14:22
+2fd99ae0-6e7f-4867-8de6-62d2382409cb,SAYURAN ( LIA KUSUMAYATI),DB:data_split_usaha_20261016,628,error,Baris database sedang diproses PC lain atau statusnya berubah.,2026-10-22 11:14:23
+dcb7ec02-b2a1-4e8f-b65c-21af1367edac,SAYURAN BANG JOHAN ,DB:data_split_usaha_20261016,629,error,Sesi login FASIH belum siap. Selesaikan login di browser GUI lalu ulangi.,2026-10-22 11:14:54
+364fb326-bb49-4484-8d68-68cfab41ab0f,SAYURAN HAJI KARIM,DB:data_split_usaha_20261016,630,error,Baris database sedang diproses PC lain atau statusnya berubah.,2026-10-22 11:14:55
+ac08d9ca-72f0-4b91-b178-b8bd1101e3af,SUPLIER NANGKA MUDA KE WARUNG PADANG (SUTRIONO) ,DB:data_split_usaha_20261016,631,error,Sesi login FASIH belum siap. Selesaikan login di browser GUI lalu ulangi.,2026-10-22 11:15:25
+59365be0-a45c-479d-a4da-b3171caa73e8,TUKANG SAYUR PERTIGAAN ,DB:data_split_usaha_20261016,632,error,Baris database sedang diproses PC lain atau statusnya berubah.,2026-10-22 11:15:26
+8efde419-2dd1-4fb7-8aa2-0237452d06da,USAHA JUAL BELI SAYURAN (NURDIN),DB:data_split_usaha_20261016,633,error,Baris database sedang diproses PC lain atau statusnya berubah.,2026-10-22 11:15:27
+a94d12f6-c149-4f99-bdb0-159857dde1a5,USAHA LAPAK SAYURAN(HAKIM) ,DB:data_split_usaha_20261016,635,error,Sesi login FASIH belum siap. Selesaikan login di browser GUI lalu ulangi.,2026-10-22 11:15:57
+8ae6004b-77df-4e3c-a9a3-abe861eed8d7,WARUNG SAYUR NASYWA,DB:data_split_usaha_20261016,636,error,Baris database sedang diproses PC lain atau statusnya berubah.,2026-10-22 11:15:58
+dcc71e0c-ef78-4061-863e-fa6a67a11dc7,WARUNG SAYUR PAK HAKIM,DB:data_split_usaha_20261016,637,error,Sesi login FASIH belum siap. Selesaikan login di browser GUI lalu ulangi.,2026-10-22 11:16:29
+5d3a4bf1-a051-43c7-825b-f12cde40e00d,BANDAR SAYURAN,DB:data_split_usaha_20261016,638,error,Baris database sedang diproses PC lain atau statusnya berubah.,2026-10-22 11:16:30
+80afe3cc-b234-4646-a5ac-a26086f1fc35,JL WORTEL ,DB:data_split_usaha_20261016,639,error,Baris database sedang diproses PC lain atau statusnya berubah.,2026-10-22 11:16:31
+48d068e3-238b-4b41-aacf-fa7d3682a323,KIOS IKAN ASIN DAN SAYUR MANG MAYOR ,DB:data_split_usaha_20261016,640,error,Sesi login FASIH belum siap. Selesaikan login di browser GUI lalu ulangi.,2026-10-22 11:17:01
+51075216-a020-4f86-a7c1-ac2795248338,MUTIARA SAYUR,DB:data_split_usaha_20261016,641,error,Baris database sedang diproses PC lain atau statusnya berubah.,2026-10-22 11:17:02
+0f40298e-1d93-45bb-a6a8-ba48ddc253fa,PEDAGANG BAYAM KANGKUNG (INDRA) ,DB:data_split_usaha_20261016,642,error,Sesi login FASIH belum siap. Selesaikan login di browser GUI lalu ulangi.,2026-10-22 11:17:33
+b916ba81-6d0e-4044-8b74-24d0148f8601,PEDAGANG GROSIR CABAI BAWANG MERAH DAN BAWANG PUTIH,DB:data_split_usaha_20261016,643,error,Baris database sedang diproses PC lain atau statusnya berubah.,2026-10-22 11:17:34
+124f9e62-0b26-4e56-b44d-d32092757eb9,PENJUAL SAYURAN ,DB:data_split_usaha_20261016,646,error,Baris database sedang diproses PC lain atau statusnya berubah.,2026-10-22 11:17:35
+de4dacba-5744-4fde-a1f4-b625b08ef543,SAYURAN ( ISAK),DB:data_split_usaha_20261016,647,error,Sesi login FASIH belum siap. Selesaikan login di browser GUI lalu ulangi.,2026-10-22 11:18:05
+faf61a78-9857-41f1-897d-415117fd0248,SAYURAN (YANDI),DB:data_split_usaha_20261016,648,error,Baris database sedang diproses PC lain atau statusnya berubah.,2026-10-22 11:18:06
+dc12041d-90a9-4b60-bc0b-1efdd5446f10,TOKO SAYUR AZHAR,DB:data_split_usaha_20261016,649,error,Sesi login FASIH belum siap. Selesaikan login di browser GUI lalu ulangi.,2026-10-22 11:18:37
+96fd9bb7-a129-4f2c-8b45-b7afab80f953,USAHA SUHRI,DB:data_split_usaha_20261016,650,error,Baris database sedang diproses PC lain atau statusnya berubah.,2026-10-22 11:18:38
+3371ebbb-9e60-49c9-a635-f79f8c1b3bc1,Usaha sayuran (ada),DB:data_split_usaha_20261016,651,error,Baris database sedang diproses PC lain atau statusnya berubah.,2026-10-22 11:18:39
+5665f85f-c586-469d-9670-bd966b0d42b0,WARUNG SAYUR SINTA,DB:data_split_usaha_20261016,653,error,Sesi login FASIH belum siap. Selesaikan login di browser GUI lalu ulangi.,2026-10-22 11:19:09
+ed5f1b97-e11d-4701-80da-bca43e3a6180,WARUNG SAYUR SUKANDAR,DB:data_split_usaha_20261016,654,error,Baris database sedang diproses PC lain atau statusnya berubah.,2026-10-22 11:19:10
+d6103215-9fdf-4e7b-a69a-0fa51b361c17,WARUNG SAYURAN,DB:data_split_usaha_20261016,655,error,Sesi login FASIH belum siap. Selesaikan login di browser GUI lalu ulangi.,2026-10-22 11:19:41
+53463fcb-2d97-48f7-a551-9d2bbfaf3d3a,WARUNG SAYURAN (ASAH),DB:data_split_usaha_20261016,656,error,Baris database sedang diproses PC lain atau statusnya berubah.,2026-10-22 11:19:42
+de496da4-0801-4e4a-b7c1-78e4d04ff0da,ANEKA HERBS,DB:data_split_usaha_20261016,657,error,Baris database sedang diproses PC lain atau statusnya berubah.,2026-10-22 11:19:43
+518242cf-cc8e-4889-833d-aa10c083578b,JUALAN SAYUR KELILING ( SANIM),DB:data_split_usaha_20261016,658,error,Sesi login FASIH belum siap. Selesaikan login di browser GUI lalu ulangi.,2026-10-22 11:20:13
+6a46cb18-feb8-406b-a810-616096958da4,PEDAGANG PENGUMPUL WAWAN ,DB:data_split_usaha_20261016,659,error,Baris database sedang diproses PC lain atau statusnya berubah.,2026-10-22 11:20:14
+f5358098-3107-4cc5-8d58-0a6f0ca353d0,PEDAGANG SAYUR,DB:data_split_usaha_20261016,660,error,Sesi login FASIH belum siap. Selesaikan login di browser GUI lalu ulangi.,2026-10-22 11:20:45
+66b16742-7370-4c76-b0d5-10dec429bbc0,PENGEPUL SAYURAN (ASEP) ,DB:data_split_usaha_20261016,661,error,Sesi login FASIH belum siap. Selesaikan login di browser GUI lalu ulangi.,2026-10-22 11:21:16
+4eb89bb7-47ed-44fb-b42b-95f57e17d0d5,PENGEPUL SAYURAN (ATAM),DB:data_split_usaha_20261016,662,error,Baris database sedang diproses PC lain atau statusnya berubah.,2026-10-22 11:21:17
+2271d6f2-386a-4fe8-9acf-09f6e550ee3b,PENGEPUL SAYURAN (EMAY),DB:data_split_usaha_20261016,663,error,Sesi login FASIH belum siap. Selesaikan login di browser GUI lalu ulangi.,2026-10-22 11:21:48
+f4465e83-50b7-4869-b28c-56cda60096d8,SAYUR BANG MAMAT,DB:data_split_usaha_20261016,664,error,Sesi login FASIH belum siap. Selesaikan login di browser GUI lalu ulangi.,2026-10-22 11:22:19
+ac614564-cc0d-4142-af3f-39653653744e,SAYURAN KELILING RIKI HADIYANSYAH,DB:data_split_usaha_20261016,666,error,Baris database sedang diproses PC lain atau statusnya berubah.,2026-10-22 11:22:21
+e10c98b9-a811-4a3a-a633-5fea65f06633,SAYURAN ( YADI),DB:data_split_usaha_20261016,665,error,Baris database sedang diproses PC lain atau statusnya berubah.,2026-10-22 11:22:21
+4a53eafe-cf17-460d-808a-7c3aa9a07050,SAYURAN KELILING YANI,DB:data_split_usaha_20261016,667,error,Sesi login FASIH belum siap. Selesaikan login di browser GUI lalu ulangi.,2026-10-22 11:22:52
+0b32dd6d-250f-4d3c-91e3-056395fa75c0,SAYURAN MANG DEDE,DB:data_split_usaha_20261016,668,error,Baris database sedang diproses PC lain atau statusnya berubah.,2026-10-22 11:22:53
+63a61dd6-2a11-4a93-bea9-c8e9907cef1d,SAYURAN PARMAN,DB:data_split_usaha_20261016,669,error,Sesi login FASIH belum siap. Selesaikan login di browser GUI lalu ulangi.,2026-10-22 11:23:24
+62947f53-957d-4b08-984b-4fba1b1c4b7c,TOKO SAYUR SEGAR PAUL PAIL,DB:data_split_usaha_20261016,670,error,Baris database sedang diproses PC lain atau statusnya berubah.,2026-10-22 11:23:25
+450d658d-eb9c-489f-a8de-c8ce563fface,TUKANG SAYUR (ZULHENDRAWAN),DB:data_split_usaha_20261016,671,error,Sesi login FASIH belum siap. Selesaikan login di browser GUI lalu ulangi.,2026-10-22 11:23:55
+406da003-736b-4eb6-9af9-94699fefdad8,USAHA JUANDA ,DB:data_split_usaha_20261016,672,error,Baris database sedang diproses PC lain atau statusnya berubah.,2026-10-22 11:23:56
+2f70d8bf-6bc9-44d0-b336-1f961bb1629a,WARUNG SAYUR TEH BETTY,DB:data_split_usaha_20261016,673,error,Baris database sedang diproses PC lain atau statusnya berubah.,2026-10-22 11:23:57
+7521b047-553d-46ce-91ad-9ec7dc924f57,BKU 1 JAMUR TIRAM BAPAK ISKANDAR SATUS ,DB:data_split_usaha_20261016,674,error,Sesi login FASIH belum siap. Selesaikan login di browser GUI lalu ulangi.,2026-10-22 11:24:28
+4efa131e-6807-4088-bb5e-13c65102a50a,BKU JAMUR TIRAM BAPAK SALUJANG,DB:data_split_usaha_20261016,676,error,Baris database sedang diproses PC lain atau statusnya berubah.,2026-10-22 11:24:29
+c4ab10d4-391d-4941-b937-70cfa3a4d321,BKU 2 JAMUR TIRAM BAPAK ISKANDAR ,DB:data_split_usaha_20261016,675,error,Baris database sedang diproses PC lain atau statusnya berubah.,2026-10-22 11:24:29
+fdd36f20-798d-4d4d-8e0e-b90dce649558,BKU JAMUR TIRAM BAPAK YUDI,DB:data_split_usaha_20261016,677,error,Sesi login FASIH belum siap. Selesaikan login di browser GUI lalu ulangi.,2026-10-22 11:25:00
+1c3c8d71-ef18-4205-b3dd-88067d7e48c6,GADO2 POK ANIH,DB:data_split_usaha_20261016,678,error,Baris database sedang diproses PC lain atau statusnya berubah.,2026-10-22 11:25:02
+08b58427-e5bc-47bd-ac3e-034cbe14309b,JUAL SAYURAN ONLINE (YUDIANSYAH),DB:data_split_usaha_20261016,679,error,Sesi login FASIH belum siap. Selesaikan login di browser GUI lalu ulangi.,2026-10-22 11:25:33
+ae58c3c9-3bd1-497e-a7ac-0da839602dc5,JUALAN SAYURAN KELILING,DB:data_split_usaha_20261016,680,error,Baris database sedang diproses PC lain atau statusnya berubah.,2026-10-22 11:25:34
+673e99c2-648b-4f8d-978e-4c91628f08fa,PAJAR SAYURAN,DB:data_split_usaha_20261016,681,error,Baris database sedang diproses PC lain atau statusnya berubah.,2026-10-22 11:25:35
+4e035653-4443-44c0-a284-348094de123c,PEDAGANG KELILING ( AMINAH) ,DB:data_split_usaha_20261016,682,error,Sesi login FASIH belum siap. Selesaikan login di browser GUI lalu ulangi.,2026-10-22 11:26:05
+e89c2ab8-e89f-4591-8cc8-961d94b60573,PEDAGANG SAYUR KELILING,DB:data_split_usaha_20261016,683,error,Baris database sedang diproses PC lain atau statusnya berubah.,2026-10-22 11:26:07
+eaee0e84-aac2-4a76-9998-5c5ec52d0d27,PENGEPUL DAUN PISANG,DB:data_split_usaha_20261016,684,error,Sesi login FASIH belum siap. Selesaikan login di browser GUI lalu ulangi.,2026-10-22 11:26:38
+6021ef5f-73ac-4af9-9e01-55f328320deb,PENGEUPUL SAYURAN ,DB:data_split_usaha_20261016,686,error,Baris database sedang diproses PC lain atau statusnya berubah.,2026-10-22 11:26:39
+eae065d3-4588-4117-b82d-44cd0416f333,PERDAGANGAN BORONGAN SAYURAN (IDRUS),DB:data_split_usaha_20261016,687,error,Baris database sedang diproses PC lain atau statusnya berubah.,2026-10-22 11:26:39
+434ca821-dc85-4f16-ae85-a0038d2c1c32,Pedagang eceran di jakarta,DB:data_split_usaha_20261016,688,error,Sesi login FASIH belum siap. Selesaikan login di browser GUI lalu ulangi.,2026-10-22 11:27:10
+877ca5e4-85d8-47a7-b364-f282499c9fe1,SAYUR CIPAKO BANG EMI,DB:data_split_usaha_20261016,689,error,Baris database sedang diproses PC lain atau statusnya berubah.,2026-10-22 11:27:11
+2386dd28-5042-451b-96bf-d47753b84b4f,TOKO SAYUR UCOK,DB:data_split_usaha_20261016,690,error,Sesi login FASIH belum siap. Selesaikan login di browser GUI lalu ulangi.,2026-10-22 11:27:41
+98c103d2-ecf5-457a-b8dd-a023d17faa6a,WARUNG SAYURAN ,DB:data_split_usaha_20261016,691,error,Baris database sedang diproses PC lain atau statusnya berubah.,2026-10-22 11:27:42
+0109b498-42bc-4686-8f0f-dc5a4a367e8a,AZHAR SAYUR,DB:data_split_usaha_20261016,692,error,Baris database sedang diproses PC lain atau statusnya berubah.,2026-10-22 11:27:43
+221f4ee5-7580-4fec-a0dd-dad4fc93083e,GUDANG SAYURAN (ARIF),DB:data_split_usaha_20261016,693,error,Baris database sedang diproses PC lain atau statusnya berubah.,2026-10-22 11:27:43
+aa839880-5abd-4175-8faf-1ac017edc99a,PEMBORONG SAYUR EGI,DB:data_split_usaha_20261016,694,error,Sesi login FASIH belum siap. Selesaikan login di browser GUI lalu ulangi.,2026-10-22 11:28:14
+27d014f5-2a0f-424b-a38a-2712512989a3,SAYURAN (IRWNASYAH),DB:data_split_usaha_20261016,695,error,Baris database sedang diproses PC lain atau statusnya berubah.,2026-10-22 11:28:16
+bf953f93-0264-4071-b633-7d3341e935e9,SAYURAN (SUPRIADI),DB:data_split_usaha_20261016,696,error,Baris database sedang diproses PC lain atau statusnya berubah.,2026-10-22 11:28:16
+32230ce7-848e-42ae-aa79-643a6c6aebb6,TOKO SAYUR AL FATIH,DB:data_split_usaha_20261016,697,error,Baris database sedang diproses PC lain atau statusnya berubah.,2026-10-22 11:28:17
+f8c4d689-bc1a-4ba8-a419-238f177b54c3,WARUNG SAYUR,DB:data_split_usaha_20261016,698,error,Baris database sedang diproses PC lain atau statusnya berubah.,2026-10-22 11:28:17
+2efa8cb8-9be4-46fe-a9c0-406f7f316105,WARUNG SEMBAKO ( UUM ),DB:data_split_usaha_20261016,699,error,Baris database sedang diproses PC lain atau statusnya berubah.,2026-10-22 11:28:18
+81c30e10-29c2-4865-a1a0-d72696d1fe4f,PENJUAL KOPI (EDAH),DB:data_split_usaha_20261016,701,error,Sesi login FASIH belum siap. Selesaikan login di browser GUI lalu ulangi.,2026-10-22 11:28:48
+da63a06c-1f17-4024-8157-12a5d5dc0ff2,WARUNG KOPI CEU AI,DB:data_split_usaha_20261016,702,error,Baris database sedang diproses PC lain atau statusnya berubah.,2026-10-22 11:28:50
+f6da0f8b-ebc7-4207-9a50-1ab52770a6a4,WARUNG KOPI EEN,DB:data_split_usaha_20261016,703,error,Baris database sedang diproses PC lain atau statusnya berubah.,2026-10-22 11:28:50
+32019e4c-5b36-4020-999a-a0e98292917d,WARUNG KOPI EUIS KARWATI,DB:data_split_usaha_20261016,704,error,Sesi login FASIH belum siap. Selesaikan login di browser GUI lalu ulangi.,2026-10-22 11:29:21
+2f032655-0203-4de9-bf4a-c45999700255,SALES TEH JEMPOL BUBUK (FIKRI YUSUP),DB:data_split_usaha_20261016,707,error,Baris database sedang diproses PC lain atau statusnya berubah.,2026-10-22 11:29:22
+a0cb4a64-51bc-4ab3-a1c6-4e42cf341ecd,PENGGILINGAN KOPI BAPA HANDI,DB:data_split_usaha_20261016,705,error,Baris database sedang diproses PC lain atau statusnya berubah.,2026-10-22 11:29:22
+bf1a7144-0bf9-45d2-91ed-1942d5bd9eda,TANAM KOPI (RIJWAN),DB:data_split_usaha_20261016,708,error,Sesi login FASIH belum siap. Selesaikan login di browser GUI lalu ulangi.,2026-10-22 11:29:53
+e77116fe-d08f-46f9-b221-d07cfefcc4be,TOKO DDF AGEN SEMBAKO,DB:data_split_usaha_20261016,709,error,Baris database sedang diproses PC lain atau statusnya berubah.,2026-10-22 11:29:54
+d8645085-16ce-411b-9553-54eb34388afa,DISTRIBUTOR ES TEH SOLO (SITI ELSA ALSYIAH),DB:data_split_usaha_20261016,710,error,Sesi login FASIH belum siap. Selesaikan login di browser GUI lalu ulangi.,2026-10-22 11:30:24
+66765a43-1e75-4189-a14b-153f190180eb,"SINAS KOPI MANDIRI, PT",DB:data_split_usaha_20261016,713,error,Baris database sedang diproses PC lain atau statusnya berubah.,2026-10-22 11:30:26
+da489d62-cb75-4c78-a404-2071c3178c4b,KEDAI KOPI SANAN,DB:data_split_usaha_20261016,711,error,Baris database sedang diproses PC lain atau statusnya berubah.,2026-10-22 11:30:26
+1a38029b-7b85-4345-8dbc-5b416dffab45,USAHA PERDAGANGAN ATAU PENGEPUL KOPI (UCI),DB:data_split_usaha_20261016,714,error,Sesi login FASIH belum siap. Selesaikan login di browser GUI lalu ulangi.,2026-10-22 11:30:57
+5bb4738e-e573-4bd6-a02f-f4ae4c320c5b,WARUNG TEH SISKA,DB:data_split_usaha_20261016,715,error,Baris database sedang diproses PC lain atau statusnya berubah.,2026-10-22 11:30:58
+3a88f50b-3f37-4054-b7ea-f912ed05f08e,PLEASANTREES COFFEE,DB:data_split_usaha_20261016,716,error,Sesi login FASIH belum siap. Selesaikan login di browser GUI lalu ulangi.,2026-10-22 11:31:29
+4ad25764-d535-4a67-abf0-07931c037570,USAHA BANDAR JUAL BELI KOPI (UKAS),DB:data_split_usaha_20261016,717,error,Baris database sedang diproses PC lain atau statusnya berubah.,2026-10-22 11:31:29
+d488a3e6-bc27-4dd7-b125-7b21d7274eec,WARUNG KOPI IDA,DB:data_split_usaha_20261016,718,error,Baris database sedang diproses PC lain atau statusnya berubah.,2026-10-22 11:31:30
+1c8d6af8-4400-44fc-9d74-018fe715a00c,DISTRIBUTOR DENALI CIAWI BOGOR-SUPPLIER,DB:data_split_usaha_20261016,720,error,Baris database sedang diproses PC lain atau statusnya berubah.,2026-10-22 11:32:01
+23349709-7fad-4a84-94ca-cb343ba4baba,WARUNG SEMBAKO,DB:data_split_usaha_20261016,719,error,Sesi login FASIH belum siap. Selesaikan login di browser GUI lalu ulangi.,2026-10-22 11:32:01
+ea9a216d-0a24-4c45-a099-399cdb3ed37e,JUAL BELI BIJI KOPI,DB:data_split_usaha_20261016,721,error,Sesi login FASIH belum siap. Selesaikan login di browser GUI lalu ulangi.,2026-10-22 11:32:32
+7025dc48-f15a-415b-937c-abab6ae8cd05,KOPI BLENGER,DB:data_split_usaha_20261016,722,error,Baris database sedang diproses PC lain atau statusnya berubah.,2026-10-22 11:32:33
+31eeea8e-cbb0-4877-bffd-7da0c1ae73ad,WARUNG SEMBAKO ALPARISI,DB:data_split_usaha_20261016,723,error,Baris database sedang diproses PC lain atau statusnya berubah.,2026-10-22 11:32:34
+b5529b0f-3c68-4835-a150-a7141f9759ce,ANEKA MINUMAN SEGAR & CEMILAN,DB:data_split_usaha_20261016,724,error,Sesi login FASIH belum siap. Selesaikan login di browser GUI lalu ulangi.,2026-10-22 11:33:05
+d6e86b29-7d82-46f4-acb8-62788e0ef95c,HANIFAH,DB:data_split_usaha_20261016,725,error,Baris database sedang diproses PC lain atau statusnya berubah.,2026-10-22 11:33:06
+8c6cd517-8337-41e3-a830-466a8c0ea9b4,JUAL BELI KOPI (JAEN),DB:data_split_usaha_20261016,726,error,Sesi login FASIH belum siap. Selesaikan login di browser GUI lalu ulangi.,2026-10-22 11:33:36
+5663cb7d-9086-4239-9178-fee2ea25dbce,TAMAN PANAS DINGGIN KOPI KITO,DB:data_split_usaha_20261016,729,error,Baris database sedang diproses PC lain atau statusnya berubah.,2026-10-22 11:33:38
+b9c3d3fb-5221-42bf-86c9-fc808d0b6226,PENGEPUL KOPI,DB:data_split_usaha_20261016,728,error,Baris database sedang diproses PC lain atau statusnya berubah.,2026-10-22 11:33:38
+8a386950-50c9-409b-a047-15a06c916a33,PEDAGANG KELILING GORENG AN,DB:data_split_usaha_20261016,731,error,Sesi login FASIH belum siap. Selesaikan login di browser GUI lalu ulangi.,2026-10-22 11:34:09
+2a86649c-3eef-4745-8a79-8efe47e37de3,ROSITA,DB:data_split_usaha_20261016,736,error,Baris database sedang diproses PC lain atau statusnya berubah.,2026-10-22 11:34:10
+f4eb5584-a3f1-4d8c-bf42-5b7ccb52504e,JUALAN ES TEH HIJAU ( SAMSUL ),DB:data_split_usaha_20261016,733,error,Baris database sedang diproses PC lain atau statusnya berubah.,2026-10-22 11:34:10
+3854bebb-b9d2-4c65-960d-7155b0098b55,TOKO MINYAK KELAPA DONAL ,DB:data_split_usaha_20261016,739,error,Baris database sedang diproses PC lain atau statusnya berubah.,2026-10-22 11:34:11
+d4ea58b7-1bae-4e19-b3db-63cc19faed05,TOKO MINYAK ECERAN (IBU JUHANA),DB:data_split_usaha_20261016,740,error,Sesi login FASIH belum siap. Selesaikan login di browser GUI lalu ulangi.,2026-10-22 11:34:41
+455739e4-7f5b-4516-b0da-7403fc3c37ad,JUAL MINYAK SAYUR KEMASAN,DB:data_split_usaha_20261016,741,error,Baris database sedang diproses PC lain atau statusnya berubah.,2026-10-22 11:34:42
+1221e124-d190-454d-9fb0-e864d8e4b909,MINYAK CURAH PARUNG ALENG,DB:data_split_usaha_20261016,742,error,Baris database sedang diproses PC lain atau statusnya berubah.,2026-10-22 11:34:43
+3e0e7bb7-ee76-428c-a834-bb2af72cbbfe,PEDAGANG KELILING ,DB:data_split_usaha_20261016,743,error,Sesi login FASIH belum siap. Selesaikan login di browser GUI lalu ulangi.,2026-10-22 11:35:14
+0032994f-05f0-4cc5-bc93-adaaaf16b96a,AGEN MINYAK SAYUR IBU MARPUAH,DB:data_split_usaha_20261016,744,error,Baris database sedang diproses PC lain atau statusnya berubah.,2026-10-22 11:35:15
+7856d052-1936-4513-b787-8d1291f68518,RENY AGUS SYAHPUTRI,DB:data_split_usaha_20261016,745,error,Sesi login FASIH belum siap. Selesaikan login di browser GUI lalu ulangi.,2026-10-22 11:35:45
+11f47710-6f8c-41b5-a02f-afabc1499bd0,USAHA HAMDAN JUNAEDI,DB:data_split_usaha_20261016,746,error,Baris database sedang diproses PC lain atau statusnya berubah.,2026-10-22 11:35:47
+d631a40c-021f-4cef-8967-2fc68638796e,JUAL MINYAK GORENG LITERAN,DB:data_split_usaha_20261016,747,error,Sesi login FASIH belum siap. Selesaikan login di browser GUI lalu ulangi.,2026-10-22 11:36:17
+8ef5fe4f-93b0-4fe7-b787-e56830b93897,TOKO BELLA,DB:data_split_usaha_20261016,748,error,Baris database sedang diproses PC lain atau statusnya berubah.,2026-10-22 11:36:18
+5066aeb9-58bf-4cbe-a568-d079acee822f,CAHAYA LESTARI,DB:data_split_usaha_20261016,749,error,Baris database sedang diproses PC lain atau statusnya berubah.,2026-10-22 11:36:19
+9c1986d3-401c-4874-968c-accdb0af1672,MINYAK CURAH MERK KEPO(AJI SETYO) ,DB:data_split_usaha_20261016,751,error,Baris database sedang diproses PC lain atau statusnya berubah.,2026-10-22 11:36:50
+a3edfeb5-5a4a-4ed1-8520-8809d1118000,HAURKONENG MANDIRI 89,DB:data_split_usaha_20261016,750,error,Sesi login FASIH belum siap. Selesaikan login di browser GUI lalu ulangi.,2026-10-22 11:36:50
+343e13e2-315d-47f3-b842-73a184c3fd51,SRI REJEKI,DB:data_split_usaha_20261016,752,error,Sesi login FASIH belum siap. Selesaikan login di browser GUI lalu ulangi.,2026-10-22 11:37:21
+b4ef6447-4a0e-476e-8661-854064140ea9,JUAL BELI REMPAH (ABDUL ROZAK),DB:data_split_usaha_20261016,755,error,Baris database sedang diproses PC lain atau statusnya berubah.,2026-10-22 11:37:22
+81869434-6b43-4908-b94a-4c639c9615d5,AGAM TUO CV,DB:data_split_usaha_20261016,757,error,Baris database sedang diproses PC lain atau statusnya berubah.,2026-10-22 11:37:23
+09ea5a3b-08ee-45d0-8581-ea14dc66a96d,TAPE SINGKONG MIDIN,DB:data_split_usaha_20261016,759,error,Baris database sedang diproses PC lain atau statusnya berubah.,2026-10-22 11:37:54
+a095dbde-4145-4d33-97f4-8dd4a7f74c88,RANAH MINANG BUMBU,DB:data_split_usaha_20261016,758,error,Sesi login FASIH belum siap. Selesaikan login di browser GUI lalu ulangi.,2026-10-22 11:37:54
+52d7b9e6-eb39-432d-ad78-27fd589cf68d,USAHA PENGEPUL REMPAH,DB:data_split_usaha_20261016,760,error,Sesi login FASIH belum siap. Selesaikan login di browser GUI lalu ulangi.,2026-10-22 11:38:25
+a280280f-c1ed-497b-9370-7934fcdf8c55,DISTRIBUTOR KACANG METE MAMAH PUTRA,DB:data_split_usaha_20261016,762,error,Baris database sedang diproses PC lain atau statusnya berubah.,2026-10-22 11:38:26
+c2bce27c-1e7c-4c6b-a05e-95e12e06682a,WARUNG BUMBU BU ANI,DB:data_split_usaha_20261016,763,error,Baris database sedang diproses PC lain atau statusnya berubah.,2026-10-22 11:38:27
+f04dd155-ca7d-4e44-9b88-301cac5378d0,Usaha PALA,DB:data_split_usaha_20261016,764,error,Sesi login FASIH belum siap. Selesaikan login di browser GUI lalu ulangi.,2026-10-22 11:38:58
+15428e1f-52c5-460c-9d62-2aef232f3275,WARUNG NASI UDUK (HJ SOPIAH),DB:data_split_usaha_20261016,765,error,Baris database sedang diproses PC lain atau statusnya berubah.,2026-10-22 11:38:59
+8e12b972-0ad9-45c7-9bbe-1ae5e7e57cce,TOKO SEMBAKO DAN BUMBU DAPUR SISKA,DB:data_split_usaha_20261016,766,error,Sesi login FASIH belum siap. Selesaikan login di browser GUI lalu ulangi.,2026-10-22 11:39:30
+30595513-8405-43e0-ae8e-72ba64e66b40,USAHA REMPAH HJ ENA,DB:data_split_usaha_20261016,767,error,Baris database sedang diproses PC lain atau statusnya berubah.,2026-10-22 11:39:31
+faf602de-d008-4e29-b876-eb7c6823e46a,USAHA REMPAH JALALUDIN,DB:data_split_usaha_20261016,768,error,Baris database sedang diproses PC lain atau statusnya berubah.,2026-10-22 11:39:31
+84597a46-a705-40e6-a4b1-4eb2040d5ca0,SAYUR MAYUR (RUDI),DB:data_split_usaha_20261016,769,error,Sesi login FASIH belum siap. Selesaikan login di browser GUI lalu ulangi.,2026-10-22 11:40:02
+242f0bf0-5ae9-4b77-8ed7-f0ec91499aae,AGEN KEMIRI DAN REMPAH LAINNYA,DB:data_split_usaha_20261016,771,error,Baris database sedang diproses PC lain atau statusnya berubah.,2026-10-22 11:40:03
+90e06c14-6c07-42be-83a7-d2a29f82d446,BUMBU MAY,DB:data_split_usaha_20261016,772,error,Sesi login FASIH belum siap. Selesaikan login di browser GUI lalu ulangi.,2026-10-22 11:40:34
+c924d588-31c6-41a3-81cf-c2872678b527,BUMBU RENCENG LILIS KURNIASIH ,DB:data_split_usaha_20261016,773,error,Baris database sedang diproses PC lain atau statusnya berubah.,2026-10-22 11:40:35
+75e681e9-e4c9-4456-9991-0b5a5deb4246,GUDANG CINCAU (SOLEH),DB:data_split_usaha_20261016,774,error,Baris database sedang diproses PC lain atau statusnya berubah.,2026-10-22 11:40:36
+435d511f-4d04-45c7-b96c-950d72cedad5,HASIL BUMI BUMBU DAPUR (AMIR) ,DB:data_split_usaha_20261016,775,error,Sesi login FASIH belum siap. Selesaikan login di browser GUI lalu ulangi.,2026-10-22 11:41:06
+208bdd73-72e4-4808-8ba4-71744dffde7a,JUAL TAHU KELILING,DB:data_split_usaha_20261016,776,error,Baris database sedang diproses PC lain atau statusnya berubah.,2026-10-22 11:41:07
+b29e6244-d36c-480d-b651-14f1fd156ed6,JUALAN BAKSO ,DB:data_split_usaha_20261016,777,error,Baris database sedang diproses PC lain atau statusnya berubah.,2026-10-22 11:41:08
+d37623dd-9cd7-4e62-8fa1-fe1eb306e887,KACANG GILING MADURA,DB:data_split_usaha_20261016,778,error,Sesi login FASIH belum siap. Selesaikan login di browser GUI lalu ulangi.,2026-10-22 11:41:39
+d6853ce0-a984-481d-8b1d-27e1d7a5a817,KIOS BAWANG SUKSES TANI MANDIRI,DB:data_split_usaha_20261016,779,error,Baris database sedang diproses PC lain atau statusnya berubah.,2026-10-22 11:41:40
+81b0e3bc-5915-4284-ad71-8d2b347903c2,SEHATI 1,DB:data_split_usaha_20261016,781,error,Sesi login FASIH belum siap. Selesaikan login di browser GUI lalu ulangi.,2026-10-22 11:42:11
+4ecf0a2a-e6e5-4446-b853-7c250686704a,TOKO BUMBU DAPID,DB:data_split_usaha_20261016,783,error,Baris database sedang diproses PC lain atau statusnya berubah.,2026-10-22 11:42:12
+632b41ef-ea48-4aba-91b9-8906c4f91a49,SINGKONG ANING ,DB:data_split_usaha_20261016,782,error,Baris database sedang diproses PC lain atau statusnya berubah.,2026-10-22 11:42:12
+58d866ba-7f1f-476b-b3b1-e683886a5de3,WARUNG SEMBAKO ESIH BT MURSIN,DB:data_split_usaha_20261016,784,error,Sesi login FASIH belum siap. Selesaikan login di browser GUI lalu ulangi.,2026-10-22 11:42:43
+49fd6774-760a-4b5b-93a0-0cfe9da68639,Warung bubur,DB:data_split_usaha_20261016,785,error,Baris database sedang diproses PC lain atau statusnya berubah.,2026-10-22 11:42:45
+d37a5714-be59-4a4c-9873-2cf0bf810c34,"UD,MINANG MAKMUR ",DB:data_split_usaha_20261016,786,error,Sesi login FASIH belum siap. Selesaikan login di browser GUI lalu ulangi.,2026-10-22 11:43:15
+f22735c1-b4af-4ed8-9a58-c7ec854002de,USAHA SAYURAN,DB:data_split_usaha_20261016,787,error,Baris database sedang diproses PC lain atau statusnya berubah.,2026-10-22 11:43:16
+5641dd3a-eb01-4b4c-9341-5cef1c9733b3,BUMBU CHANIAGO JAYA (IBU NINA),DB:data_split_usaha_20261016,788,error,Baris database sedang diproses PC lain atau statusnya berubah.,2026-10-22 11:43:17
+b53c1539-5fe7-4ce2-aa3a-0f4eb3ca70e3,BANGUNAN USAHA REMPAH,DB:data_split_usaha_20261016,789,error,Sesi login FASIH belum siap. Selesaikan login di browser GUI lalu ulangi.,2026-10-22 11:43:48
+56cd3c5d-ff4c-41fc-bf19-d0d5be9cb323,SUMBER URIP FARM,DB:data_split_usaha_20261016,791,error,Baris database sedang diproses PC lain atau statusnya berubah.,2026-10-22 11:43:49
+d05c3547-a900-42b8-b07f-01bca9449f70,BUMBU ETE,DB:data_split_usaha_20261016,790,error,Baris database sedang diproses PC lain atau statusnya berubah.,2026-10-22 11:43:49
+e0459c9e-beab-4dd2-9582-56b98216949a,BANGUNAN KHUSUS USAHA ,DB:data_split_usaha_20261016,792,error,Sesi login FASIH belum siap. Selesaikan login di browser GUI lalu ulangi.,2026-10-22 11:44:20
+76c91b3e-eb3e-446e-b775-ce17f45a97a6,BUMBU CAHAYA NUSANTARA (NUI),DB:data_split_usaha_20261016,793,error,Baris database sedang diproses PC lain atau statusnya berubah.,2026-10-22 11:44:21
+1cbe8b47-a938-472f-83e5-70d69b36bd0c,JAMU GENDIS (IRENE FERRO CYANIDA) ,DB:data_split_usaha_20261016,794,error,Sesi login FASIH belum siap. Selesaikan login di browser GUI lalu ulangi.,2026-10-22 11:44:52
+3199db8d-5766-44f8-b9d9-2a8f136f23d7,OPAK SAROWI ,DB:data_split_usaha_20261016,795,error,Baris database sedang diproses PC lain atau statusnya berubah.,2026-10-22 11:44:53
+37c26556-9d6a-4775-b8be-88f52e9d5fba,TOKO BUMBU (APONG),DB:data_split_usaha_20261016,796,error,Baris database sedang diproses PC lain atau statusnya berubah.,2026-10-22 11:44:53
+8966c1ed-59e5-41c0-bde8-24162d4096d3,USAHA JUAL BELI REMPAH,DB:data_split_usaha_20261016,797,error,Sesi login FASIH belum siap. Selesaikan login di browser GUI lalu ulangi.,2026-10-22 11:45:24
+222c44b0-a90b-4191-8dff-512c775c0602, PENGEPUL DAUN SALAM DAN SEREH( ADI PUTRA) ,DB:data_split_usaha_20261016,798,error,Baris database sedang diproses PC lain atau statusnya berubah.,2026-10-22 11:45:25
+362738c4-e014-470e-b38e-f9b34b895f32,BUMBU RENCENG BU ATI,DB:data_split_usaha_20261016,799,error,Baris database sedang diproses PC lain atau statusnya berubah.,2026-10-22 11:45:26
+f349d196-a24c-44d8-85dd-a1e9ac813715,CIHERANG REMPAH,DB:data_split_usaha_20261016,800,error,Sesi login FASIH belum siap. Selesaikan login di browser GUI lalu ulangi.,2026-10-22 11:45:56
+b1eacda8-a677-4c39-be3e-0ae63ab020bd,HOLTIKULTURA MAUNAH,DB:data_split_usaha_20261016,801,error,Baris database sedang diproses PC lain atau statusnya berubah.,2026-10-22 11:45:57
+46505cb3-ec92-49bd-b0ed-bfed81ff3cfb,KIOS BUMBU (NYAI NURAENI),DB:data_split_usaha_20261016,802,error,Sesi login FASIH belum siap. Selesaikan login di browser GUI lalu ulangi.,2026-10-22 11:46:28
+05bbeaf7-ebc8-47c6-b396-8127e2f05a99,NASI GORENG SIP OKE GONDO,DB:data_split_usaha_20261016,803,error,Baris database sedang diproses PC lain atau statusnya berubah.,2026-10-22 11:46:29
+4f41fef8-0701-4e1a-8319-383e414757e5,PEDAGANG NASI UDUK,DB:data_split_usaha_20261016,804,error,Baris database sedang diproses PC lain atau statusnya berubah.,2026-10-22 11:46:30
+b3c45fab-665a-402b-bf47-d6b5d78f2ce0,PERDAGANGAN GORENG BAWANG,DB:data_split_usaha_20261016,805,error,Sesi login FASIH belum siap. Selesaikan login di browser GUI lalu ulangi.,2026-10-22 11:47:00
+b1502942-a55e-4c87-91b5-401d44236b27,TOKO BAHAN KUE NUPAS,DB:data_split_usaha_20261016,806,error,Baris database sedang diproses PC lain atau statusnya berubah.,2026-10-22 11:47:01
+40920f6b-15b1-4c98-85af-1b3cb1b31820,TOKO BUMBU PUSAKO BUNDO,DB:data_split_usaha_20261016,807,error,Sesi login FASIH belum siap. Selesaikan login di browser GUI lalu ulangi.,2026-10-22 11:47:32
+a24a47a7-084b-43f4-82c7-238a61d0ebe0,TOKO RAHMAT JAYA ,DB:data_split_usaha_20261016,809,error,Baris database sedang diproses PC lain atau statusnya berubah.,2026-10-22 11:47:34
+fa367dd4-0a1e-4df4-8fe1-b2abbb05740f,TOKO KELAPA PARUT,DB:data_split_usaha_20261016,808,error,Baris database sedang diproses PC lain atau statusnya berubah.,2026-10-22 11:47:34
+b0a6b009-7d82-4875-b5b6-bf2dd08b23a6,PEDAGANG SEREH LENGKUAS BASIRUN,DB:data_split_usaha_20261016,810,error,Sesi login FASIH belum siap. Selesaikan login di browser GUI lalu ulangi.,2026-10-22 11:48:05
+8ef2e260-e497-43e5-8598-e9cb12ce8a85,PERDAGANGAN DAUN PISANG (MURDANI),DB:data_split_usaha_20261016,811,error,Baris database sedang diproses PC lain atau statusnya berubah.,2026-10-22 11:48:06
+d70b7c75-97d7-42cd-9645-66827edb50ab,BUMBU GILING (USUP),DB:data_split_usaha_20261016,812,error,Sesi login FASIH belum siap. Selesaikan login di browser GUI lalu ulangi.,2026-10-22 11:48:37
+0e15a0c7-6b00-4171-a8e9-a2250b6a744a,Suplayer sayur,DB:data_split_usaha_20261016,814,error,Baris database sedang diproses PC lain atau statusnya berubah.,2026-10-22 11:48:38
+3f9dfba4-fa43-48c5-ba8c-ea8b247950fd,DAPUR KREASI CEU COCOM,DB:data_split_usaha_20261016,813,error,Baris database sedang diproses PC lain atau statusnya berubah.,2026-10-22 11:48:38
+37dec487-7421-4c3f-a647-ccf2487c344f,TOKO REMPAH,DB:data_split_usaha_20261016,815,error,Sesi login FASIH belum siap. Selesaikan login di browser GUI lalu ulangi.,2026-10-22 11:49:09
+4fae949c-effc-4cba-8a70-4fcfd4b2fba6,USAHA PENJUALAN BIJI PALA,DB:data_split_usaha_20261016,816,error,Baris database sedang diproses PC lain atau statusnya berubah.,2026-10-22 11:49:10
+b8b83ca4-4eec-425b-99be-385c7e6a734a,ES TEBU,DB:data_split_usaha_20261016,817,error,Sesi login FASIH belum siap. Selesaikan login di browser GUI lalu ulangi.,2026-10-22 11:49:41
+6b8f7b46-e44b-42b7-8221-29b43bb2b49a,NASI UDUK DAN LONTONG HASAN,DB:data_split_usaha_20261016,820,error,Baris database sedang diproses PC lain atau statusnya berubah.,2026-10-22 11:49:42
+b71cb056-055f-4e82-9685-82f264021c5a,MENJUAL DAUN UBI KAYU,DB:data_split_usaha_20261016,819,error,Baris database sedang diproses PC lain atau statusnya berubah.,2026-10-22 11:49:42
+a18dd9ba-b0da-4e70-bab7-9b8b8bc60678,PARUT SANTEN KELAPA,DB:data_split_usaha_20261016,821,error,Sesi login FASIH belum siap. Selesaikan login di browser GUI lalu ulangi.,2026-10-22 11:50:13
+14d3a288-26ab-49c1-8eaf-b6b5712d2c4a,SUMBER BUMBU ,DB:data_split_usaha_20261016,822,error,Baris database sedang diproses PC lain atau statusnya berubah.,2026-10-22 11:50:14
+f3ffa542-1366-41bd-9fcb-283d2bd62873,TOKO BUMBU DAN BAHAN BAKSO BU YANI,DB:data_split_usaha_20261016,823,error,Baris database sedang diproses PC lain atau statusnya berubah.,2026-10-22 11:50:15
+35f21423-c8a2-4357-817d-00619f8edd0b,USAHA AGUS,DB:data_split_usaha_20261016,824,error,Sesi login FASIH belum siap. Selesaikan login di browser GUI lalu ulangi.,2026-10-22 11:50:45
+a88e8f34-840e-40a4-97c6-ac142277250b,BUMDES BOJONGGEDE MANDIRI,DB:data_split_usaha_20261016,825,error,Baris database sedang diproses PC lain atau statusnya berubah.,2026-10-22 11:50:46
+9242f6ec-9d14-4a55-b552-be618fbdedd6,JUAL BELI BAWANG PUTIH KUPAS (H. TITA),DB:data_split_usaha_20261016,826,error,Sesi login FASIH belum siap. Selesaikan login di browser GUI lalu ulangi.,2026-10-22 11:51:17
+1b4fcaf9-0400-4a98-ba20-57fcab727389,KIOS BUMBU DAPUR (LENNY),DB:data_split_usaha_20261016,827,error,Baris database sedang diproses PC lain atau statusnya berubah.,2026-10-22 11:51:18
+3ca90e00-5b67-4628-b635-c923d0f33829,NASI UDUK IBU UNCAH,DB:data_split_usaha_20261016,828,error,Baris database sedang diproses PC lain atau statusnya berubah.,2026-10-22 11:51:18
+c0f6a90c-aa4e-44c1-be42-0350ea588351,PEDAGANG ES KELAPA PAK DEDE,DB:data_split_usaha_20261016,829,error,Sesi login FASIH belum siap. Selesaikan login di browser GUI lalu ulangi.,2026-10-22 11:51:49
+8502a346-e3ea-484c-96a5-cbb6e60a4c8f,SINGKONG FROZEN,DB:data_split_usaha_20261016,830,error,Baris database sedang diproses PC lain atau statusnya berubah.,2026-10-22 11:51:50
+277bd582-fcab-4678-b2be-ebc80bad679f,TOKO BUMBU DAPUR (AMAN),DB:data_split_usaha_20261016,832,error,Baris database sedang diproses PC lain atau statusnya berubah.,2026-10-22 11:51:51
+1bd94c45-773f-44bd-9eb1-1cef423a1d67,WARUNG BUMBU SIPAN,DB:data_split_usaha_20261016,833,error,Sesi login FASIH belum siap. Selesaikan login di browser GUI lalu ulangi.,2026-10-22 11:52:21
+d05f8018-321f-43be-99eb-a8a426b59926,WARUNG IBU WAWAT,DB:data_split_usaha_20261016,834,error,Baris database sedang diproses PC lain atau statusnya berubah.,2026-10-22 11:52:23
+678b2dc9-a697-4b9c-9b3e-b64863ef6e12,BASO SUMARNI,DB:data_split_usaha_20261016,835,error,Sesi login FASIH belum siap. Selesaikan login di browser GUI lalu ulangi.,2026-10-22 11:52:54
+1aa9fae9-e6c9-4147-a756-29c33a96e58d,FROZEN ATO,DB:data_split_usaha_20261016,836,error,Baris database sedang diproses PC lain atau statusnya berubah.,2026-10-22 11:52:55
+799bbdfe-93e3-4b29-a41b-647b5c7a9fcf,JUAL BELI PALA (IIM) ,DB:data_split_usaha_20261016,837,error,Baris database sedang diproses PC lain atau statusnya berubah.,2026-10-22 11:52:55
+d5f5b69b-5cc8-44a7-9ab9-5bb60f3c598b,KIOS BUMBU ARIF,DB:data_split_usaha_20261016,838,error,Sesi login FASIH belum siap. Selesaikan login di browser GUI lalu ulangi.,2026-10-22 11:53:26
+42da12a5-a041-413d-ade3-f86cc3e4333a,KIOS BUMBU HAMDAN,DB:data_split_usaha_20261016,839,error,Baris database sedang diproses PC lain atau statusnya berubah.,2026-10-22 11:53:27
+348f3e66-e4b6-4e20-8256-0ec76d6f156a,PEDAGANG TAPIOKA ,DB:data_split_usaha_20261016,840,error,Sesi login FASIH belum siap. Selesaikan login di browser GUI lalu ulangi.,2026-10-22 11:53:58
+4906b990-abfd-46d7-8fd5-543168c8a567,SUPLIER SEMBAKO,DB:data_split_usaha_20261016,841,error,Baris database sedang diproses PC lain atau statusnya berubah.,2026-10-22 11:53:59
+3422a99b-ea24-4efc-bbb2-ca338f47696b,WARUNG UDUK,DB:data_split_usaha_20261016,842,error,Baris database sedang diproses PC lain atau statusnya berubah.,2026-10-22 11:54:00
+c33f6e9b-50ab-4017-9c62-8e8d6e66e6f7,YATNA LENGKUAS-LAJA,DB:data_split_usaha_20261016,843,error,Sesi login FASIH belum siap. Selesaikan login di browser GUI lalu ulangi.,2026-10-22 11:54:30
+d333a825-78b0-45fc-aa31-26393fd1df10,DE MONCHY,DB:data_split_usaha_20261016,844,error,Baris database sedang diproses PC lain atau statusnya berubah.,2026-10-22 11:54:32
+e9b3c765-62cc-41c5-b1e3-76b18032783b,FRUTI JUICE,DB:data_split_usaha_20261016,845,error,Sesi login FASIH belum siap. Selesaikan login di browser GUI lalu ulangi.,2026-10-22 11:55:02
+0c519349-687d-4471-9a65-4d6fc46d3594,GUDANG CINCAU (SYARIPUDIN),DB:data_split_usaha_20261016,846,error,Baris database sedang diproses PC lain atau statusnya berubah.,2026-10-22 11:55:04
+543dd628-ee80-4005-8cbb-fc019fd4b1a6,JUALAN GORENGAN (MULYANAH) ,DB:data_split_usaha_20261016,847,error,Sesi login FASIH belum siap. Selesaikan login di browser GUI lalu ulangi.,2026-10-22 11:55:34
+4e1255ed-c303-48f4-9680-210e0f079d86,LUMBUNG ARTHA SEMESTA ,DB:data_split_usaha_20261016,848,error,Baris database sedang diproses PC lain atau statusnya berubah.,2026-10-22 11:55:35
+104d3810-b72a-492a-8391-dd7df1cffb5b,OJI BUMBU MARIFATUL KHASANAH,DB:data_split_usaha_20261016,849,error,Baris database sedang diproses PC lain atau statusnya berubah.,2026-10-22 11:55:36
+413b1282-fc6b-4cea-a45d-e630b039b05f,SAYURMAYUR,DB:data_split_usaha_20261016,850,error,Sesi login FASIH belum siap. Selesaikan login di browser GUI lalu ulangi.,2026-10-22 11:56:06
+4227e813-ea71-47f9-91fb-02c4676c2492,SUPLAYER HORECA,DB:data_split_usaha_20261016,851,error,Baris database sedang diproses PC lain atau statusnya berubah.,2026-10-22 11:56:07
+cfc069c8-7f5b-4d84-ab4a-b669e732528f,USAHA BIJI PALA WAHYU,DB:data_split_usaha_20261016,852,error,Baris database sedang diproses PC lain atau statusnya berubah.,2026-10-22 11:56:08
+ea45a19a-85be-4510-b1d4-1860b8ea1f4e,XINYUAN INTERNATIONAL TRADING,DB:data_split_usaha_20261016,853,error,Sesi login FASIH belum siap. Selesaikan login di browser GUI lalu ulangi.,2026-10-22 11:56:39
+1d8ddb8a-d7da-49ac-b933-51fe3410fc31,JUAL BELI REMPAH BAPAK ANGGA,DB:data_split_usaha_20261016,854,error,Baris database sedang diproses PC lain atau statusnya berubah.,2026-10-22 11:56:40
+8e509342-fc05-4591-83c3-5e8dcc152812,JUAL BUMBU DAPUR,DB:data_split_usaha_20261016,855,error,Sesi login FASIH belum siap. Selesaikan login di browser GUI lalu ulangi.,2026-10-22 11:57:10
+efe304b5-8a29-4b60-a202-1e54de83a8f1,"KERABAT ABADI NUSANTARA, PT",DB:data_split_usaha_20261016,856,error,Baris database sedang diproses PC lain atau statusnya berubah.,2026-10-22 11:57:11
+f19a7877-ce83-40fb-84a4-07283db1a5a4,TARIGAN BUMBU UCOK,DB:data_split_usaha_20261016,857,error,Baris database sedang diproses PC lain atau statusnya berubah.,2026-10-22 11:57:12
+0bd71b88-7b27-4ee0-bd2d-889287e4dfa4,UD AMMAR BUMBU,DB:data_split_usaha_20261016,858,error,Sesi login FASIH belum siap. Selesaikan login di browser GUI lalu ulangi.,2026-10-22 11:57:43
+949ec502-13fb-48d3-b13c-53ccfe36d04a,USAHA NISRINA AULIA RAHMA,DB:data_split_usaha_20261016,859,error,Baris database sedang diproses PC lain atau statusnya berubah.,2026-10-22 11:57:45
+7b95fd6c-4f10-4951-a0e0-6ac396964747,USAHA REMPAH (UDE YULIA SARI),DB:data_split_usaha_20261016,860,error,Sesi login FASIH belum siap. Selesaikan login di browser GUI lalu ulangi.,2026-10-22 11:58:16
+39f27183-14a5-4ff2-b9fd-e5bcfd89ed44,WARUNG NASI,DB:data_split_usaha_20261016,862,error,Baris database sedang diproses PC lain atau statusnya berubah.,2026-10-22 11:58:17
+3d264daa-2920-4c7e-93ed-376993cdc04d,"VGIM FAMILY INDONESIA, PT",DB:data_split_usaha_20261016,861,error,Baris database sedang diproses PC lain atau statusnya berubah.,2026-10-22 11:58:17
+70eaedb7-1d05-4313-9538-ad4fcdf81de4,AGEN SEMBAKO,DB:data_split_usaha_20261016,863,error,Sesi login FASIH belum siap. Selesaikan login di browser GUI lalu ulangi.,2026-10-22 11:58:48
+26d1d089-6c8a-42e9-9778-e35dc89e63ba,ARIANSYAH GRASAD S,DB:data_split_usaha_20261016,864,error,Baris database sedang diproses PC lain atau statusnya berubah.,2026-10-22 11:58:49
+2c707398-ca06-4350-9b97-54c63bc427bb,EKSPOR MAKANAN (BU MARMUNAH),DB:data_split_usaha_20261016,866,error,Sesi login FASIH belum siap. Selesaikan login di browser GUI lalu ulangi.,2026-10-22 11:59:20
+7594786b-2909-4bb4-a515-21893b6ea3c1,GADO-GADO ,DB:data_split_usaha_20261016,867,error,Baris database sedang diproses PC lain atau statusnya berubah.,2026-10-22 11:59:21
+e5d53a96-a96f-4275-9db0-49c42e8e2c3f,HASTIN HASANAH SEMBAKO,DB:data_split_usaha_20261016,868,error,Sesi login FASIH belum siap. Selesaikan login di browser GUI lalu ulangi.,2026-10-22 11:59:51
+8c3d5d68-eb3e-4d0b-9cf5-37df0f6adbf3,JUAL REMPAH (PAK ENDHY MAULID),DB:data_split_usaha_20261016,869,error,Baris database sedang diproses PC lain atau statusnya berubah.,2026-10-22 11:59:52
+1e3cd281-8cb0-4a95-8206-e310247db23c,JUALAN MIE (YULIO),DB:data_split_usaha_20261016,870,error,Baris database sedang diproses PC lain atau statusnya berubah.,2026-10-22 11:59:53
+ff4ab1e5-2fb0-4286-837d-c571a9b48f60,LOS BUMBU (IBU ARIKAN),DB:data_split_usaha_20261016,871,error,Sesi login FASIH belum siap. Selesaikan login di browser GUI lalu ulangi.,2026-10-22 12:00:24
+6ced00b5-f9b1-4f22-8243-3a2129338725,PANGAN NAMAN,DB:data_split_usaha_20261016,872,error,Baris database sedang diproses PC lain atau statusnya berubah.,2026-10-22 12:00:25
+d7394181-99ac-4ef7-af1e-c7350f6bce13,SUPLIER BAHAN MAKANAN (AGUS),DB:data_split_usaha_20261016,873,error,Baris database sedang diproses PC lain atau statusnya berubah.,2026-10-22 12:00:25
+17ce763e-b958-49d0-a551-8bd79bbdd1c4,TAKOYAKO TEH LELAH,DB:data_split_usaha_20261016,874,error,Sesi login FASIH belum siap. Selesaikan login di browser GUI lalu ulangi.,2026-10-22 12:00:56
+944823da-63bb-4f41-bcc7-04f75a21f148,TARIGAN BUMBU UCOK,DB:data_split_usaha_20261016,875,error,Baris database sedang diproses PC lain atau statusnya berubah.,2026-10-22 12:00:57
+18c59803-47a2-4362-9372-e4d53a381b76,UD DZIQRA CIPTA RASA,DB:data_split_usaha_20261016,876,error,Sesi login FASIH belum siap. Selesaikan login di browser GUI lalu ulangi.,2026-10-22 12:01:28
+724e19e4-61fc-42d8-84f3-d5b9c08d3500,WARUNG SEBLAK (YUNAENI),DB:data_split_usaha_20261016,877,error,Baris database sedang diproses PC lain atau statusnya berubah.,2026-10-22 12:01:29
+60cbc2e1-09e2-4fc3-8717-37d44a53fcc1,BUMBU FAMILY,DB:data_split_usaha_20261016,878,error,Sesi login FASIH belum siap. Selesaikan login di browser GUI lalu ulangi.,2026-10-22 12:02:00
+e4566fb4-fe46-40ea-95a1-3917cb1cd2e7,GROSIR BERKAH MANDIRI,DB:data_split_usaha_20261016,880,error,Baris database sedang diproses PC lain atau statusnya berubah.,2026-10-22 12:02:01
+eaeaecc8-5d78-4b16-a84b-47f44cf5db6c,DUA SAUDARA,DB:data_split_usaha_20261016,879,error,Baris database sedang diproses PC lain atau statusnya berubah.,2026-10-22 12:02:01
+b120d38b-a450-418c-aedd-fc2afa1931ee,KIOS BUMBU DAPUR (ZAENAL),DB:data_split_usaha_20261016,881,error,Sesi login FASIH belum siap. Selesaikan login di browser GUI lalu ulangi.,2026-10-22 12:02:32
+22c759c9-eb90-4b7a-8b8c-e0d56c195b1c,KOPI TAHEUR TAMSON,DB:data_split_usaha_20261016,882,error,Baris database sedang diproses PC lain atau statusnya berubah.,2026-10-22 12:02:34
+7db389f1-3af9-4407-a2bc-c3c7493e4a7f,PECEL LELE DHIETA,DB:data_split_usaha_20261016,883,error,Baris database sedang diproses PC lain atau statusnya berubah.,2026-10-22 12:02:34
+a6485da2-9597-4c4f-b622-e1a1c5877359,PENJUAL BUMBU MASAKAN,DB:data_split_usaha_20261016,884,error,Sesi login FASIH belum siap. Selesaikan login di browser GUI lalu ulangi.,2026-10-22 12:03:05
+9613b7d8-51d9-4fee-8109-14b3cc0ac34f,TOKO BUMBU BU YENI,DB:data_split_usaha_20261016,885,error,Baris database sedang diproses PC lain atau statusnya berubah.,2026-10-22 12:03:06
+ee31a674-7c2c-4946-bc3a-4966ee2ccdc6,WARUNG NASI BU IJAH,DB:data_split_usaha_20261016,886,error,Baris database sedang diproses PC lain atau statusnya berubah.,2026-10-22 12:03:07
+bc6f1603-0bbd-4590-9d26-33b51db130d7,BUBUR KACANG,DB:data_split_usaha_20261016,887,error,Sesi login FASIH belum siap. Selesaikan login di browser GUI lalu ulangi.,2026-10-22 12:03:37
+5f3b7ecd-71df-4f1d-994f-714b195e57f9,PEDANGANG MAKANAN KELILING ASDI B MUSJA,DB:data_split_usaha_20261016,888,error,Baris database sedang diproses PC lain atau statusnya berubah.,2026-10-22 12:03:39
+eb3751b0-fb44-466a-a6b3-46738d89e205,RUMAH MAKAN ,DB:data_split_usaha_20261016,889,error,Sesi login FASIH belum siap. Selesaikan login di browser GUI lalu ulangi.,2026-10-22 12:04:09
+192815f1-4046-460a-8e27-cbf23a685d22,TOKO BUMBU (UDA RIKO),DB:data_split_usaha_20261016,891,error,Baris database sedang diproses PC lain atau statusnya berubah.,2026-10-22 12:04:11
+54ac9762-44f3-4742-a131-e7fc00ec317e,SUPLIER SPPG PIPIH,DB:data_split_usaha_20261016,890,error,Baris database sedang diproses PC lain atau statusnya berubah.,2026-10-22 12:04:11
+5fa42fc2-d1e9-4449-ac74-372a5418765f,WARUNG MAKAN & MINUM,DB:data_split_usaha_20261016,892,error,Sesi login FASIH belum siap. Selesaikan login di browser GUI lalu ulangi.,2026-10-22 12:04:42
+07ef579f-adfa-4ae9-b112-e6be8b6bc5a6,WARUNG SEMBAKO ,DB:data_split_usaha_20261016,893,error,Baris database sedang diproses PC lain atau statusnya berubah.,2026-10-22 12:04:43
+600c9829-635d-4866-8b5f-827a05e1ddc9,BUMBU DAPUR BANG IKLIS,DB:data_split_usaha_20261016,894,error,Sesi login FASIH belum siap. Selesaikan login di browser GUI lalu ulangi.,2026-10-22 12:05:14
+8bb110b4-958f-4b39-8674-f3cfec5bda5e,"VILLARR FAMILY COFFEE BOGOR, GUDANG KOPI GROSIR,",DB:data_split_usaha_20261016,896,error,Baris database sedang diproses PC lain atau statusnya berubah.,2026-10-22 12:05:15
+1d9e746b-5a2a-40e5-83f4-c1aee22039b7,WARUNG BU ENAH,DB:data_split_usaha_20261016,897,error,Baris database sedang diproses PC lain atau statusnya berubah.,2026-10-22 12:05:16
+bd878c05-23e8-40a2-af4b-7ea9fdd26084,ALBANIBEEF,DB:data_split_usaha_20261016,899,error,Baris database sedang diproses PC lain atau statusnya berubah.,2026-10-22 12:05:16
+db220802-7820-4009-afaf-980da6234120,WARUNG SEMBAKO ACEH,DB:data_split_usaha_20261016,898,error,Baris database sedang diproses PC lain atau statusnya berubah.,2026-10-22 12:05:16
+e5f89655-a5ec-4be6-b393-fe2d6d9a669a,PEDAGANG DAGING (BAPAK MADUN),DB:data_split_usaha_20261016,900,error,Sesi login FASIH belum siap. Selesaikan login di browser GUI lalu ulangi.,2026-10-22 12:05:47
+7bb6b44d-a27e-4714-bcb9-52f8aab5d846,DAGING PAK USIN,DB:data_split_usaha_20261016,902,error,Baris database sedang diproses PC lain atau statusnya berubah.,2026-10-22 12:05:49
+9bb16aac-6d33-4c43-be41-81ed57ba3311,TOKO DAGING SEGAR,DB:data_split_usaha_20261016,901,error,Baris database sedang diproses PC lain atau statusnya berubah.,2026-10-22 12:05:49
+b6ccfee9-64c7-414a-bab2-2611bbc2bc00,PEDAGANG DAGING HAJI ATIB,DB:data_split_usaha_20261016,903,error,Sesi login FASIH belum siap. Selesaikan login di browser GUI lalu ulangi.,2026-10-22 12:06:20
+62c90a3c-a7f2-43a5-8fd9-2600ad8ccc87,JUAL DAGING AZMI,DB:data_split_usaha_20261016,905,error,Baris database sedang diproses PC lain atau statusnya berubah.,2026-10-22 12:06:21
+b500cf7b-094c-482b-b99a-ec2240557e7a,JUAL DAGING SAPI,DB:data_split_usaha_20261016,904,error,Baris database sedang diproses PC lain atau statusnya berubah.,2026-10-22 12:06:21
+a609422e-d4c0-4efe-896c-aedfdf7b5916,JUAL DAGING H RIAN,DB:data_split_usaha_20261016,906,error,Sesi login FASIH belum siap. Selesaikan login di browser GUI lalu ulangi.,2026-10-22 12:06:52
+ce3bf19a-43bc-4f68-8e7c-c7320e143782,JUAL DAGING PAK WAWAN,DB:data_split_usaha_20261016,907,error,Baris database sedang diproses PC lain atau statusnya berubah.,2026-10-22 12:06:53
+3038ecf2-4f7b-4dc5-87e3-19a60ac65b5b, DAGING SELANGKAH LEBIH MAJU ( IRFAN),DB:data_split_usaha_20261016,908,error,Sesi login FASIH belum siap. Selesaikan login di browser GUI lalu ulangi.,2026-10-22 12:07:24
+3123e06a-4ece-467e-856a-0b81d354c4f0,BEEF MANDIRI (EMAN) ,DB:data_split_usaha_20261016,909,error,Baris database sedang diproses PC lain atau statusnya berubah.,2026-10-22 12:07:25
+2ebcbfc8-6dd9-4855-8287-934f97846aba,DAGING AOS,DB:data_split_usaha_20261016,910,error,Baris database sedang diproses PC lain atau statusnya berubah.,2026-10-22 12:07:26
+615f5aa5-f7e5-4f48-a45c-c607da1d815c,DAGING SAPI (IMAN) ,DB:data_split_usaha_20261016,911,error,Sesi login FASIH belum siap. Selesaikan login di browser GUI lalu ulangi.,2026-10-22 12:07:56
+ae8b351d-9ae9-4067-88c2-01ec83e65aab,KIKIL SUDRAJAT,DB:data_split_usaha_20261016,912,error,Baris database sedang diproses PC lain atau statusnya berubah.,2026-10-22 12:07:58
+fcec4e22-4204-47d3-b4ab-355ca21e4a5b,PEDAGANG BUAH PAK KASENO,DB:data_split_usaha_20261016,913,error,Baris database sedang diproses PC lain atau statusnya berubah.,2026-10-22 12:07:58
+335580b7-600a-4cf3-8b69-ad89be453be6,JUAL DAGING SAPI POTONG ,DB:data_split_usaha_20261016,915,error,Sesi login FASIH belum siap. Selesaikan login di browser GUI lalu ulangi.,2026-10-22 12:08:29
+0abd446a-08e5-4d26-860e-312e9763a94b,DAGING SAPI (ANDI),DB:data_split_usaha_20261016,916,error,Baris database sedang diproses PC lain atau statusnya berubah.,2026-10-22 12:08:30
+94fd7fd7-9c28-4bb7-8838-37a460635217,TUKANG BAKSO ,DB:data_split_usaha_20261016,964,error,"Locator.wait_for: Timeout 30000ms exceeded.
+Call log:
+  - waiting for locator("":is([id=\""biaya_pembelian\""], [id^=\""biaya_pembelian#\""]):visible"").first to be visible
+",2026-10-23 02:59:32
+e1f2dcc9-60a3-4c53-846f-6bd597defc01,USUS SUHARJO,DB:data_split_usaha_20261016,984,error,"Locator.wait_for: Timeout 30000ms exceeded.
+Call log:
+  - waiting for locator(""div.fasih-form-sidebar > div[title=\""SE2026 - L BLOK II\""]:visible, div.fasih-form-sidebar > div[title=\""BLOK I\""]:visible, div.fasih-form-sidebar > div[title=\""BLOK II\""]:visible"").first to be visible
+",2026-10-23 03:40:33
+c9082ed0-b642-4061-a8a0-886fb2e17d22,JUAL AYAM POTONG,DB:data_split_usaha_20261016,989,error,Sesi login FASIH belum siap. Selesaikan login di browser GUI lalu ulangi.,2026-10-23 03:41:04
+00da8429-26d4-42a0-b28d-bd265ae6c385,AYAM GEPREK ,DB:data_split_usaha_20261016,994,error,Sesi login FASIH belum siap. Selesaikan login di browser GUI lalu ulangi.,2026-10-23 03:41:36
+c415d9bd-7c41-41b1-8c08-803cfe0b7ee1,AYAM GORENG (AGUS),DB:data_split_usaha_20261016,999,error,Sesi login FASIH belum siap. Selesaikan login di browser GUI lalu ulangi.,2026-10-23 03:42:08
+4ac755a6-4b54-4c15-aa78-d8c0f725358c,Pedagang ,DB:data_split_usaha_20261016,1004,error,Sesi login FASIH belum siap. Selesaikan login di browser GUI lalu ulangi.,2026-10-23 03:42:39
+78b6b28e-0cd8-4d2c-ae78-4987d3bd440a,PEDAGANG POTONG AYAM,DB:data_split_usaha_20261016,1019,error,Sesi login FASIH belum siap. Selesaikan login di browser GUI lalu ulangi.,2026-10-23 03:43:10
+30ddaef4-2d07-4159-b7d1-705bc166b0f8,ABDUL AYAM FRESH,DB:data_split_usaha_20261016,1024,error,Sesi login FASIH belum siap. Selesaikan login di browser GUI lalu ulangi.,2026-10-23 03:43:42
+9a8ea5a4-0fea-42c0-a2c9-7e2609da1166,AYAM POTONG MUHAMAD,DB:data_split_usaha_20261016,1029,error,Sesi login FASIH belum siap. Selesaikan login di browser GUI lalu ulangi.,2026-10-23 03:44:13
+4a05fe17-38fd-477d-b10f-abd1b2a8a2a8,MENJUAL AYAM POTONG(ANAH),DB:data_split_usaha_20261016,1034,error,Sesi login FASIH belum siap. Selesaikan login di browser GUI lalu ulangi.,2026-10-23 03:44:44
+5676f138-d5d8-468f-94b9-743c66a9e8f3,AYAM BROILER,DB:data_split_usaha_20261016,1039,error,"Locator.wait_for: Target page, context or browser has been closed
+Call log:
+  - waiting for locator(""button:has(svg.tabler-icon-rotate-clockwise):visible, button:has(svg.tabler-icon-edit):visible"").first to be visible
+",2026-10-23 03:52:59
+c5757bee-cfdd-4a4a-9437-bda169a1ca60,AYAM POTONG HANDOKO,DB:data_split_usaha_20261016,1044,error,"BrowserContext.new_page: Target page, context or browser has been closed",2026-10-23 03:53:00
+8dfd664a-0ad7-49b6-846a-5d92abc18986,PEMOTONGAN AYAM 3D FARM ,DB:data_split_usaha_20261016,1049,error,"BrowserContext.new_page: Target page, context or browser has been closed",2026-10-23 03:53:01
+997b5390-33f9-4a70-a49b-f53f8d19febc,AYAM POTONG (YEDRI),DB:data_split_usaha_20261016,1059,error,"BrowserContext.new_page: Target page, context or browser has been closed",2026-10-23 03:53:02
+92e24ace-ff7f-4a29-938b-2f4ee329e13d,MOGA BERKAH SEJAHTERA,DB:data_split_usaha_20261016,1064,error,"BrowserContext.new_page: Target page, context or browser has been closed",2026-10-23 03:53:03
+7f8399d8-96a7-420a-85c0-140e37c97cbb,TOKO AYAM IBU DEDE,DB:data_split_usaha_20261016,1069,error,"BrowserContext.new_page: Target page, context or browser has been closed",2026-10-23 03:53:05
+c02ad88b-f975-4f36-bce5-333de38c2d9a,USAHA PENJUAL DAGING AYAM KELILING (ANAM),DB:data_split_usaha_20261016,1074,error,"BrowserContext.new_page: Target page, context or browser has been closed",2026-10-23 03:53:06
+e3f80669-f214-42ea-9f96-ccca238493a1,AYAM POTONG (SAEPUDIN),DB:data_split_usaha_20261016,1079,error,"BrowserContext.new_page: Target page, context or browser has been closed",2026-10-23 03:53:07

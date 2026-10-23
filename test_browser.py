@@ -291,6 +291,17 @@ class BrowserTests(unittest.TestCase):
             self.assertEqual(playwright.chromium.launch_persistent_context.call_args.args[0], str(Path('contoh_profil')))
             fasih.close()
 
+    def test_elemen_login_tersembunyi_bukan_dianggap_logout(self):
+        self.page.set_content(
+            '<div style="display:none">Lanjutkan dengan SSO Eksternal</div>'
+            '<main>Halaman aplikasi</main>'
+        )
+        self.assertFalse(Fasih._login_is_visible(self.page))
+
+    def test_elemen_login_terlihat_dianggap_logout(self):
+        self.page.set_content('<button>Lanjutkan dengan SSO Eksternal</button>')
+        self.assertTrue(Fasih._login_is_visible(self.page))
+
     def test_2026_stops_before_edit(self):
         self.page.unroute_all()
         html = PROCESS_HTML.replace('value="2001"', 'value="2026"')

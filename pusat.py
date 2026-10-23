@@ -18,7 +18,7 @@ DEFAULT_TABLE = "hasil_otomasi_dc"
 DEFAULT_SOURCE_TABLE = "data_split_usaha_20261016"
 IDENTIFIER = re.compile(r"^[A-Za-z_][A-Za-z0-9_]*$")
 KATEGORI = re.compile(r"^[A-Za-z0-9]+$")
-WILAYAH = re.compile(r"^\d+$")
+WILAYAH = re.compile(r"^\d{4}$")
 
 
 class CentralError(RuntimeError):
@@ -170,17 +170,24 @@ class CentralAPI:
         return [str(row.get("Field", "")) for row in fields if row.get("Field")]
 
     def source_rows(self, kategori, wilayah, limit, *, reverse=False,
-                    split="semua", retry_errors=False):
+                    split="semua", retry_errors=False,
+                    batch_number=1, batch_total=1):
         """Ambil batch kecil yang siap diproses dari tabel sumber."""
         kategori = str(kategori).strip().upper()
         wilayah = str(wilayah).strip()
         if not KATEGORI.fullmatch(kategori) or not WILAYAH.fullmatch(wilayah):
-            raise ValueError("Kategori atau kode wilayah tidak valid untuk database pusat.")
+            raise ValueError("Kategori tidak valid atau kode kabupaten/kota harus tepat 4 digit.")
         if split not in {"semua", "atas", "bawah"}:
             raise ValueError("Pembagian antrean database tidak valid.")
         limit = int(limit)
         if limit < 1 or limit > 5000:
             raise ValueError("Jumlah pengambilan database harus antara 1 dan 5000.")
+        batch_number = int(batch_number)
+        batch_total = int(batch_total)
+        if batch_total < 1 or batch_total > 100:
+            raise ValueError("Jumlah batch harus antara 1 dan 100.")
+        if batch_number < 1 or batch_number > batch_total:
+            raise ValueError("Nomor batch harus antara 1 dan jumlah batch.")
         table = self._quote(self.config.source_table)
         allowed = ["BELUM_DIANTREKAN", "SIAP_DIINPUT"]
         if retry_errors:
@@ -192,6 +199,7 @@ class CentralAPI:
             f"SELECT * FROM {table} "
             f"WHERE kategori={self._literal(kategori)} "
             f"AND level_2_full_code={self._literal(wilayah)} "
+            f"AND MOD(id,{batch_total})={batch_number - 1} "
             f"AND {self._quote('Siap Input')}=1 "
             f"AND COALESCE({self._quote('Sudah Diinput')},0)=0 "
             f"AND COALESCE(automation_status,'BELUM_DIANTREKAN') IN ({statuses}) "
@@ -351,7 +359,7 @@ class CentralAPI:
         kategori = str(kategori).strip().upper()
         wilayah = str(wilayah).strip()
         if not KATEGORI.fullmatch(kategori) or not WILAYAH.fullmatch(wilayah):
-            raise ValueError("Kategori atau kode wilayah tidak valid untuk database pusat.")
+            raise ValueError("Kategori tidak valid atau kode kabupaten/kota harus tepat 4 digit.")
         sql = (f"SELECT DISTINCT assignment_id FROM {self.config.table} "
                f"WHERE status = 'berhasil' AND kategori = '{kategori}' AND wilayah = '{wilayah}'")
         result = self._request(self.config.query_url, {"database": self.config.database, "sql": sql})
